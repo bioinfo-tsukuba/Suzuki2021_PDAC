@@ -21,3 +21,34 @@ FILE
     wget -O - "$file" > "data/ICGC/${file##*/}"
   done
 done
+
+for project in PAAD-US PACA-AU PACA-CA; do
+
+echo $project
+gzip -dc "data/ICGC/exp_seq.$project.tsv.gz" | wc -l
+
+done
+
+# 患者さんIDごとに遺伝子発現をCPM正規化します
+
+for project in PAAD-US PACA-AU PACA-CA; do
+
+gzip -dc "data/ICGC/exp_seq.$project.tsv.gz" |
+  grep -v "icgc_donor_id" |
+  awk -F "\t" '
+    BEGIN {
+      OFS="\t"
+    } {
+      id[NR]=$1
+      gene[NR]=$8
+      value[NR]=$10
+      sum[$1]+=$10
+    } END {
+      for(nr in id) {
+        key=id[nr]
+        cpm=value[nr]/sum[key]*1000000
+        print gene[nr], key, cpm
+      }
+    }' > data/ICGC/exp_seq_"$project".txt
+
+done
