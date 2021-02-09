@@ -8,7 +8,6 @@ cat tmp_natmi_genes.html |
   awk 'BEGIN{RS="<td class=\"col1\">"} {$1=$1}1' |
   awk '{sub("<td class=\"col4\"> ", "\n")}1' |
   cut -d " " -f 1 |
-  sort -u |
-cat > data/HGNC/natmi_genes.txt
+  sort -u > data/HGNC/natmi_genes.txt
 
 rm tmp_natmi_genes.html
