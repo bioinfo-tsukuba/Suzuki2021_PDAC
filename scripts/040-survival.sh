@@ -4,15 +4,12 @@
 
 mkdir -p data/ICGC/
 
-# gzip -dc data/ICGC/donor.PAAD-US.tsv.gz| cut -f 1,5,6,17,18 | tr "\t" "@" | awk -F "@" '$3=="alive" {$4=$5; $4=""} $3=="deceased" {$4=$4}1'
-# gzip -dc data/ICGC/donor.PACA-CA.tsv.gz| cut -f 1,5,6,17,18 | awk 'NF==5' | head
-# gzip -dc data/ICGC/donor.PACA-AU.tsv.gz| cut -f 1,5,6,17,18 | awk 'NF==5' |head
-
-# gzip -dc data/ICGC/donor.* | grep -e DO32829 -e icgc_donor_id > tmp___
 gzip -dc data/ICGC/donor.* |
   cut -f 1,5,6,17,18 |
   tr "\t" "@" |
-  awk -F "@" '$3=="alive" {$4=$5; $4=""} $3=="deceased" {$4=$4}1' |
+  awk -F "@" '$3=="alive" {$4=$5; $5=""} $3=="deceased" {$4=$4}1' |
+  cut -d " " -f 1-4 |
+  awk 'NF==4' |
   sort -t " " > tmp_donor
 
 cat data/ICGC/exp_seq_* |

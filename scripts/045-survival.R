@@ -1,12 +1,14 @@
-# survival.shで整形したデータを用いて生存曲線を描きます. P値も付けます. 
+# survival.shで整形したデータを用いて生存曲線を描きます. P値も付けます.
 
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(survival, survminer, tidyverse)
 
-df_raw <- read_csv("data/ICGC/survival.csv.gz")
+df_raw <- read_csv("data/ICGC/survival.csv")
 
-# KRAS遺伝子をチョイスします（任意）
-df_gene <- df_raw %>% filter(gene == "KRAS")
+# 遺伝子をチョイスします（任意）
+df_gene <- df_raw %>% filter(gene == "WNT4")
+df_gene <- df_raw %>% filter(gene == "CD274") # PDL1
+df_gene <- df_raw %>% filter(gene == "PDCD1") # PD1
 
 # ggplot(df_gene, aes(x = gene, y = exp)) +
 # geom_violin() +
