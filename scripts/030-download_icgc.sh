@@ -13,14 +13,11 @@ mkdir -p data/ICGC
 echo "*" > data/ICGC/.gitignore # <- ファイルが重たいのでgitignoreします
 
 for project in PAAD-US PACA-AU PACA-CA; do
-
 cat << FILE |
 https://dcc.icgc.org/api/v1/download?fn=/current/Projects/$project/donor.$project.tsv.gz
 https://dcc.icgc.org/api/v1/download?fn=/current/Projects/$project/exp_seq.$project.tsv.gz
 FILE
   while read -r file; do
-    wget -O - "$file" > "${file##*/}"
-    mv "${file##*/}" "data/ICGC"
+    wget -O - "$file" > "data/ICGC/${file##*/}"
   done
-
 done
