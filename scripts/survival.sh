@@ -19,3 +19,5 @@ gzip -dc data/ICGC/exp_seq.* |
   awk 'BEGIN{OFS=","; print "id", "sex", "status", "time", "gene", "exp"}
   {print $1,$2,$3,$4,$5,$6}' |
 gzip -c > data/ICGC/survival.csv.gz
+
+rm tmp_donor
