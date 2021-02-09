@@ -1,3 +1,4 @@
+# Scripts to run ExtractEdges.py for each patient
 
 - 1. Make a pair of emFile and annFile for each patient
   - `010-make_NATMI_input.R`
