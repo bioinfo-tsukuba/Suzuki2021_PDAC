@@ -7,7 +7,7 @@ mkdir -p data/ICGC/
 gzip -dc data/ICGC/donor.* |
   cut -f 1,5,6,17,18 |
   tr "\t" "@" |
-  awk -F "@" '$3=="alive" {$4=$5; $5=""} $3=="deceased" {$4=$4}1' |
+  awk -F "@" '$3=="alive" {$4=$5}1' |
   cut -d " " -f 1-4 |
   awk 'NF==4' |
   sort -t " " > tmp_donor
