@@ -1,5 +1,6 @@
 # Temporal files
 tmp*
+temp*
 
 # MacOS
 .DS_Store
