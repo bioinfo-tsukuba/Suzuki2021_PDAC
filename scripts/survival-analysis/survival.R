@@ -1,17 +1,16 @@
-# survival.shで整形したデータを用いて生存曲線を描きます. P値も付けます.
+# Survival plot
 
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(survival, survminer, tidyverse)
 
 df_raw <- read_csv("data/ICGC/survival.csv")
 
-# 任意の遺伝子をチョイスします
+# Target gene lists
 
 genes <- c("CD274","PDCD1","CXCL12","CXCR4")
 df_gene <- df_raw %>% filter(gene %in% genes)
 
-## Genome medicine[https://doi.org/10.1186/s13073-020-00776-9]の論文に倣って,
-## 中央値をhighとlowの閾値とします
+# high and low by median value
 
 df_plot <-
   df_gene %>%
@@ -26,7 +25,7 @@ ggsurvplot_facet(fit, df_plot, facet.by = "gene", pval = TRUE)
 
 ggsave("analysis/survival/testplot.png", dpi = 600)
 
-## 遺伝子発現量
+## FYI: Gene expression
 # ggplot(df_plot, aes(x = "", y = exp)) +
 #   geom_violin() +
 #   geom_point() +
