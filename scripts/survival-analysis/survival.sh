@@ -14,7 +14,6 @@ wget -O - https://asrhou.github.io/NATMI/ |
   cut -d " " -f 1,2 |
   tr " " "\n" |
   sort -u > data/HGNC/natmi_genes.txt
-  wc -l data/HGNC/natmi_genes.txt
 
 #==============================================================================
 # Retrieve HGNC gene list to convert Ensemble to Gene Symbol
@@ -93,7 +92,7 @@ gzip -dc data/ICGC/donor.* |
   sort -t " " > tmp_donor
 
 
-cat data/ICGC/exp_seq_* | head -n 1000 |
+cat data/ICGC/exp_seq_* |
   sort |
   join -a 1 - data/HGNC/natmi_symbol.txt |
   join -a 1 - data/HGNC/natmi_ensemble.txt |
@@ -102,7 +101,6 @@ cat data/ICGC/exp_seq_* | head -n 1000 |
   awk 'NF==4 {$1=$4} {print $2,$1,$3}' |
   sort -t " " |
   join tmp_donor - |
-  wc -l
   awk 'BEGIN {OFS=","; print "id", "sex", "status", "time", "gene", "exp"}
     {print $1,$2,$3,$4,$5,$6}' |
   cat > data/ICGC/survival.csv
