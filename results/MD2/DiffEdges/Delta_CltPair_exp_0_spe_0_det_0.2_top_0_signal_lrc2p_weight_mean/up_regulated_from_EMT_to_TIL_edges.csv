@@ -1,0 +1,4 @@
+Sending cluster,Ligand symbol,Receptor symbol,Target cluster,Delta ligand detection rate,Delta ligand average expression value,Delta ligand derived specificity of average expression value,Delta receptor detection rate,Delta receptor average expression value,Delta receptor derived specificity of average expression value,Edge delta average expression weight,Edge delta average expression derived specificity
+EMT,LGALS1,ITGB1,TIL,-0.004048582995951566,-0.8172786469953346,-0.06945156480212558,0.3642697881828316,0.5845192926013072,0.06021673643088425,0.5046841363598551,0.003178020951227621
+EMT,TIMP1,CD63,TIL,0.0,-0.8084306915751087,-0.06308654570023661,0.29668338907469344,0.4209618090569982,0.022070266590650645,0.13763211160536604,-0.0014316612013495927
+EMT,COL1A1,ITGB1,TIL,-0.2155870445344129,-1.2116672716905443,-0.1706577813987912,0.3642697881828316,0.5845192926013072,0.06021673643088425,0.06217367430866205,-0.0030690726640797

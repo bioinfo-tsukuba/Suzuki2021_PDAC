@@ -1,0 +1,4 @@
+Sending cluster,Ligand symbol,Receptor symbol,Target cluster,Delta ligand detection rate,Delta ligand average expression value,Delta ligand derived specificity of average expression value,Delta receptor detection rate,Delta receptor average expression value,Delta receptor derived specificity of average expression value,Edge delta average expression weight,Edge delta average expression derived specificity
+CAF,VEGFB,FLT1,EMT,0.3669985775248933,0.6197575212950515,0.3313322303106116,1.0,2.4322278338764103,0.6733092824699081,1.507391493548076,0.2230890662495922
+CAF,LAMA2,RPSA,EMT,0.2126600284495021,0.3573647171915633,0.8806433361841391,1.0,2.4322278338764103,0.1885563876416114,0.8691924119986919,0.1660509262715384
+CAF,VEGFA,FLT1,EMT,0.2610241820768137,0.4593490007692395,0.1419133743676831,1.0,2.4322278338764103,0.6733092824699081,1.117241425134261,0.09555159226838818
