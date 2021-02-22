@@ -7,10 +7,14 @@
 mkdir -p data/HGNC
 
 wget -O - https://asrhou.github.io/NATMI/ |
-  awk 'BEGIN{RS="<td class=\"col1\">"} {$1=$1}1' |
-  awk '{sub("<td class=\"col4\"> ", "\n")}1' |
-  cut -d " " -f 1 |
+  awk 'BEGIN{RS=""} {$1=$1}1' |
+  grep '<td class="col1">' |
+  sed "s/.*<td class=\"col1\"> //" |
+  sed "s/ .*<td class=\"col4\">//" |
+  cut -d " " -f 1,2 |
+  tr " " "\n" |
   sort -u > data/HGNC/natmi_genes.txt
+  wc -l data/HGNC/natmi_genes.txt
 
 #==============================================================================
 # Retrieve HGNC gene list to convert Ensemble to Gene Symbol
@@ -88,7 +92,8 @@ gzip -dc data/ICGC/donor.* |
   awk 'NF==4' |
   sort -t " " > tmp_donor
 
-cat data/ICGC/exp_seq_* |
+
+cat data/ICGC/exp_seq_* | head -n 1000 |
   sort |
   join -a 1 - data/HGNC/natmi_symbol.txt |
   join -a 1 - data/HGNC/natmi_ensemble.txt |
@@ -97,6 +102,7 @@ cat data/ICGC/exp_seq_* |
   awk 'NF==4 {$1=$4} {print $2,$1,$3}' |
   sort -t " " |
   join tmp_donor - |
+  wc -l
   awk 'BEGIN {OFS=","; print "id", "sex", "status", "time", "gene", "exp"}
     {print $1,$2,$3,$4,$5,$6}' |
   cat > data/ICGC/survival.csv
