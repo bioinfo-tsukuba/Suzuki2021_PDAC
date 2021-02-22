@@ -6,10 +6,14 @@ pacman::p_load(survival, survminer, tidyverse)
 df_raw <- read_csv("data/ICGC/survival.csv")
 df_LR <-
   read_tsv("results/MD2/DiffEdges/upregulatedLR.tsv") %>%
-  select(`Cell-type pair`, `Ligand-receptor pair`)
+  select(`Cell-type pair`, `Ligand-receptor pair`, `Delta edge specificity weight`)
+
+df_LR_top10 <-
+  df_LR %>%
+  slice_max(`Delta edge specificity weight`, n = 10)
 
 # Target gene lists
-genes <- c("SST->SSTR2","C1QTNF1->AVPR2")
+genes <- df_LR_top10 %>% pull(`Ligand-receptor pair`)
 
 df_genes <-
   map_dfr(genes, function(x) {
