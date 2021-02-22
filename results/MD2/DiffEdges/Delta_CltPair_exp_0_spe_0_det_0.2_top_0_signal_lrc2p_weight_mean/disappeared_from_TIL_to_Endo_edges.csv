@@ -1,0 +1,4 @@
+Sending cluster,Ligand symbol,Receptor symbol,Target cluster,Delta ligand detection rate,Delta ligand average expression value,Delta ligand derived specificity of average expression value,Delta receptor detection rate,Delta receptor average expression value,Delta receptor derived specificity of average expression value,Edge delta average expression weight,Edge delta average expression derived specificity
+TIL,TGFB1,TGFBR3,Endo,0.3043478260869565,0.7228449703404638,0.2023669573527519,0.4216867469879518,0.6575111855438037,0.5137873096656477,0.475278653412934,0.1039735745834932
+TIL,TGFB1,SDC2,Endo,0.3043478260869565,0.7228449703404638,0.2023669573527519,0.2771084337349398,0.3607032130536721,0.1503994549030349,0.2607325033414916,0.030435880076239583
+TIL,GNAI2,IGF1R,Endo,0.2753623188405797,0.6365320657222697,0.07637593954160432,0.2048192771084337,0.2757371793131788,0.2757540602352876,0.1755155563446496,0.02106097543288224
