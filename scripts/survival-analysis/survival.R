@@ -8,12 +8,12 @@ df_LR <-
   read_tsv("results/MD2/DiffEdges/upregulatedLR.tsv") %>%
   select(`Cell-type pair`, `Ligand-receptor pair`, `Delta edge specificity weight`)
 
-df_LR_top10 <-
+df_LR_top <-
   df_LR %>%
-  slice_max(`Delta edge specificity weight`, n = 10)
+  slice_max(`Delta edge specificity weight`, n = 100)
 
 # Target gene lists
-genes <- df_LR_top10 %>% pull(`Ligand-receptor pair`)
+genes <- df_LR_top %>% pull(`Ligand-receptor pair`) %>% unique
 
 df_genes <-
   map_dfr(genes, function(x) {
