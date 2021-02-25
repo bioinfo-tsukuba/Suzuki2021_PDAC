@@ -32,9 +32,9 @@ df_plot <-
   as.data.frame()
 
 fit <- survfit(Surv(time, status) ~ exp_bin, data = df_plot)
-ggsurvplot_facet(fit, df_plot, facet.by = "LRpair", pval = TRUE)
+g <- ggsurvplot_facet(fit, df_plot, facet.by = "LRpair", pval = TRUE)
 
-ggsave("analysis/survival/testplot.png", dpi = 600)
+ggsave("analysis/survival/testplot.png", g, dpi = 300, width = 20, height = 20)
 
 ## FYI: Gene expression
 # ggplot(df_plot, aes(x = "", y = exp)) +
