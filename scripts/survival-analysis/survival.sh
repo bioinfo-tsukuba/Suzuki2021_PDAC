@@ -23,7 +23,7 @@ mkdir -p data/HGNC
 
 wget -O - ftp://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/tsv/hgnc_complete_set.txt |
   sed 1d |
-  cut -f 2,20 | # <- Extract ensemble gene symbol
+  cut -f 2,20 |
   awk 'NF==2' |
   sort |
   join - data/HGNC/natmi_genes.txt |
@@ -38,7 +38,7 @@ cut -d " " -f 2 data/HGNC/natmi_ensemble_symbol.txt | sort | awk '{print $1,"LR"
 #==============================================================================
 
 mkdir -p data/ICGC
-echo "*" > data/ICGC/.gitignore # <- ignore too large files
+echo "*" > data/ICGC/.gitignore
 
 for project in PAAD-US PACA-AU PACA-CA; do
 cat << FILE |
@@ -57,7 +57,7 @@ find data/ICGC/ -type f |
   while read -r file; do
     echo "$file"
     gzip -dc "$file" |
-      grep -v "icgc_donor_id" | #<- remove header
+      grep -v "icgc_donor_id" |
       wc -l
   done
 
@@ -84,13 +84,14 @@ done
 mkdir -p data/ICGC/
 
 gzip -dc data/ICGC/donor.* |
+  grep -v icgc_donor_id |
   cut -f 1,5,6,17,18 |
   tr "\t" "@" |
-  awk -F "@" '$3=="alive" {$4=$5}1' |
-  cut -d " " -f 1-4 |
+  awk -F "@" 'BEGIN{OFS="@"} $3=="alive" {$4=$5}1' |
+  cut -d "@" -f 1-4 |
+  tr "@" " " |
   awk 'NF==4' |
   sort -t " " > tmp_donor
-
 
 cat data/ICGC/exp_seq_* |
   sort |
