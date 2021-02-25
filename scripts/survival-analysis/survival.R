@@ -3,7 +3,7 @@
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(survival, survminer, tidyverse)
 
-df_raw <- read_csv("data/ICGC/survival.csv")
+df_raw <- read_csv("~/Desktop/SSD/NATMI/data/ICGC/survival.csv")
 df_LR <-
   read_tsv("results/MD2/DiffEdges/upregulatedLR.tsv") %>%
   select(`Cell-type pair`, `Ligand-receptor pair`, `Delta edge specificity weight`)
