@@ -36,10 +36,13 @@ fi
 
 mkdir -p data/HGNC
 
-$CMD_WGET https://asrhou.github.io/NATMI/ |
-  awk 'BEGIN{RS="<td class=\"col1\">"} {$1=$1}1' |
-  awk '{sub("<td class=\"col4\"> ", "\n")}1' |
-  cut -d " " -f 1 |
+wget -O - https://asrhou.github.io/NATMI/ |
+  awk 'BEGIN{RS=""} {$1=$1}1' |
+  grep '<td class="col1">' |
+  sed "s/.*<td class=\"col1\"> //" |
+  sed "s/ .*<td class=\"col4\">//" |
+  cut -d " " -f 1,2 |
+  tr " " "\n" |
   sort -u > data/HGNC/natmi_genes.txt
 
 #==============================================================================
@@ -122,6 +125,7 @@ $CMD_ZCAT data/ICGC/donor.* |
   cut -d " " -f 1-4 |
   awk 'NF==4' |
   sort -t " " > tmp_donor
+
 
 cat data/ICGC/exp_seq_* |
   sort |
