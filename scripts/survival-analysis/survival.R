@@ -1,9 +1,10 @@
 # Survival plot
-
+library(tidyverse)
+library(ggplot2)
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(survival, survminer, tidyverse)
 
-df_raw <- read_csv("~/Desktop/SSD/NATMI/data/ICGC/survival.csv")
+df_raw <- read_csv("~/Desktop/SSD/data/ICGC/survival.csv")
 df_LR <-
   read_tsv("results/MD2/DiffEdges/upregulatedLR.tsv") %>%
   select(`Cell-type pair`, `Ligand-receptor pair`, `Delta edge specificity weight`)
@@ -34,7 +35,7 @@ df_plot <-
 fit <- survfit(Surv(time, status) ~ exp_bin, data = df_plot)
 g <- ggsurvplot_facet(fit, df_plot, facet.by = "LRpair", pval = TRUE)
 
-ggsave("analysis/survival/testplot.png", g, dpi = 300, width = 20, height = 20)
+ggsave("analysis/survival/testplot.pdf", g, dpi = 300, width = 20, height = 20)
 
 ## FYI: Gene expression
 # ggplot(df_plot, aes(x = "", y = exp)) +
