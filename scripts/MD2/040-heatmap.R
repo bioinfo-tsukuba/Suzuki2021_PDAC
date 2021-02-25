@@ -1,4 +1,3 @@
-#heatmap for UP-regulated_mean.csv
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(tidyverse, janitor)
 
@@ -26,11 +25,11 @@ g <- df_formatted %>%
   theme_classic() +
   theme(text = element_text(size = 12)) +
   labs(title = "Top 20 pairs of Delta edge specificity weight",
-    colour = "Delta edge specificity weight", 
+    fill = "Delta edge specificity weight",
     x = NULL,
     y = NULL) +
   facet_wrap(~ category, scales = "free")
 
 
-write_tsv(df2, 'results/MD2/DiffEdges/tableForHeatmap.tsv')
+write_tsv(df_formatted, 'results/MD2/DiffEdges/tableForHeatmap.tsv')
 ggsave("results/MD2/DiffEdges/heatmap_top20.pdf", g)
