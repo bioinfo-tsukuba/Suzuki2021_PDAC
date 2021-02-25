@@ -7,5 +7,10 @@
 + [x] 発現データからリガンドレセプターに関わる遺伝子のみを抽出する
 + [x] (哀しみ) プロジェクトごとに正規化リードカウントが全然違う値なので, 生のリードカウントをCPM正規化する
 + [x] survminerパッケージを用いて生存曲線をかく
++ [x]  generalized Wilcoxon testを出力する
++ [ ]  category(Appeared, Disappered, Up, Down)ごとのLRペアについてP-valを出力する
+
+## 余裕があれば
+
 + [ ] ポジコンとなる遺伝子で生存曲線を評価する
 + [ ] `survival.R`の引数にsurvival.csvとgenelist.txtの2つを加える
