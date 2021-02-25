@@ -1,12 +1,33 @@
 #!/bin/sh
 
 #==============================================================================
+# Initialization
+#==============================================================================
+
+set -u
+umask 0022
+export LC_ALL=C
+[ -z "$ZSH_VERSION" ] || setopt shwordsplit interactivecomments
+
+# --- cURL or Wget ----------------------------------------
+if type curl >/dev/null 2>&1; then
+  CMD_GET="curl -Lso -"
+elif type wget >/dev/null 2>&1; then
+  CMD_GET="wget --no-check-certificate -qO -"
+else
+  { echo 'No HTTP-GET/POST command found.'; exit 1; }
+fi
+
+# --- gzip ------------------------------------------------
+type gzip >/dev/null 2>&1 || { echo 'gzip: command not found.'; exit 1; }
+
+#==============================================================================
 # Retrieve gene lists related to ligand-receptor interaction from NATMI
 #==============================================================================
 
 mkdir -p data/HGNC
 
-wget -O - https://asrhou.github.io/NATMI/ |
+$CMD_GET https://asrhou.github.io/NATMI/ |
   awk 'BEGIN{RS=""} {$1=$1}1' |
   grep '<td class="col1">' |
   sed "s/.*<td class=\"col1\"> //" |
@@ -21,7 +42,7 @@ wget -O - https://asrhou.github.io/NATMI/ |
 
 mkdir -p data/HGNC
 
-wget -O - ftp://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/tsv/hgnc_complete_set.txt |
+$CMD_GET ftp://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/tsv/hgnc_complete_set.txt |
   sed 1d |
   cut -f 2,20 |
   awk 'NF==2' |
@@ -46,11 +67,11 @@ https://dcc.icgc.org/api/v1/download?fn=/current/Projects/$project/donor.$projec
 https://dcc.icgc.org/api/v1/download?fn=/current/Projects/$project/exp_seq.$project.tsv.gz
 FILE
   while read -r file; do
-    wget -O - "$file" > "data/ICGC/${file##*/}"
+    $CMD_GET "$file" > "data/ICGC/${file##*/}"
   done
 done
 
-# The number of patients
+# The number of patients ----------------------------------
 
 find data/ICGC/ -type f |
   grep donor |
@@ -61,7 +82,7 @@ find data/ICGC/ -type f |
       wc -l
   done
 
-# CPM normalization by patiants
+# CPM normalization by patiants ---------------------------
 
 for project in PAAD-US PACA-AU PACA-CA; do
   gzip -dc "data/ICGC/exp_seq.$project.tsv.gz" |
@@ -87,9 +108,8 @@ gzip -dc data/ICGC/donor.* |
   grep -v icgc_donor_id |
   cut -f 1,5,6,17,18 |
   tr "\t" "@" |
-  awk -F "@" 'BEGIN{OFS="@"} $3=="alive" {$4=$5}1' |
-  cut -d "@" -f 1-4 |
-  tr "@" " " |
+  awk -F "@" 'BEGIN{OFS=" "} $3=="alive" {$4=$5} {$1=$1}1' |
+  cut -d " " -f 1-4 |
   awk 'NF==4' |
   sort -t " " > tmp_donor
 
