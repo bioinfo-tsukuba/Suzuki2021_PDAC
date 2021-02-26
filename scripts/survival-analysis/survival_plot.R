@@ -32,6 +32,6 @@ df_plot <-
 walk(df_LR$category %>% unique, function(.x) {
   df_tmp <- df_plot %>% filter(category == .x)
   fit <- survfit(Surv(time, status) ~ exp_bin, data = df_tmp)
-  g <- ggsurvplot_facet(fit, df_tmp, facet.by = "lr_pair", pval = TRUE)
+  g <- ggsurvplot_facet(fit, df_tmp, facet.by = "lr_pair", pval = TRUE, log.rank.weights = "S1", conf.int = TRUE)
   ggsave(sprintf("results/MD3/survival_plot_%s.pdf", .x), g, dpi = 300, width = 30, height = 20, limitsize = FALSE)
 })
