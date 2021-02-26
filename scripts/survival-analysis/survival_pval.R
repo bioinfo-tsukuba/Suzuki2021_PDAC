@@ -32,11 +32,12 @@ df_pval <-
     group_by(lr_pair) %>%
     # high and low by median value
     mutate(exp_bin = if_else(exp > quantile(exp, 0.5), "high", "low")) %>%
-    nest(data = !c(category, lr_pair, delta_edge_specificity_weight)) %>%
+    nest(data = !c(category, celltype_pair, lr_pair, delta_edge_specificity_weight)) %>%
     # Report p-value
     mutate(pval = map_dbl(data, report_pval)) %>%
     mutate(sig = if_else(pval < 0.05, TRUE, FALSE)) %>%
-    select(category, lr_pair, delta_edge_specificity_weight, pval, sig)
-  })
+    select(category, celltype_pair, lr_pair, delta_edge_specificity_weight, pval, sig)
+  }) %>%
+  arrange(pval)
 
 write_csv(df_pval, "results/MD3/survival_pval.csv")
