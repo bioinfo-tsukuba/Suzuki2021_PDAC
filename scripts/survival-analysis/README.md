@@ -2,12 +2,20 @@
 
 The codes to generate FigXXX
 
+## Dependencies
+
+- R
+
 ## Usage
 
 ```bash
+
 git clone https://github.com/bioinfo-tsukuba/SSD.git
 
-./SSD/scripts/survival-analysis/survival.sh > survival.csv
+./SSD/scripts/survival-analysis/survival.sh
 
-./SSD/scripts/survival-analysis/survival.R survival.csv genelist.txt
+./SSD/scripts/survival-analysis/survival_pval.R
+
+./SSD/scripts/survival-analysis/survival_plot.R
+
 ```
