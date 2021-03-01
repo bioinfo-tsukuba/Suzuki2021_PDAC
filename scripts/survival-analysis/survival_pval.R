@@ -29,15 +29,18 @@ df_pval <-
       names_to = "ligandreceptor", values_to = "gene") %>%
     # Bind LR data and survival data
     inner_join(df_survival, by = "gene") %>%
-    group_by(lr_pair) %>%
+    group_by(lr_pair, id) %>%
     # high and low by median value
-    mutate(exp_bin = if_else(exp > quantile(exp, 0.5), "high", "low")) %>%
-    nest(data = !c(category, celltype_pair, lr_pair, delta_edge_specificity_weight)) %>%
+    mutate(exp_sum = sum(exp)) %>%
+    ungroup(id) %>%
+    mutate(exp_bin = if_else(exp_sum > quantile(exp_sum, 0.5), "high", "low")) %>%
     # Report p-value
+    nest(data = !c(category, celltype_pair, lr_pair, delta_edge_specificity_weight)) %>%
     mutate(pval = map_dbl(data, report_pval)) %>%
-    mutate(sig = if_else(pval < 0.05, TRUE, FALSE)) %>%
-    select(category, celltype_pair, lr_pair, delta_edge_specificity_weight, pval, sig)
+    filter(pval < 0.05) %>%
+    select(category, celltype_pair, lr_pair, delta_edge_specificity_weight, pval)
   }) %>%
   arrange(pval)
 
-write_csv(df_pval, "results/MD3/survival_pval.csv")
+write_csv(df_pval, "results/MD3/survival_pval_top20.csv")
+

@@ -23,9 +23,11 @@ df_plot <-
       names_to = "ligandreceptor", values_to = "gene") %>%
     # Bind LR data and survival data
     inner_join(df_survival, by = "gene") %>%
-    group_by(lr_pair) %>%
+    group_by(lr_pair, id) %>%
     # high and low by median value
-    mutate(exp_bin = if_else(exp > quantile(exp, 0.5), "high", "low"))
+    mutate(exp_sum = sum(exp)) %>%
+    ungroup(id) %>%
+    mutate(exp_bin = if_else(exp_sum > quantile(exp_sum, 0.5), "high", "low"))
   }) %>%
   as.data.frame()
 
