@@ -8,7 +8,18 @@
 + [x] (哀しみ) プロジェクトごとに正規化リードカウントが全然違う値なので, 生のリードカウントをCPM正規化する
 + [x] survminerパッケージを用いて生存曲線をかく
 + [x]  generalized Wilcoxon testを出力する
-+ [ ]  category(Appeared, Disappered, Up, Down)ごとのLRペアについてP-valを出力する
++ [x]  category(Appeared, Disappered, Up, Down)ごとのLRペアについてP-valを出力する
+
++ [ ] 生存時間曲線での「LRペアの発現量」の計算にzスコアなどをかませると結果が変わるか？
++ [ ] delta_edge_specificity_weight 以外の指標に変えると結果がどうなるか？
+
++ [x] ICGCはいろんなステージが混ざっているので、Primary vs. Metastasis でやるとまた異なる結果になる？
+  + -> **すべてPrimaryまたはUnknownのようです**
+```sh
+gzip -dc data/ICGC/donor.*.tsv.gz | tr "\t" "," | cut -d "," -f 13 | sort | uniq -c
+```
+
++ [ ] https://cibersortx.stanford.edu/ のような細胞型ごとの発現量を推定して生存時間解析をやると異なる結果になる？
 
 ## 余裕があれば
 
