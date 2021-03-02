@@ -11,7 +11,8 @@
 + [x]  category(Appeared, Disappered, Up, Down)ごとのLRペアについてP-valを出力する
 
 + [ ] 生存時間曲線での「LRペアの発現量」の計算にzスコアなどをかませると結果が変わるか？
-+ [ ] delta_edge_specificity_weight 以外の指標に変えると結果がどうなるか？
++ [x] delta_edge_specificity_weight 以外の指標に変えると結果がどうなるか？
+  + -> **expression_weightでは"CD44"が関わっていそうで面白いです.生存曲線でCD44はどうなっているのが興味があります.**
 
 + [x] ICGCはいろんなステージが混ざっているので、Primary vs. Metastasis でやるとまた異なる結果になる？
   + -> **すべてPrimaryまたはUnknownのようです**
