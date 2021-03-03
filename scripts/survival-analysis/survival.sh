@@ -65,22 +65,48 @@ for project in PAAD-US PACA-AU PACA-CA; do
 cat << FILE |
 https://dcc.icgc.org/api/v1/download?fn=/current/Projects/$project/donor.$project.tsv.gz
 https://dcc.icgc.org/api/v1/download?fn=/current/Projects/$project/exp_seq.$project.tsv.gz
+https://dcc.icgc.org/api/v1/download?fn=/current/Projects/$project/specimen.$project.tsv.gz
 FILE
   while read -r file; do
-    $CMD_GET "$file" > "data/ICGC/${file##*/}"
+    echo "$file"
+    [ -s "data/ICGC/${file##*/}" ] || $CMD_GET "$file" > "data/ICGC/${file##*/}"
+    # in case of failed first try...
+    [ -s "data/ICGC/${file##*/}" ] || $CMD_GET "$file" > "data/ICGC/${file##*/}"
   done
 done
 
-# The number of patients ----------------------------------
+# Summarize specimen info  --------------------------------
 
-find data/ICGC/ -type f |
-  grep donor |
-  while read -r file; do
-    echo "$file"
-    gzip -dc "$file" |
-      grep -v "icgc_donor_id" |
-      wc -l
-  done
+gzip -dc data/ICGC/specimen.* |
+  grep -v "icgc_donor_id" |
+  tr " " "_" |
+  # project donor id, tumor, grade, stage
+  cut -f 2,5,20,22,25 |
+  awk 'NF == 5' |
+  sort -u |
+  # Select PDAC
+  grep -e "Pancreatic_Ductal_Adenocarcinoma" -e "8140/3" -e "8500/3" -e "8021/3" -e "8035/3" |
+  # Format Grade
+  awk '
+  $4=="1_-_Well_differentiated" {$4="G1"}
+  $4=="2_-_Moderately_differentiated" {$4="G2"}
+  $4=="3_-_Poorly_differentiated" {$4="G3"}
+  $4=="4_-_Undifferentiated" {$4="G4"}
+  $4=="Moderate_to_Poor" {$4="G2-G3"}
+  $4=="Moderate_to_Poorly_differentiated" {$4="G2-G3"}
+  $4=="Moderately_differentiated" {$4="G2"}
+  $4=="Not_specified/Unknown" {$4="X"}
+  $4=="Other_-_Status_Post_Therapy" {$4="X"}
+  $4=="Poorly_differentiated" {$4="G3"}
+  $4=="Poorly_differentiated_to_Undifferentiated" {$4="G3-G4"}
+  $4=="Undifferentiated" {$4="G4"}
+  $4=="Well_differentiated" {$4="G1"}
+  $4=="X_-_Cannot_be_assessed" {$4="X"}1
+  ' |
+  # Annotate Primary or Metastasis
+  awk '$NF ~ "M1" || $NF ~ "IV" {$(NF+1)="Metastasis"} {$(NF+1)="Primary"}1' |
+  awk 'BEGIN{OFS=","}{print $2,$1,$4,$6,$5}' |
+  sort -t "," > results/MD3/patients_info.csv
 
 # CPM normalization by patiants ---------------------------
 
