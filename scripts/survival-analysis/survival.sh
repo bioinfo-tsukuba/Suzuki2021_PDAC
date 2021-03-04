@@ -126,8 +126,9 @@ gzip -dc data/ICGC/specimen.PACA-CA.tsv.gz data/ICGC/specimen.PACA-AU.tsv.gz |
   ' |
   # Annotate Primary or Metastasis
   awk '$NF ~ "M1" || $NF ~ "IV" {$(NF+1)="Metastasis"} {$(NF+1)="Primary"}1' |
-  awk 'BEGIN{OFS=","}{print $2,$1,$4,$6,$5}' |
-  sort -t "," > results/MD3/patients_info.csv
+  awk 'BEGIN{OFS=","; print "ID", "Project", "Grade", "Primary_Metastasis", "Stage"}
+    {print $2,$1,$4,$6,$5}' |
+  cat > results/MD3/patients_info.csv
 
 rm tmp_tcga_patientinfo
 
