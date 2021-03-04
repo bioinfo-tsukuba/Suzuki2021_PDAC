@@ -77,11 +77,21 @@ done
 
 # Summarize specimen info  --------------------------------
 
+cat data/ICGC/nationwidechildrens.org_clinical_patient_paad.txt |
+head
+
+grep TCGA-FZ-5919
+head
+gzip -dc data/ICGC/specimen.PAAD-US.tsv.gz | head
+
 gzip -dc data/ICGC/specimen.* |
   grep -v "icgc_donor_id" |
   tr " " "_" |
+  grep PAAD-US | head
   # project donor id, tumor, grade, stage
   cut -f 2,5,20,22,25 |
+  awk '{print $1, NF}' |
+  sort | uniq -c
   awk 'NF == 5' |
   sort -u |
   # Select PDAC
@@ -124,11 +134,14 @@ for project in PAAD-US PACA-AU PACA-CA; do
     }' > data/ICGC/exp_seq_"$project".txt
 done
 
+
 #==============================================================================
 # Generate CSV files including "Patient ID", "Sex", "Status", "Survival time", "Gene", "Expression"
 #==============================================================================
 
 mkdir -p data/ICGC/
+
+cut -d "," -f 1 results/MD3/patients_info.csv | sort -u > tmp_patients_id
 
 gzip -dc data/ICGC/donor.* |
   grep -v icgc_donor_id |
@@ -137,7 +150,8 @@ gzip -dc data/ICGC/donor.* |
   awk -F "@" 'BEGIN{OFS=" "} $3=="alive" {$4=$5} {$1=$1}1' |
   cut -d " " -f 1-4 |
   awk 'NF==4' |
-  sort -t " " > tmp_donor
+  sort -t " " |
+  join - tmp_patients_id > tmp_donor
 
 cat data/ICGC/exp_seq_* |
   sort |
@@ -152,4 +166,4 @@ cat data/ICGC/exp_seq_* |
     {print $1,$2,$3,$4,$5,$6}' |
   cat > data/ICGC/survival.csv
 
-rm tmp_donor
+rm tmp_patients_id tmp_donor
