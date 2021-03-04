@@ -78,45 +78,58 @@ done
 # Summarize specimen info  --------------------------------
 
 cat data/ICGC/nationwidechildrens.org_clinical_patient_paad.txt |
-head
+  grep -v -e bcr_patient_barcode -e CDE_ID |
+  tr " ,\t" "@@ " |
+  cut -d " " -f2,24,32,70 |
+  sed "s/Stage@//" |
+  sed "s/\[Not@Available\]/NA/" |
+  sed "s/\[Discrepancy\]/Discrepancy/" |
+  sort -t " " |
+  cat > tmp_tcga
 
-grep TCGA-FZ-5919
-head
-gzip -dc data/ICGC/specimen.PAAD-US.tsv.gz | head
-
-gzip -dc data/ICGC/specimen.* |
+gzip -dc data/ICGC/specimen.PAAD-US.tsv.gz |
   grep -v "icgc_donor_id" |
   tr " " "_" |
-  grep PAAD-US | head
-  # project donor id, tumor, grade, stage
+  awk '{print $5,$2,$4}' |
+  sort -t " " |
+  join - tmp_tcga |
+  # project, donor id, tumor, grade, stage
+  awk '{print $2,$3,$6,$4,$5}' |
+  cat > tmp_tcga_patientinfo
+
+gzip -dc data/ICGC/specimen.PACA-CA.tsv.gz data/ICGC/specimen.PACA-AU.tsv.gz |
+  grep -v "icgc_donor_id" |
+  tr " " "_" |
+  # project, donor id, tumor, grade, stage
   cut -f 2,5,20,22,25 |
-  awk '{print $1, NF}' |
-  sort | uniq -c
   awk 'NF == 5' |
+  cat - tmp_tcga_patientinfo |
   sort -u |
   # Select PDAC
   grep -e "Pancreatic_Ductal_Adenocarcinoma" -e "8140/3" -e "8500/3" -e "8021/3" -e "8035/3" |
   # Format Grade
   awk '
-  $4=="1_-_Well_differentiated" {$4="G1"}
-  $4=="2_-_Moderately_differentiated" {$4="G2"}
-  $4=="3_-_Poorly_differentiated" {$4="G3"}
-  $4=="4_-_Undifferentiated" {$4="G4"}
-  $4=="Moderate_to_Poor" {$4="G2-G3"}
-  $4=="Moderate_to_Poorly_differentiated" {$4="G2-G3"}
-  $4=="Moderately_differentiated" {$4="G2"}
-  $4=="Not_specified/Unknown" {$4="X"}
-  $4=="Other_-_Status_Post_Therapy" {$4="X"}
-  $4=="Poorly_differentiated" {$4="G3"}
-  $4=="Poorly_differentiated_to_Undifferentiated" {$4="G3-G4"}
-  $4=="Undifferentiated" {$4="G4"}
-  $4=="Well_differentiated" {$4="G1"}
-  $4=="X_-_Cannot_be_assessed" {$4="X"}1
+    $4=="1_-_Well_differentiated" {$4="G1"}
+    $4=="2_-_Moderately_differentiated" {$4="G2"}
+    $4=="3_-_Poorly_differentiated" {$4="G3"}
+    $4=="4_-_Undifferentiated" {$4="G4"}
+    $4=="Moderate_to_Poor" {$4="G2-G3"}
+    $4=="Moderate_to_Poorly_differentiated" {$4="G2-G3"}
+    $4=="Moderately_differentiated" {$4="G2"}
+    $4=="Not_specified/Unknown" {$4="X"}
+    $4=="Other_-_Status_Post_Therapy" {$4="X"}
+    $4=="Poorly_differentiated" {$4="G3"}
+    $4=="Poorly_differentiated_to_Undifferentiated" {$4="G3-G4"}
+    $4=="Undifferentiated" {$4="G4"}
+    $4=="Well_differentiated" {$4="G1"}
+    $4~"X" {$4="X"}1
   ' |
   # Annotate Primary or Metastasis
   awk '$NF ~ "M1" || $NF ~ "IV" {$(NF+1)="Metastasis"} {$(NF+1)="Primary"}1' |
   awk 'BEGIN{OFS=","}{print $2,$1,$4,$6,$5}' |
   sort -t "," > results/MD3/patients_info.csv
+
+rm tmp_tcga_patientinfo
 
 # CPM normalization by patiants ---------------------------
 
