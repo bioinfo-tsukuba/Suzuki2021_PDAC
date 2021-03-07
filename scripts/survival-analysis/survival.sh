@@ -180,9 +180,6 @@ cat data/ICGC/exp_seq_* |
     {print $1,$2,$3,$4,$5,$6}' |
   cat > data/ICGC/survival.csv
 
-cut -d, -f 1 data/ICGC/survival.csv | sort -u | wc -l
-# 352
-
 rm tmp_patients_id tmp_donor
 
 #==============================================================================
@@ -194,4 +191,7 @@ cut -d, -f 1 data/ICGC/survival.csv | sort -u > tmp_donor_w_rnaseq
 sort -t " " tmp_patients_info |
   join - tmp_donor_w_rnaseq |
   awk 'BEGIN{OFS=","; print "ID", "Project", "Grade", "Primary_Metastasis", "Stage"}1' |
+  tr " " "," |
   cat > results/MD3/patients_info.csv
+
+rm tmp_patients_info tmp_donor_w_rnaseq
