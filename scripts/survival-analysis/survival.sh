@@ -75,7 +75,25 @@ FILE
   done
 done
 
-# Summarize specimen info  --------------------------------
+# CPM normalization by patiants ---------------------------
+
+for project in PAAD-US PACA-AU PACA-CA; do
+  gzip -dc "data/ICGC/exp_seq.$project.tsv.gz" |
+    grep -v "icgc_donor_id" |
+    awk -F "\t" 'BEGIN {OFS="\t"} {
+      id[NR]=$1; gene[NR]=$8; value[NR]=$10; sum[$1]+=$10
+      } END {
+      for(nr in id) {
+        key=id[nr]
+        cpm=value[nr]/sum[key]*1000000
+        print gene[nr], key, cpm
+      }
+    }' > data/ICGC/exp_seq_"$project".txt
+done
+
+#==============================================================================
+# Summarize specimen info
+#==============================================================================
 
 cat data/ICGC/nationwidechildrens.org_clinical_patient_paad.txt |
   grep -v -e bcr_patient_barcode -e CDE_ID |
@@ -126,28 +144,10 @@ gzip -dc data/ICGC/specimen.PACA-CA.tsv.gz data/ICGC/specimen.PACA-AU.tsv.gz |
   ' |
   # Annotate Primary or Metastasis
   awk '$NF ~ "M1" || $NF ~ "IV" {$(NF+1)="Metastasis"} {$(NF+1)="Primary"}1' |
-  awk 'BEGIN{OFS=","; print "ID", "Project", "Grade", "Primary_Metastasis", "Stage"}
-    {print $2,$1,$4,$6,$5}' |
-  cat > results/MD3/patients_info.csv
+  awk '{print $2,$1,$4,$6,$5}' |
+  cat > tmp_patients_info
 
-rm tmp_tcga_patientinfo
-
-# CPM normalization by patiants ---------------------------
-
-for project in PAAD-US PACA-AU PACA-CA; do
-  gzip -dc "data/ICGC/exp_seq.$project.tsv.gz" |
-    grep -v "icgc_donor_id" |
-    awk -F "\t" 'BEGIN {OFS="\t"} {
-      id[NR]=$1; gene[NR]=$8; value[NR]=$10; sum[$1]+=$10
-      } END {
-      for(nr in id) {
-        key=id[nr]
-        cpm=value[nr]/sum[key]*1000000
-        print gene[nr], key, cpm
-      }
-    }' > data/ICGC/exp_seq_"$project".txt
-done
-
+rm tmp_tcga tmp_tcga_patientinfo
 
 #==============================================================================
 # Generate CSV files including "Patient ID", "Sex", "Status", "Survival time", "Gene", "Expression"
@@ -155,7 +155,7 @@ done
 
 mkdir -p data/ICGC/
 
-cut -d "," -f 1 results/MD3/patients_info.csv | sort -u > tmp_patients_id
+cut -d "," -f 1 tmp_patients_info | sort -u > tmp_patients_id
 
 gzip -dc data/ICGC/donor.* |
   grep -v icgc_donor_id |
@@ -180,4 +180,18 @@ cat data/ICGC/exp_seq_* |
     {print $1,$2,$3,$4,$5,$6}' |
   cat > data/ICGC/survival.csv
 
+cut -d, -f 1 data/ICGC/survival.csv | sort -u | wc -l
+# 352
+
 rm tmp_patients_id tmp_donor
+
+#==============================================================================
+# Output patients info
+#==============================================================================
+
+cut -d, -f 1 data/ICGC/survival.csv | sort -u > tmp_donor_w_rnaseq
+
+sort -t " " tmp_patients_info |
+  join - tmp_donor_w_rnaseq |
+  awk 'BEGIN{OFS=","; print "ID", "Project", "Grade", "Primary_Metastasis", "Stage"}1' |
+  cat > results/MD3/patients_info.csv
