@@ -2,7 +2,7 @@
 system("mkdir -p results/MD3/")
 
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
-pacman::p_load(survival, survminer, broom, dplyr, purrr, ggplot2, tidyr, rvest, janitor)
+pacman::p_load(survival, survminer, broom, tidyverse, rvest, janitor)
 
 df_survival <-
   read_csv("data/ICGC/survival.csv") %>%
@@ -23,9 +23,6 @@ report_pval <- function(data) {
   pull(p.value)
 }
 
-# df_test <- df_all_LR %>% head(100)
-
-start <- Sys.time()
 df_pval <-
   df_survival %>%
   inner_join(df_all_LR, key = "gene") %>%
@@ -47,9 +44,6 @@ df_pval <-
   pivot_wider(c(pair, pval), names_from = "exp_bin", names_prefix = "median_day_", values_from = "median_time") %>%
   mutate(diff_day = median_day_high - median_day_low) %>%
   arrange(pval)
-
-end <- Sys.time() - start
-end # Time difference of 18.90914 secs
 
 write_csv(df_pval, "results/MD3/survival_all_LR.csv")
 
