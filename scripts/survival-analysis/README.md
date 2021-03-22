@@ -10,17 +10,27 @@ The codes to generate FigXXX
 
 ## Usage
 
-```bash
+### 1. Download and preprocess data
 
-git clone https://github.com/bioinfo-tsukuba/SSD.git
-
-# download and preprocess data
+```
 ./SSD/scripts/survival-analysis/survival.sh
+```
+Output file is `data/ICGC/survival_*.csv.gz`.
 
-# calculate generalized wilcoxon test
-./SSD/scripts/survival-analysis/survival_pval.R
+| id       | sex  | status | time | gene  | exp     |
+| -------- | ---- | ------ | ---- | ----- | ------- |
+| DO221539 | male | alive  | 1733 | A2M   | 1063.3  |
+| DO221539 | male | alive  | 1733 | AANAT | 0       |
+| DO221539 | male | alive  | 1733 | ABCA1 | 144.511 |
 
-# plot Kaplan-Meier curve
-./SSD/scripts/survival-analysis/survival_plot.R
+### 2. Calculate generalized wilcoxon test
 
+```
+./SSD/scripts/survival-analysis/survival_pval.R [survival data] [LR pair]
+```
+
+### 3. Plot Kaplan-Meier curve
+
+```
+./SSD/scripts/survival-analysis/survival_plot.R  [survival data] [LR pair]
 ```
