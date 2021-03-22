@@ -44,7 +44,7 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
-
+SSD.*
 processed_data/MD2/P_low_grade_expression.csv
 processed_data/MD2/P_high_grade_expression.csv
 
