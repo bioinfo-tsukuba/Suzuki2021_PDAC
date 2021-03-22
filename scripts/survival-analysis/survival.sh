@@ -10,10 +10,10 @@ export LC_ALL=C
 [ -z "$ZSH_VERSION" ] || setopt shwordsplit interactivecomments
 
 # --- cURL or Wget ----------------------------------------
-if type curl >/dev/null 2>&1; then
-  CMD_GET="curl -Lso -"
-elif type wget >/dev/null 2>&1; then
+if type wget >/dev/null 2>&1; then
   CMD_GET="wget --no-check-certificate -qO -"
+elif type curl >/dev/null 2>&1; then
+  CMD_GET="curl -Lso -"
 else
   {
     echo 'No HTTP-GET/POST command found.'
@@ -148,6 +148,7 @@ gzip -dc data/ICGC/specimen.PACA-CA.tsv.gz data/ICGC/specimen.PACA-AU.tsv.gz |
   ' |
   # Annotate Primary or Metastasis
   awk '$NF ~ "M1" || $NF ~ "IV" {$(NF+1)="Metastasis"} {$(NF+1)="Primary"}1' |
+  grep Primary |
   awk '{print $2,$1,$4,$6,$5}' |
   cat >tmp_patients_info
 
@@ -171,18 +172,22 @@ gzip -dc data/ICGC/donor.* |
   sort -t " " |
   join - tmp_patients_id >tmp_donor
 
-cat data/ICGC/exp_seq_* |
-  sort |
-  join -a 1 - data/gene_info/natmi_symbol.txt |
-  join -a 1 - data/gene_info/natmi_ensemble.txt |
-  awk '/LR$/ {print $1,$2,$3}' |
-  join -a 1 - data/gene_info/natmi_ensemble_symbol.txt |
-  awk 'NF==4 {$1=$4} {print $2,$1,$3}' |
-  sort -t " " |
-  join tmp_donor - |
-  awk 'BEGIN {OFS=","; print "id", "sex", "status", "time", "gene", "exp"}
-    {print $1,$2,$3,$4,$5,$6}' |
-  cat >data/ICGC/survival.csv
+find data/ICGC/exp_seq_* -type f |
+  while read -r line; do
+    output=$(echo "${line##*/}" | sed "s/.txt//" | sed "s/exp_seq_/survival_/")
+    cat "$line" |
+      sort |
+      join -a 1 - data/gene_info/natmi_symbol.txt |
+      join -a 1 - data/gene_info/natmi_ensemble.txt |
+      awk '/LR$/ {print $1,$2,$3}' |
+      join -a 1 - data/gene_info/natmi_ensemble_symbol.txt |
+      awk 'NF==4 {$1=$4} {print $2,$1,$3}' |
+      sort -t " " |
+      join tmp_donor - |
+      awk 'BEGIN {OFS=","; print "id", "sex", "status", "time", "gene", "exp"}
+      {print $1,$2,$3,$4,$5,$6}' |
+      gzip -c >"data/ICGC/$output".csv.gz
+  done
 
 rm tmp_patients_id tmp_donor
 
