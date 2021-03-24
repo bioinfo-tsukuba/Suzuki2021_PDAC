@@ -2,7 +2,17 @@
 
 ## ToDO
 
+
 ## DONE
+
+### 2021-03-23
+
++ [x] 出力の`data/ICGC/survival_*.csv.gz`の並び順が異なっていたので, 目的のもの`id,sex,status,time,gene,exp`に変更しました.
+
+### 2021-03-22
+
++ [x] ICGCからPrimaryのみにする
++ [x] ICGCをコホートごとにする
 
 ### 2021-03-19
 + [x] LRペア全パターンの生存時間

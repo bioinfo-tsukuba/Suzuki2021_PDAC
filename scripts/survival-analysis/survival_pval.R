@@ -12,7 +12,6 @@ df_LR <-
   read_tsv("results/MD2/DiffEdges/tableForHeatmap.tsv") %>%
   filter(!str_detect(weight, "log2")) # remove log2-transformed data because of Inf value
 
-
 report_pval <- function(data) {
   survdiff(Surv(time, status) ~ exp_bin, data = data, rho = 1) %>%
   glance() %>%

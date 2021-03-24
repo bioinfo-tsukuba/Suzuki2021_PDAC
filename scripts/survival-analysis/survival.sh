@@ -1,25 +1,21 @@
 #!/bin/sh
 
+# dependencies: wget, gzip
+
 #==============================================================================
 # Initialization
 #==============================================================================
 
-set -u
+set -ue
 umask 0022
 export LC_ALL=C
 [ -z "$ZSH_VERSION" ] || setopt shwordsplit interactivecomments
 
-# --- cURL or Wget ----------------------------------------
-if type curl >/dev/null 2>&1; then
-  CMD_GET="curl -Lso -"
-elif type wget >/dev/null 2>&1; then
-  CMD_GET="wget --no-check-certificate -qO -"
-else
-  {
-    echo 'No HTTP-GET/POST command found.'
-    exit 1
-  }
-fi
+# --- wget ------------------------------------------------
+type wget >/dev/null 2>&1 || {
+  echo 'wget: command not found.'
+  exit 1
+}
 
 # --- gzip ------------------------------------------------
 type gzip >/dev/null 2>&1 || {
@@ -33,7 +29,7 @@ type gzip >/dev/null 2>&1 || {
 
 mkdir -p data/gene_info
 
-$CMD_GET https://asrhou.github.io/NATMI/ |
+wget --no-check-certificate -qO - https://asrhou.github.io/NATMI/ |
   awk 'BEGIN{RS=""} {$1=$1}1' |
   grep '<td class="col1">' |
   sed "s/.*<td class=\"col1\"> //" |
@@ -46,7 +42,7 @@ $CMD_GET https://asrhou.github.io/NATMI/ |
 # Retrieve HGNC gene list to convert Ensemble to Gene Symbol
 #==============================================================================
 
-$CMD_GET ftp://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/tsv/hgnc_complete_set.txt |
+wget --no-check-certificate -qO - ftp://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/tsv/hgnc_complete_set.txt |
   sed 1d |
   cut -f 2,20 |
   awk 'NF==2' |
@@ -73,9 +69,9 @@ https://dcc.icgc.org/api/v1/download?fn=/current/Projects/$project/specimen.$pro
 FILE
     while read -r file; do
       echo "$file"
-      [ -s "data/ICGC/${file##*/}" ] || $CMD_GET "$file" >"data/ICGC/${file##*/}"
+      [ -s "data/ICGC/${file##*/}" ] || wget --no-check-certificate -qO - "$file" >"data/ICGC/${file##*/}"
       # in case of failed first try...
-      [ -s "data/ICGC/${file##*/}" ] || $CMD_GET "$file" >"data/ICGC/${file##*/}"
+      [ -s "data/ICGC/${file##*/}" ] || wget --no-check-certificate -qO - "$file" >"data/ICGC/${file##*/}"
     done
 done
 
@@ -158,11 +154,9 @@ gzip -dc data/ICGC/specimen.PACA-CA.tsv.gz data/ICGC/specimen.PACA-AU.tsv.gz |
     $4~"X" {$4="X"}1
   ' |
   # Annotate Primary or Metastasis
-  awk '$NF ~ "M1" || $NF ~ "IV" {$(NF+1)="Metastasis"} {$(NF+1)="Primary"}1' |
-  awk '{print $2,$1,$4,$6,$5}' |
+  awk '$NF !~ "M1" || $NF !~ "IV"' |
+  awk '{print $2,$1,$4,$5}' |
   cat >tmp_patients_info
-
-rm tmp_tcga tmp_tcga_patientinfo
 
 #==============================================================================
 # Generate CSV files including "Patient ID", "Sex", "Status", "Survival time", "Gene", "Expression"
@@ -170,7 +164,7 @@ rm tmp_tcga tmp_tcga_patientinfo
 
 mkdir -p data/ICGC/
 
-cut -d "," -f 1 tmp_patients_info | sort -u >tmp_patients_id
+cut -d " " -f 1 tmp_patients_info | sort -u >tmp_patients_id
 
 gzip -dc data/ICGC/donor.* |
   grep -v icgc_donor_id |
@@ -182,31 +176,35 @@ gzip -dc data/ICGC/donor.* |
   awk 'NF==4' |
   sort -t " " >tmp_donor
 
-cat data/ICGC/exp_seq_* |
-  sort |
-  join -a 1 - data/gene_info/natmi_symbol.txt |
-  join -a 1 - data/gene_info/natmi_ensemble.txt |
-  awk '/LR$/ {print $1,$2,$3}' |
-  join -a 1 - data/gene_info/natmi_ensemble_symbol.txt |
-  awk 'NF==4 {$1=$4} {print $2,$1,$3}' |
-  sort -t " " |
-  join tmp_donor - |
-  awk 'BEGIN {OFS=","; print "id", "sex", "status", "time", "gene", "exp"}
-    {print $1,$2,$3,$4,$5,$6}' |
-  cat >data/ICGC/survival.csv
-
-rm tmp_patients_id tmp_donor
+find data/ICGC/exp_seq_* -type f |
+  while read -r line; do
+    output=$(echo "${line##*/}" | sed "s/.txt//" | sed "s/exp_seq_/survival_/")
+    cat "$line" |
+      sort |
+      join -a 1 - data/gene_info/natmi_symbol.txt |
+      join -a 1 - data/gene_info/natmi_ensemble.txt |
+      awk '/LR$/ {print $1,$2,$3}' |
+      join -a 1 - data/gene_info/natmi_ensemble_symbol.txt |
+      awk 'NF==4 {$1=$4} {print $2,$1,$3}' |
+      sort -t " " |
+      join tmp_donor - |
+      awk 'BEGIN {OFS=","; print "id", "sex", "status", "time", "gene", "exp"}
+        {print $1,$2,$3,$4,$5,$6}' |
+      gzip -c >"data/ICGC/$output".csv.gz
+  done
 
 #==============================================================================
 # Output patients info
 #==============================================================================
 
-cut -d, -f 1 data/ICGC/survival.csv | sort -u >tmp_donor_w_rnaseq
+gzip -dc data/ICGC/*.csv.gz |
+  cut -d, -f1 |
+  sort -u >tmp_donor_w_rnaseq
 
 sort -t " " tmp_patients_info |
   join - tmp_donor_w_rnaseq |
-  awk 'BEGIN{OFS=","; print "ID", "Project", "Grade", "Primary_Metastasis", "Stage"}1' |
+  awk 'BEGIN{OFS=","; print "ID", "Project", "Grade", "Stage"}1' |
   tr " " "," |
   cat >results/MD3/patients_info.csv
 
-rm tmp_patients_info tmp_donor_w_rnaseq
+rm tmp_*
