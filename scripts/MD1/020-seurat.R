@@ -4,7 +4,7 @@
 
 options(repos = "http://cran.us.r-project.org")
 if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman")
-pacman::p_load(tidyverse, Seurat, umap, broom, glue)
+pacman::p_load(tidyverse, Seurat)
 
 system("mkdir -p results/MD1")
 
@@ -12,9 +12,12 @@ system("mkdir -p results/MD1")
 # Generate Seurat object
 ###############################################################################
 
-df_meta <- read_csv( "data/WeiLin_pdac10/PDAC10_meta.csv", col_names=c("cell","id","type"), skip = 1) %>%
-  mutate(grade = if_else(id %in% c("P02","P05","P06","P08","P09","P10"), "low", "high"))
-head(df_meta)
+df_patients <- read_csv( "data/WeiLin_pdac10/Patient_data.csv", col_names=c("patients","age","gender","diagnosis","Primary_or_Metasitasis","stage","grade"), skip = 1)
+
+df_meta <-
+  read_csv( "data/WeiLin_pdac10/PDAC10_meta.csv", col_names=c("cell","patients","type"), skip = 1) %>%
+  left_join(df_patients, key = "patients") %>%
+  mutate(grade_lowhigh = if_else(grade >2, "high", "low"))
 
 data_seurat <- CreateSeuratObject(counts = Read10X(data.dir = "data/WeiLin_pdac10/For_Seurat/"), project = "pdac")
 data_seurat@meta.data <- cbind(data_seurat@meta.data, df_meta)
@@ -25,6 +28,7 @@ data_seurat@meta.data <- cbind(data_seurat@meta.data, df_meta)
 
 data_umap <- map_dfr(unique(df_meta$type), function(.celltype) {
   .data <- data_seurat[, str_which(df_meta$type, .celltype)]
+
   .data_umap <-
     FindVariableFeatures(
     object = .data,
@@ -42,7 +46,8 @@ data_umap <- map_dfr(unique(df_meta$type), function(.celltype) {
     inner_join(df_meta, key = "cell")
 })
 
-p_umap <- ggplot(data_umap, aes(x = UMAP_1, y = UMAP_2)) +
+p_umap <-
+  ggplot(data_umap, aes(x = UMAP_1, y = UMAP_2)) +
   geom_point(aes(color = grade)) +
   theme_bw() +
   facet_wrap(~type, scale = "free")
