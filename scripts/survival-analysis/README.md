@@ -23,7 +23,8 @@ Output file is `data/ICGC/survival_*.csv.gz`.
 | DO221539 | male | alive  | 1733 | AANAT | 0       |
 | DO221539 | male | alive  | 1733 | ABCA1 | 144.511 |
 
-### 2. Calculate generalized wilcoxon test
+
+### 2. Counduct a generalized Wilcoxon test
 
 ```
 ./SSD/scripts/survival-analysis/survival_pval.R [survival data] [LR pair]
