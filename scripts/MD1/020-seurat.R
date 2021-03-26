@@ -12,7 +12,8 @@ system("mkdir -p results/MD1")
 # Generate Seurat object
 ###############################################################################
 
-df_patients <- read_csv( "data/WeiLin_pdac10/Patient_data.csv", col_names=c("patients","age","gender","diagnosis","Primary_or_Metasitasis","stage","grade"), skip = 1)
+df_patients <- read_csv("data/WeiLin_pdac10/Patient_data.csv",
+  col_names=c("patients","age","gender","diagnosis","Primary_or_Metasitasis","stage","grade"), skip = 1)
 
 df_meta <-
   read_csv( "data/WeiLin_pdac10/PDAC10_meta.csv", col_names=c("cell","patients","type"), skip = 1) %>%
