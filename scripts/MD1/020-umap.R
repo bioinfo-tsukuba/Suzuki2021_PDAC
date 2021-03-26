@@ -4,7 +4,7 @@
 
 options(repos = "http://cran.us.r-project.org")
 if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman")
-pacman::p_load(tidyverse, Seurat)
+pacman::p_load(tidyverse, Seurat, patchwork)
 
 system("mkdir -p results/MD1")
 
@@ -47,11 +47,62 @@ data_umap <- map_dfr(unique(df_meta$type), function(.celltype) {
     inner_join(df_meta, key = "cell")
 })
 
-p_umap <-
-  ggplot(data_umap, aes(x = UMAP_1, y = UMAP_2)) +
-  geom_point(aes(color = grade)) +
+p_patients <-
+  data_umap %>%
+  ggplot(aes(x = UMAP_1, y = UMAP_2)) +
+  geom_point(aes(color = patients)) +
+  ggtitle("Patients") +
   theme_bw() +
   facet_wrap(~type, scale = "free")
-ggsave("results/MD1/umap_celltype.pdf", p_umap)
+
+p_grade <-
+  data_umap %>%
+  ggplot(aes(x = UMAP_1, y = UMAP_2)) +
+  geom_point(aes(color = grade)) +
+  ggtitle("Grade") +
+  theme_bw() +
+  facet_wrap(~type, scale = "free")
+
+p_stage <-
+  data_umap %>%
+  ggplot(aes(x = UMAP_1, y = UMAP_2)) +
+  geom_point(aes(color = stage)) +
+  ggtitle("Stage") +
+  theme_bw() +
+  facet_wrap(~type, scale = "free")
+
+ggsave("results/MD1/umap_celltype.pdf",
+  (p_patients / p_grade / p_stage),
+  width = 13, height = 30)
 
 
+p_patients_wo2 <-
+  data_umap %>%
+  filter(grade != 2) %>%
+  ggplot(aes(x = UMAP_1, y = UMAP_2)) +
+  geom_point(aes(color = patients)) +
+  ggtitle("patients") +
+  theme_bw() +
+  facet_wrap(~type, scale = "free")
+
+p_grade_wo2 <-
+  data_umap %>%
+  filter(grade != 2) %>%
+  ggplot(aes(x = UMAP_1, y = UMAP_2)) +
+  geom_point(aes(color = grade)) +
+  ggtitle("grade") +
+  theme_bw() +
+  facet_wrap(~type, scale = "free")
+
+p_stage_wo2 <-
+  data_umap %>%
+  filter(grade != 2) %>%
+  ggplot(aes(x = UMAP_1, y = UMAP_2)) +
+  geom_point(aes(color = stage)) +
+  ggtitle("Stage") +
+  theme_bw() +
+  facet_wrap(~type, scale = "free")
+
+ggsave("results/MD1/umap_celltype_wo_g2.pdf",
+  (p_patients_wo2 / p_grade_wo2 / p_stage_wo2),
+  width = 13, height = 30)
