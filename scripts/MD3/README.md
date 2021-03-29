@@ -10,13 +10,13 @@ The codes to generate FigXXX
 
 ## Usage
 
-### 1. Download and preprocess data
+### Download and preprocess data
 
-```
+```bash
 ./SSD/scripts/MD3/survival.sh
 ```
 
-ファイルの保存先はこんな感じですです:point_right: `data/ICGC/survival_*.csv.gz`.  
+ファイルの保存先はこんな感じです:point_right: `data/ICGC/survival_*.csv.gz`.  
 
 `data/ICGC/survival_*.csv.gz`の形式はこんな感じです:point_down:
 
@@ -29,7 +29,7 @@ The codes to generate FigXXX
 
 ### 各細胞ごとに生存時間解析を行うコマンド
 
-```
+```bash
 Rscript scripts/MD3/celltype_lrpair_pval.R \
   data/ICGC/survival_PAAD-US.csv.gz \
   celltype_and_lrpair.csv > celltype_lrpair_result.csv
@@ -52,7 +52,7 @@ Rscript scripts/MD3/celltype_lrpair_pval.R \
 
 ### 各リガンドレセプターごとに生存時間解析を行うコマンド
 
-```
+```bash
 Rscript ./scripts/MD3/lrpair_pval.R \
   data/ICGC/survival_PAAD-US.csv.gz \
   lrpair.csv > lrpair_result.csv
