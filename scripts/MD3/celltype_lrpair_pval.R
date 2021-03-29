@@ -1,18 +1,26 @@
 # Report Peto & Peto modification of the Gehan-Wilcoxon test
+if (!require("pacman", quietly = TRUE)) install.packages("pacman")
+pacman::p_load(survival, survminer, broom, tidyverse)
 system("mkdir -p results/MD3/")
 
-if (!require("pacman", quietly = TRUE)) install.packages("pacman")
-pacman::p_load(survival, survminer, broom, tidyverse, rvest, janitor)
+################################################################################
+# Input
+################################################################################
 
-df_survival <-
-  read_csv("data/ICGC/survival_PAAD-US.csv.gz") %>%
+args <- commandArgs(trailingOnly = TRUE)
+
+if (length(args) > 0) {
+  df_survival <- read_csv(args[1])
+  df_lr <- read_csv(args[2])
+} else {
+  df_survival <- read_csv("data/ICGC/survival_PAAD-US.csv.gz", col_types = cols())
+  df_lr <- read_csv("tests/MD3/data/celltype_lrpair.csv", col_types = cols())
+}
+
+df_survival <- df_survival %>%
   mutate(status = if_else(status == "alive", 0, 1)) # alive=0, dead=1
 
-df_LR <-
-  read_tsv("results/MD2/DiffEdges/tableForHeatmap.tsv") %>%
-  # remove log2-transformed data because of Inf value
-  filter(!str_detect(weight, "log2")) %>%
-  filter(category != "All_edges_mean") %>%
+df_lr <- df_lr %>%
   mutate(lr_pair = ligandreceptor_pair) %>%
   separate(ligandreceptor_pair, c("ligand", "receptor"), sep = "->") %>%
   pivot_longer(c(ligand, receptor), names_to = "lr", values_to = "gene")
@@ -23,31 +31,21 @@ report_pval <- function(data) {
   pull(p.value)
 }
 
-#*+++++++++++++++++++++++++++++++++++++++++++++++++++
-df_test <- df_LR %>% filter(category == "Appeared_mean", weight == "delta_edge_specificity_weight")
-#*+++++++++++++++++++++++++++++++++++++++++++++++++++
-
 df_pval <-
-  df_survival %>%
-  inner_join(df_test, key = "gene")
-
-unique(df_pval$celltype_pair)
-df_pval %>% select(celltype_pair, lr_pair) %>% filter(lr_pair == "A2M->LRP1") %>% count(celltype_pair)
-tmp <- df_pval %>%
-  group_by(celltype_pair, lr_pair) %>%
+  inner_join(df_survival, df_lr, by = "gene") %>%
+  group_by(celltype_pair, id) %>%
   # high and low by median value
   mutate(exp_sum = sum(exp)) %>%
+  ungroup(id) %>%
   mutate(exp_bin = if_else(exp_sum > quantile(exp_sum, 0.5), "high", "low")) %>%
   # median survival time
   group_by(celltype_pair, exp_bin) %>%
   mutate(median_time = quantile(time, 0.5)) %>%
   # Report p-value
-  nest(data = !c(celltype_pair))
-
-tmp %>% filter(celltype_pair == "CAF->EMT") %>%
-  unnest(data) %>% select(status, exp_bin) %>% distinct()
+  nest(data = !c(celltype_pair)) %>%
   mutate(pval = map_dbl(data, report_pval)) %>%
-  filter(pval < 0.01) %>%
+  filter(pval < 0.05) %>%
+  arrange(pval) %>%
   unnest(data) %>%
   select(celltype_pair, pval, exp_bin, median_time) %>%
   distinct() %>%
@@ -55,5 +53,6 @@ tmp %>% filter(celltype_pair == "CAF->EMT") %>%
   mutate(diff_day = median_day_high - median_day_low) %>%
   arrange(pval)
 
-write_csv(df_pval, "results/MD3/survival_all_LR.csv")
+cat(format_csv(df_pval))
+# write_csv(df_pval, "results/MD3/survival_pval_top20.csv")
 
