@@ -16,8 +16,9 @@ The codes to generate FigXXX
 ./SSD/scripts/MD3/survival.sh
 ```
 
-ファイルの保存先はこちらです→ `data/ICGC/survival_*.csv.gz`.  
-`data/ICGC/survival_*.csv.gz`の形式↓
+ファイルの保存先はこんな感じですです:point_right: `data/ICGC/survival_*.csv.gz`.  
+
+`data/ICGC/survival_*.csv.gz`の形式はこんな感じです:point_down:
 
 | id       | sex  | status | time | gene  | exp     |
 | -------- | ---- | ------ | ---- | ----- | ------- |
@@ -29,17 +30,19 @@ The codes to generate FigXXX
 ### 各細胞ごとに生存時間解析を行うコマンド
 
 ```
-./SSD/scripts/MD3/celltype_lrpair_pval.R data/ICGC/survival_PAAD-US.csv.gz celltype_and_lrpair.csv > celltype_lrpair_result.csv
+Rscript scripts/MD3/celltype_lrpair_pval.R \
+  data/ICGC/survival_PAAD-US.csv.gz \
+  celltype_and_lrpair.csv > celltype_lrpair_result.csv
 ```
 
-入力ファイル`celltype_and_lrpair.csv`の形式↓  
+入力ファイル`celltype_and_lrpair.csv`の形式はこんな感じです:point_down:  
 | celltype_pair | ligandreceptor_pair |
 | ------------- | ------------------- |
 | DC->EMT       | VIM->CD44           |
 | CAF->EMT      | TIMP1->CD63         |
 | TIL->EMT      | VIM->CD44           |
 
-出力ファイル`celltype_lrpair_result.csv`の形式↓  
+出力ファイル`celltype_lrpair_result.csv`の形式はこんな感じです:point_down:  
 | celltype_pair | pval | median_day_low | median_day_high | diff_day |
 | ------------- | ---- | -------------- | --------------- | -------- |
 | Endo->EMT     | 0    | 180            | 188             | 8        |
@@ -50,10 +53,12 @@ The codes to generate FigXXX
 ### 各リガンドレセプターごとに生存時間解析を行うコマンド
 
 ```
-./SSD/scripts/MD3/lrpair_pval.R data/ICGC/survival_PAAD-US.csv.gz lrpair.csv > lrpair_result.csv
+Rscript ./scripts/MD3/lrpair_pval.R \
+  data/ICGC/survival_PAAD-US.csv.gz \
+  lrpair.csv > lrpair_result.csv
 ```
 
-入力ファイル`lrpair.csv`の形式↓  
+入力ファイル`lrpair.csv`の形式はこんな感じです:point_down:  
 
 | ligandreceptor_pair |
 | ------------------- |
@@ -61,7 +66,7 @@ The codes to generate FigXXX
 | TIMP1->CD63         |
 | COL1A2->CD44        |
 
-出力ファイル`lrpair_result.csv`の形式↓  
+出力ファイル`lrpair_result.csv`の形式はこんな感じです:point_down:  
 
 | lr_pair       | pval                  | median_day_low | median_day_high | diff_day |
 | ------------- | --------------------- | -------------- | --------------- | -------- |
