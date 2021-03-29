@@ -10,11 +10,11 @@ df1 %>%
 write_tsv(df2, 'results/MD2/DiffEdges/upregulatedLR.tsv')
 
 df2 %>% 
-  slice_max(`Delta edge specificity weight`, n=100) %>%
+  slice_max(`Delta edge specificity weight`, n=50) %>%
   select(`Cell-type pair`, `Ligand-receptor pair`, `Delta edge specificity weight`)
 
 df2 %>% 
-  slice_max(`Delta edge specificity weight`, n=100) -> df2_sub
+  slice_max(`Delta edge specificity weight`, n=50) -> df2_sub
 
 df2_sub %>%
   ggplot(aes(`Cell-type pair`,  `Ligand-receptor pair`)) + 
@@ -26,6 +26,6 @@ df2_sub %>%
     axis.text.x = element_text(size=5,angle = 90, hjust = 1, vjust = 0.5),
     axis.text.y = element_text(size=5)
     ) +
-  labs(caption="only Delta edge specificity weight top 100 pairs")-> g
+  labs(caption="only Delta edge specificity weight top 50 pairs")-> g
   
-ggsave("results/MD2/DiffEdges/heatmap_upregulated_top100.pdf", g)
+ggsave("results/MD2/DiffEdges/heatmap_upregulated_top50.pdf", g)
