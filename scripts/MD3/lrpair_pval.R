@@ -42,6 +42,8 @@ df_pval <-
   # median survival time
   group_by(lr_pair, exp_bin) %>%
   mutate(median_time = quantile(time, 0.5)) %>%
+  select(lr_pair, time, status, exp_bin, median_time) %>%
+  distinct() %>%
   # Report p-value
   nest(data = !c(lr_pair)) %>%
   mutate(pval = map_dbl(data, report_pval)) %>%
