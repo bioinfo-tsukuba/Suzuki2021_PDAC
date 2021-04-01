@@ -75,18 +75,7 @@ FILE
     done
 done
 
-# The number of patients
-
-find data/ICGC/ -type f |
-  grep donor |
-  while read -r file; do
-    echo "$file"
-    gzip -dc "$file" |
-      grep -v "icgc_donor_id" |
-      wc -l
-  done
-
-# CPM normalization by patiants
+# CPM normalization by patiants ---------------------------
 
 for project in PAAD-US PACA-AU PACA-CA; do
   gzip -dc "data/ICGC/exp_seq.$project.tsv.gz" |
@@ -170,11 +159,11 @@ gzip -dc data/ICGC/donor.* |
   grep -v icgc_donor_id |
   cut -f 1,5,6,17,18 |
   tr "\t" "@" |
-  awk -F "@" 'BEGIN{OFS="@"} $3=="alive" {$4=$5}1' |
-  cut -d "@" -f 1-4 |
-  tr "@" " " |
+  awk -F "@" 'BEGIN{OFS=" "} $3=="alive" {$4=$5} {$1=$1}1' |
+  cut -d " " -f 1-4 |
   awk 'NF==4' |
-  sort -t " " >tmp_donor
+  sort -t " " |
+  join - tmp_patients_id >tmp_donor
 
 find data/ICGC/exp_seq_* -type f |
   while read -r line; do
