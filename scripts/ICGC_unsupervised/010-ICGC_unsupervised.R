@@ -72,6 +72,7 @@ seurat <- ScaleData(seurat)
 # Run PCA
 seurat <- RunPCA(seurat, verbose = FALSE, approx=FALSE)
 ElbowPlot(seurat, ndims = 50)
+ggsave(file.path(outdir, "pca_elbow_plot.pdf"))
 
 # Run umap on PCA result
 seurat <- RunUMAP(seurat, dims=1:20, seed.use=1234, n.components=2)
