@@ -1,0 +1,116 @@
+Category,CategoryID,GO,Description,PARENT_GO,LogP,Enrichment,Z-score,#TotalGeneInLibrary,#GeneInGO,#GeneInHitList,#GeneInGOAndHitList,%InGO,STDV %InGO,GeneID,Hits,Log(q-value),GeneList
+GO Biological Processes,19,GO:0071674,mononuclear cell migration,19_GO:0040011 locomotion,-8.8,94,21,28133,94,16,5,31,12,5175|6352|6358|6359|6362,PECAM1|CCL5|CCL14|CCL15|CCL18,-4.4,MyList
+GO Biological Processes,19,GO:1990266,neutrophil migration,19_GO:0040011 locomotion,-8.2,71,19,28133,124,16,5,31,12,5175|6352|6358|6359|6362,PECAM1|CCL5|CCL14|CCL15|CCL18,-4.3,MyList
+GO Biological Processes,19,GO:0071356,cellular response to tumor necrosis factor,19_GO:0050896 response to stimulus,-8,36,14,28133,297,16,6,38,12,6352|6358|6359|6362|8771|9370,CCL5|CCL14|CCL15|CCL18|TNFRSF6B|ADIPOQ,-4.3,MyList
+GO Biological Processes,19,GO:0070372,regulation of ERK1 and ERK2 cascade,19_GO:0023052 signaling,-7.9,34,14,28133,307,16,6,38,12,116|6352|6358|6359|6362|9370,ADCYAP1|CCL5|CCL14|CCL15|CCL18|ADIPOQ,-4.3,MyList
+GO Biological Processes,19,GO:0034612,response to tumor necrosis factor,19_GO:0050896 response to stimulus,-7.8,33,14,28133,321,16,6,38,12,6352|6358|6359|6362|8771|9370,CCL5|CCL14|CCL15|CCL18|TNFRSF6B|ADIPOQ,-4.3,MyList
+GO Biological Processes,19,GO:0097530,granulocyte migration,19_GO:0040011 locomotion,-7.8,59,17,28133,149,16,5,31,12,5175|6352|6358|6359|6362,PECAM1|CCL5|CCL14|CCL15|CCL18,-4.3,MyList
+GO Biological Processes,19,GO:0070371,ERK1 and ERK2 cascade,19_GO:0023052 signaling,-7.8,32,14,28133,327,16,6,38,12,116|6352|6358|6359|6362|9370,ADCYAP1|CCL5|CCL14|CCL15|CCL18|ADIPOQ,-4.3,MyList
+GO Biological Processes,19,GO:0071346,cellular response to interferon-gamma,19_GO:0002376 immune system process,-7.4,50,15,28133,177,16,5,31,12,4360|6352|6358|6359|6362,MRC1|CCL5|CCL14|CCL15|CCL18,-4,MyList
+GO Biological Processes,19,GO:0048247,lymphocyte chemotaxis,19_GO:0040011 locomotion,-7.4,1.1e+02,21,28133,64,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-4,MyList
+GO Biological Processes,19,GO:0002548,monocyte chemotaxis,19_GO:0040011 locomotion,-7.2,1e+02,20,28133,69,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-3.9,MyList
+GO Biological Processes,19,GO:0034341,response to interferon-gamma,19_GO:0002376 immune system process,-7.2,45,15,28133,197,16,5,31,12,4360|6352|6358|6359|6362,MRC1|CCL5|CCL14|CCL15|CCL18,-3.9,MyList
+GO Biological Processes,19,GO:0043408,regulation of MAPK cascade,19_GO:0023052 signaling,-7.1,17,10,28133,740,16,7,44,12,116|6352|6358|6359|6362|9370|100133941,ADCYAP1|CCL5|CCL14|CCL15|CCL18|ADIPOQ|CD24,-3.8,MyList
+GO Biological Processes,19,GO:0070374,positive regulation of ERK1 and ERK2 cascade,19_GO:0048518 positive regulation of biological process,-7,41,14,28133,214,16,5,31,12,116|6352|6358|6359|6362,ADCYAP1|CCL5|CCL14|CCL15|CCL18,-3.8,MyList
+GO Biological Processes,19,GO:0097529,myeloid leukocyte migration,19_GO:0040011 locomotion,-6.9,40,14,28133,220,16,5,31,12,5175|6352|6358|6359|6362,PECAM1|CCL5|CCL14|CCL15|CCL18,-3.7,MyList
+GO Biological Processes,19,GO:0070098,chemokine-mediated signaling pathway,19_GO:0023052 signaling,-6.8,80,18,28133,88,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-3.6,MyList
+GO Biological Processes,19,GO:1990868,response to chemokine,19_GO:0050896 response to stimulus,-6.6,73,17,28133,97,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-3.5,MyList
+GO Biological Processes,19,GO:1990869,cellular response to chemokine,19_GO:0050896 response to stimulus,-6.6,73,17,28133,97,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-3.5,MyList
+GO Biological Processes,19,GO:0030593,neutrophil chemotaxis,19_GO:0040011 locomotion,-6.5,68,16,28133,103,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-3.4,MyList
+GO Biological Processes,19,GO:0072010,glomerular epithelium development,19_GO:0032502 developmental process,-6.5,2.2e+02,26,28133,24,16,3,19,9.8,5175|9370|100133941,PECAM1|ADIPOQ|CD24,-3.4,MyList
+KEGG Pathway,24,ko04060,Cytokine-cytokine receptor interaction,,-6.5,33,12,28133,270,16,5,31,12,6352|6358|6359|6362|8771,CCL5|CCL14|CCL15|CCL18|TNFRSF6B,-3.4,MyList
+GO Biological Processes,19,GO:0043410,positive regulation of MAPK cascade,19_GO:0048518 positive regulation of biological process,-6.5,19,10,28133,544,16,6,38,12,116|6352|6358|6359|6362|100133941,ADCYAP1|CCL5|CCL14|CCL15|CCL18|CD24,-3.4,MyList
+GO Biological Processes,19,GO:0072676,lymphocyte migration,19_GO:0040011 locomotion,-6.3,60,15,28133,118,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-3.3,MyList
+GO Biological Processes,19,GO:0071621,granulocyte chemotaxis,19_GO:0040011 locomotion,-6.2,57,15,28133,124,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-3.2,MyList
+KEGG Pathway,24,hsa04060,Cytokine-cytokine receptor interaction,,-6.1,27,11,28133,328,16,5,31,12,6352|6358|6359|6362|8771,CCL5|CCL14|CCL15|CCL18|TNFRSF6B,-3.1,MyList
+Canonical Pathways,11,M5883,NABA SECRETED FACTORS,,-6,26,11,28133,343,16,5,31,12,6352|6358|6359|6362|653275,CCL5|CCL14|CCL15|CCL18|CFC1B,-3,MyList
+GO Biological Processes,19,GO:0043547,positive regulation of GTPase activity,19_GO:0065007 biological regulation,-5.6,21,9.9,28133,411,16,5,31,12,116|6352|6358|6359|6362,ADCYAP1|CCL5|CCL14|CCL15|CCL18,-2.7,MyList
+GO Biological Processes,19,GO:0071347,cellular response to interleukin-1,19_GO:0050896 response to stimulus,-5.6,39,12,28133,180,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-2.6,MyList
+KEGG Pathway,24,ko04062,Chemokine signaling pathway,,-5.5,39,12,28133,182,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-2.6,MyList
+GO Biological Processes,19,GO:0006874,cellular calcium ion homeostasis,19_GO:0065007 biological regulation,-5.4,20,9.5,28133,443,16,5,31,12,116|6352|6358|6359|100133941,ADCYAP1|CCL5|CCL14|CCL15|CD24,-2.6,MyList
+GO Biological Processes,19,GO:0050731,positive regulation of peptidyl-tyrosine phosphorylation,19_GO:0048518 positive regulation of biological process,-5.4,36,12,28133,193,16,4,25,11,5175|6352|9370|100133941,PECAM1|CCL5|ADIPOQ|CD24,-2.6,MyList
+GO Biological Processes,19,GO:0055074,calcium ion homeostasis,19_GO:0065007 biological regulation,-5.4,19,9.4,28133,455,16,5,31,12,116|6352|6358|6359|100133941,ADCYAP1|CCL5|CCL14|CCL15|CD24,-2.5,MyList
+KEGG Pathway,24,hsa04062,Chemokine signaling pathway,,-5.4,35,12,28133,202,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-2.5,MyList
+GO Biological Processes,19,GO:0070555,response to interleukin-1,19_GO:0050896 response to stimulus,-5.3,34,11,28133,206,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-2.5,MyList
+GO Biological Processes,19,GO:0043087,regulation of GTPase activity,19_GO:0065007 biological regulation,-5.3,18,9.1,28133,481,16,5,31,12,116|6352|6358|6359|6362,ADCYAP1|CCL5|CCL14|CCL15|CCL18,-2.5,MyList
+GO Biological Processes,19,GO:0072503,cellular divalent inorganic cation homeostasis,19_GO:0065007 biological regulation,-5.3,18,9.1,28133,481,16,5,31,12,116|6352|6358|6359|100133941,ADCYAP1|CCL5|CCL14|CCL15|CD24,-2.5,MyList
+GO Biological Processes,19,GO:0032835,glomerulus development,19_GO:0032502 developmental process,-5.2,84,16,28133,63,16,3,19,9.8,5175|9370|100133941,PECAM1|ADIPOQ|CD24,-2.4,MyList
+GO Biological Processes,19,GO:0072507,divalent inorganic cation homeostasis,19_GO:0065007 biological regulation,-5.2,18,8.9,28133,500,16,5,31,12,116|6352|6358|6359|100133941,ADCYAP1|CCL5|CCL14|CCL15|CD24,-2.4,MyList
+GO Biological Processes,19,GO:0030595,leukocyte chemotaxis,19_GO:0040011 locomotion,-5.2,31,11,28133,227,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-2.4,MyList
+GO Biological Processes,19,GO:0050900,leukocyte migration,19_GO:0040011 locomotion,-5.1,17,8.8,28133,511,16,5,31,12,5175|6352|6358|6359|6362,PECAM1|CCL5|CCL14|CCL15|CCL18,-2.4,MyList
+GO Biological Processes,19,GO:0050730,regulation of peptidyl-tyrosine phosphorylation,19_GO:0050789 regulation of biological process,-4.9,27,10,28133,262,16,4,25,11,5175|6352|9370|100133941,PECAM1|CCL5|ADIPOQ|CD24,-2.2,MyList
+GO Biological Processes,19,GO:0006875,cellular metal ion homeostasis,19_GO:0065007 biological regulation,-4.9,15,8.3,28133,573,16,5,31,12,116|6352|6358|6359|100133941,ADCYAP1|CCL5|CCL14|CCL15|CD24,-2.2,MyList
+GO Biological Processes,19,GO:0046883,regulation of hormone secretion,19_GO:0023052 signaling,-4.9,26,9.9,28133,267,16,4,25,11,116|6352|7432|9370,ADCYAP1|CCL5|VIP|ADIPOQ,-2.1,MyList
+WikiPathways,27,WP4754,IL-18 signaling pathway,,-4.8,26,9.8,28133,273,16,4,25,11,6352|6362|9370|10418,CCL5|CCL18|ADIPOQ|SPON1,-2.1,MyList
+GO Biological Processes,19,GO:0055065,metal ion homeostasis,19_GO:0065007 biological regulation,-4.7,14,7.7,28133,645,16,5,31,12,116|6352|6358|6359|100133941,ADCYAP1|CCL5|CCL14|CCL15|CD24,-2,MyList
+GO Biological Processes,19,GO:0060326,cell chemotaxis,19_GO:0040011 locomotion,-4.6,23,9.2,28133,307,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-2,MyList
+GO Biological Processes,19,GO:0019233,sensory perception of pain,19_GO:0032501 multicellular organismal process,-4.6,53,12,28133,99,16,3,19,9.8,116|5179|7432,ADCYAP1|PENK|VIP,-2,MyList
+GO Biological Processes,19,GO:0046879,hormone secretion,19_GO:0023052 signaling,-4.6,23,9.2,28133,309,16,4,25,11,116|6352|7432|9370,ADCYAP1|CCL5|VIP|ADIPOQ,-2,MyList
+GO Biological Processes,19,GO:0030003,cellular cation homeostasis,19_GO:0065007 biological regulation,-4.6,13,7.7,28133,653,16,5,31,12,116|6352|6358|6359|100133941,ADCYAP1|CCL5|CCL14|CCL15|CD24,-2,MyList
+GO Biological Processes,19,GO:0006873,cellular ion homeostasis,19_GO:0065007 biological regulation,-4.6,13,7.6,28133,666,16,5,31,12,116|6352|6358|6359|100133941,ADCYAP1|CCL5|CCL14|CCL15|CD24,-1.9,MyList
+GO Biological Processes,19,GO:0009914,hormone transport,19_GO:0051179 localization,-4.6,22,9,28133,322,16,4,25,11,116|6352|7432|9370,ADCYAP1|CCL5|VIP|ADIPOQ,-1.9,MyList
+GO Biological Processes,19,GO:0072009,nephron epithelium development,19_GO:0032502 developmental process,-4.6,50,12,28133,106,16,3,19,9.8,5175|9370|100133941,PECAM1|ADIPOQ|CD24,-1.9,MyList
+GO Biological Processes,19,GO:0002237,response to molecule of bacterial origin,19_GO:0051704 multi-organism process,-4.4,20,8.6,28133,346,16,4,25,11,4360|5179|6352|100133941,MRC1|PENK|CCL5|CD24,-1.8,MyList
+GO Biological Processes,19,GO:0009617,response to bacterium,19_GO:0051704 multi-organism process,-4.4,12,7.2,28133,728,16,5,31,12,4360|5179|6352|9370|100133941,MRC1|PENK|CCL5|ADIPOQ|CD24,-1.8,MyList
+GO Biological Processes,19,GO:0055080,cation homeostasis,19_GO:0065007 biological regulation,-4.4,12,7.2,28133,728,16,5,31,12,116|6352|6358|6359|100133941,ADCYAP1|CCL5|CCL14|CCL15|CD24,-1.8,MyList
+GO Biological Processes,19,GO:0098771,inorganic ion homeostasis,19_GO:0065007 biological regulation,-4.4,12,7.2,28133,738,16,5,31,12,116|6352|6358|6359|100133941,ADCYAP1|CCL5|CCL14|CCL15|CD24,-1.8,MyList
+Canonical Pathways,11,M5885,NABA MATRISOME ASSOCIATED,,-4.3,12,7.1,28133,751,16,5,31,12,6352|6358|6359|6362|653275,CCL5|CCL14|CCL15|CCL18|CFC1B,-1.7,MyList
+GO Biological Processes,19,GO:0045471,response to ethanol,19_GO:0050896 response to stimulus,-4.3,42,11,28133,127,16,3,19,9.8,116|5179|9370,ADCYAP1|PENK|ADIPOQ,-1.7,MyList
+GO Biological Processes,19,GO:0018108,peptidyl-tyrosine phosphorylation,19_GO:0008152 metabolic process,-4.3,19,8.3,28133,375,16,4,25,11,5175|6352|9370|100133941,PECAM1|CCL5|ADIPOQ|CD24,-1.7,MyList
+GO Biological Processes,19,GO:0018212,peptidyl-tyrosine modification,19_GO:0008152 metabolic process,-4.3,19,8.2,28133,378,16,4,25,11,5175|6352|9370|100133941,PECAM1|CCL5|ADIPOQ|CD24,-1.7,MyList
+GO Biological Processes,19,GO:0072073,kidney epithelium development,19_GO:0032502 developmental process,-4.3,40,11,28133,131,16,3,19,9.8,5175|9370|100133941,PECAM1|ADIPOQ|CD24,-1.7,MyList
+GO Biological Processes,19,GO:0051345,positive regulation of hydrolase activity,19_GO:0065007 biological regulation,-4.3,11,6.9,28133,784,16,5,31,12,116|6352|6358|6359|6362,ADCYAP1|CCL5|CCL14|CCL15|CCL18,-1.7,MyList
+GO Biological Processes,19,GO:0072006,nephron development,19_GO:0032502 developmental process,-4.2,38,10,28133,139,16,3,19,9.8,5175|9370|100133941,PECAM1|ADIPOQ|CD24,-1.6,MyList
+GO Biological Processes,19,GO:0048660,regulation of smooth muscle cell proliferation,19_GO:0008283 cell proliferation,-4,33,9.7,28133,160,16,3,19,9.8,6352|7432|9370,CCL5|VIP|ADIPOQ,-1.5,MyList
+GO Biological Processes,19,GO:0023061,signal release,19_GO:0023052 signaling,-4,16,7.5,28133,444,16,4,25,11,116|6352|7432|9370,ADCYAP1|CCL5|VIP|ADIPOQ,-1.5,MyList
+GO Biological Processes,19,GO:0048659,smooth muscle cell proliferation,19_GO:0008283 cell proliferation,-4,33,9.6,28133,162,16,3,19,9.8,6352|7432|9370,CCL5|VIP|ADIPOQ,-1.5,MyList
+Reactome Gene Sets,6,R-HSA-500792,GPCR ligand binding,,-3.9,15,7.3,28133,467,16,4,25,11,116|5179|6352|7432,ADCYAP1|PENK|CCL5|VIP,-1.4,MyList
+GO Biological Processes,19,GO:0001959,regulation of cytokine-mediated signaling pathway,19_GO:0023052 signaling,-3.9,30,9.2,28133,177,16,3,19,9.8,6352|9370|100133941,CCL5|ADIPOQ|CD24,-1.4,MyList
+GO Biological Processes,19,GO:0071407,cellular response to organic cyclic compound,19_GO:0050896 response to stimulus,-3.8,14,7.1,28133,492,16,4,25,11,116|5179|6352|9370,ADCYAP1|PENK|CCL5|ADIPOQ,-1.3,MyList
+GO Biological Processes,19,GO:0060759,regulation of response to cytokine stimulus,19_GO:0050896 response to stimulus,-3.8,28,8.9,28133,189,16,3,19,9.8,6352|9370|100133941,CCL5|ADIPOQ|CD24,-1.3,MyList
+GO Biological Processes,19,GO:0009636,response to toxic substance,19_GO:0050896 response to stimulus,-3.8,14,7,28133,506,16,4,25,11,116|5179|6352|9370,ADCYAP1|PENK|CCL5|ADIPOQ,-1.3,MyList
+GO Biological Processes,19,GO:0043902,positive regulation of multi-organism process,19_GO:0051704 multi-organism process,-3.8,27,8.7,28133,197,16,3,19,9.8,2208|6352|7432,FCER2|CCL5|VIP,-1.2,MyList
+GO Biological Processes,19,GO:0045860,positive regulation of protein kinase activity,19_GO:0048518 positive regulation of biological process,-3.7,13,6.8,28133,531,16,4,25,11,116|6352|9370|100133941,ADCYAP1|CCL5|ADIPOQ|CD24,-1.2,MyList
+GO Biological Processes,19,GO:0010817,regulation of hormone levels,19_GO:0065007 biological regulation,-3.7,13,6.7,28133,538,16,4,25,11,116|6352|7432|9370,ADCYAP1|CCL5|VIP|ADIPOQ,-1.2,MyList
+GO Biological Processes,19,GO:0071396,cellular response to lipid,19_GO:0050896 response to stimulus,-3.6,12,6.6,28133,565,16,4,25,11,116|4360|5179|6352,ADCYAP1|MRC1|PENK|CCL5,-1.1,MyList
+GO Biological Processes,19,GO:1903530,regulation of secretion by cell,19_GO:0051179 localization,-3.6,12,6.6,28133,565,16,4,25,11,116|6352|7432|9370,ADCYAP1|CCL5|VIP|ADIPOQ,-1.1,MyList
+GO Biological Processes,19,GO:0033002,muscle cell proliferation,19_GO:0008283 cell proliferation,-3.6,24,8.1,28133,222,16,3,19,9.8,6352|7432|9370,CCL5|VIP|ADIPOQ,-1.1,MyList
+GO Biological Processes,19,GO:0097305,response to alcohol,19_GO:0050896 response to stimulus,-3.5,23,7.9,28133,234,16,3,19,9.8,116|5179|9370,ADCYAP1|PENK|ADIPOQ,-1.1,MyList
+GO Biological Processes,19,GO:0033674,positive regulation of kinase activity,19_GO:0048518 positive regulation of biological process,-3.5,12,6.3,28133,604,16,4,25,11,116|6352|9370|100133941,ADCYAP1|CCL5|ADIPOQ|CD24,-1,MyList
+GO Biological Processes,19,GO:0030072,peptide hormone secretion,19_GO:0023052 signaling,-3.5,21,7.7,28133,247,16,3,19,9.8,116|6352|7432,ADCYAP1|CCL5|VIP,-1,MyList
+GO Biological Processes,19,GO:0051046,regulation of secretion,19_GO:0051179 localization,-3.5,11,6.2,28133,623,16,4,25,11,116|6352|7432|9370,ADCYAP1|CCL5|VIP|ADIPOQ,-1,MyList
+GO Biological Processes,19,GO:0006935,chemotaxis,19_GO:0040011 locomotion,-3.4,11,6.1,28133,644,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-0.95,MyList
+GO Biological Processes,19,GO:0042330,taxis,19_GO:0040011 locomotion,-3.4,11,6.1,28133,646,16,4,25,11,6352|6358|6359|6362,CCL5|CCL14|CCL15|CCL18,-0.95,MyList
+GO Biological Processes,19,GO:0098742,cell-cell adhesion via plasma-membrane adhesion molecules,19_GO:0022610 biological adhesion,-3.3,19,7.2,28133,275,16,3,19,9.8,5175|9370|57863,PECAM1|ADIPOQ|CADM3,-0.89,MyList
+GO Biological Processes,19,GO:0051347,positive regulation of transferase activity,19_GO:0065007 biological regulation,-3.3,10,5.9,28133,682,16,4,25,11,116|6352|9370|100133941,ADCYAP1|CCL5|ADIPOQ|CD24,-0.87,MyList
+GO Biological Processes,19,GO:0001822,kidney development,19_GO:0032502 developmental process,-3.3,19,7.1,28133,281,16,3,19,9.8,5175|9370|100133941,PECAM1|ADIPOQ|CD24,-0.87,MyList
+GO Biological Processes,19,GO:0072001,renal system development,19_GO:0032502 developmental process,-3.3,18,7,28133,289,16,3,19,9.8,5175|9370|100133941,PECAM1|ADIPOQ|CD24,-0.84,MyList
+GO Biological Processes,19,GO:0046677,response to antibiotic,19_GO:0050896 response to stimulus,-3.2,17,6.7,28133,312,16,3,19,9.8,116|5179|9370,ADCYAP1|PENK|ADIPOQ,-0.75,MyList
+GO Biological Processes,19,GO:0001655,urogenital system development,19_GO:0032502 developmental process,-3.1,16,6.6,28133,321,16,3,19,9.8,5175|9370|100133941,PECAM1|ADIPOQ|CD24,-0.72,MyList
+GO Biological Processes,19,GO:0032496,response to lipopolysaccharide,19_GO:0051704 multi-organism process,-3.1,16,6.6,28133,326,16,3,19,9.8,4360|5179|6352,MRC1|PENK|CCL5,-0.7,MyList
+GO Biological Processes,19,GO:0001666,response to hypoxia,19_GO:0050896 response to stimulus,-3,15,6.3,28133,348,16,3,19,9.8,5179|9370|100133941,PENK|ADIPOQ|CD24,-0.63,MyList
+GO Biological Processes,19,GO:0036293,response to decreased oxygen levels,19_GO:0050896 response to stimulus,-3,15,6.2,28133,360,16,3,19,9.8,5179|9370|100133941,PENK|ADIPOQ|CD24,-0.59,MyList
+GO Biological Processes,19,GO:0007159,leukocyte cell-cell adhesion,19_GO:0022610 biological adhesion,-3,14,6.2,28133,366,16,3,19,9.8,5175|6352|100133941,PECAM1|CCL5|CD24,-0.57,MyList
+GO Biological Processes,19,GO:0009306,protein secretion,19_GO:0051179 localization,-3,14,6.1,28133,370,16,3,19,9.8,116|6352|7432,ADCYAP1|CCL5|VIP,-0.56,MyList
+KEGG Pathway,24,hsa04080,Neuroactive ligand-receptor interaction,,-2.9,14,6.1,28133,373,16,3,19,9.8,116|5179|7432,ADCYAP1|PENK|VIP,-0.56,MyList
+GO Biological Processes,19,GO:0010959,regulation of metal ion transport,19_GO:0051179 localization,-2.9,14,6,28133,379,16,3,19,9.8,116|6352|7432,ADCYAP1|CCL5|VIP,-0.54,MyList
+GO Biological Processes,19,GO:0070482,response to oxygen levels,19_GO:0050896 response to stimulus,-2.9,14,6,28133,385,16,3,19,9.8,5179|9370|100133941,PENK|ADIPOQ|CD24,-0.53,MyList
+GO Biological Processes,19,GO:0002790,peptide secretion,19_GO:0051179 localization,-2.8,13,5.8,28133,404,16,3,19,9.8,116|6352|7432,ADCYAP1|CCL5|VIP,-0.47,MyList
+GO Biological Processes,19,GO:0043900,regulation of multi-organism process,19_GO:0051704 multi-organism process,-2.7,12,5.6,28133,437,16,3,19,9.8,2208|6352|7432,FCER2|CCL5|VIP,-0.38,MyList
+GO Biological Processes,19,GO:0022407,regulation of cell-cell adhesion,19_GO:0022610 biological adhesion,-2.7,12,5.5,28133,439,16,3,19,9.8,6352|9370|100133941,CCL5|ADIPOQ|CD24,-0.38,MyList
+GO Biological Processes,19,GO:0051051,negative regulation of transport,19_GO:0048519 negative regulation of biological process,-2.7,12,5.5,28133,449,16,3,19,9.8,116|7432|9370,ADCYAP1|VIP|ADIPOQ,-0.35,MyList
+GO Biological Processes,19,GO:0031667,response to nutrient levels,19_GO:0050896 response to stimulus,-2.6,11,5.2,28133,490,16,3,19,9.8,116|5179|9370,ADCYAP1|PENK|ADIPOQ,-0.25,MyList
+GO Biological Processes,19,GO:0009991,response to extracellular stimulus,19_GO:0050896 response to stimulus,-2.5,10,5,28133,515,16,3,19,9.8,116|5179|9370,ADCYAP1|PENK|ADIPOQ,-0.19,MyList
+GO Biological Processes,19,GO:0050727,regulation of inflammatory response,19_GO:0050896 response to stimulus,-2.5,10,5,28133,527,16,3,19,9.8,116|6352|9370,ADCYAP1|CCL5|ADIPOQ,-0.17,MyList
+GO Biological Processes,19,GO:0007610,behavior,19_GO:0007610 behavior,-2.5,9.7,4.9,28133,544,16,3,19,9.8,116|5179|7432,ADCYAP1|PENK|VIP,-0.13,MyList
+GO Biological Processes,19,GO:0090087,regulation of peptide transport,19_GO:0051179 localization,-2.4,9.5,4.8,28133,557,16,3,19,9.8,116|6352|9370,ADCYAP1|CCL5|ADIPOQ,-0.11,MyList
+GO Biological Processes,19,GO:0098916,anterograde trans-synaptic signaling,19_GO:0023052 signaling,-2.2,7.7,4.2,28133,684,16,3,19,9.8,116|5179|9370,ADCYAP1|PENK|ADIPOQ,0,MyList
+GO Biological Processes,19,GO:0007268,chemical synaptic transmission,19_GO:0023052 signaling,-2.2,7.7,4.2,28133,684,16,3,19,9.8,116|5179|9370,ADCYAP1|PENK|ADIPOQ,0,MyList
+GO Biological Processes,19,GO:0099537,trans-synaptic signaling,19_GO:0023052 signaling,-2.2,7.6,4.2,28133,691,16,3,19,9.8,116|5179|9370,ADCYAP1|PENK|ADIPOQ,0,MyList
+GO Biological Processes,19,GO:0043269,regulation of ion transport,19_GO:0051179 localization,-2.2,7.6,4.2,28133,696,16,3,19,9.8,116|6352|7432,ADCYAP1|CCL5|VIP,0,MyList
+GO Biological Processes,19,GO:0099536,synaptic signaling,19_GO:0023052 signaling,-2.2,7.5,4.2,28133,700,16,3,19,9.8,116|5179|9370,ADCYAP1|PENK|ADIPOQ,0,MyList
+Reactome Gene Sets,6,R-HSA-1280215,Cytokine Signaling in Immune system,,-2.2,7.5,4.2,28133,707,16,3,19,9.8,2208|6352|8771,FCER2|CCL5|TNFRSF6B,0,MyList
+GO Biological Processes,19,GO:0030155,regulation of cell adhesion,19_GO:0022610 biological adhesion,-2.1,7.2,4.1,28133,734,16,3,19,9.8,6352|9370|100133941,CCL5|ADIPOQ|CD24,0,MyList
+GO Biological Processes,19,GO:0008285,negative regulation of cell proliferation,19_GO:0008283 cell proliferation,-2.1,7,4,28133,753,16,3,19,9.8,116|7432|9370,ADCYAP1|VIP|ADIPOQ,0,MyList
+GO Biological Processes,19,GO:0030855,epithelial cell differentiation,19_GO:0032502 developmental process,-2,6.8,3.9,28133,781,16,3,19,9.8,5175|9370|100133941,PECAM1|ADIPOQ|CD24,0,MyList
+GO Biological Processes,19,GO:0001817,regulation of cytokine production,19_GO:0032501 multicellular organismal process,-2,6.6,3.8,28133,795,16,3,19,9.8,116|9370|100133941,ADCYAP1|ADIPOQ|CD24,0,MyList

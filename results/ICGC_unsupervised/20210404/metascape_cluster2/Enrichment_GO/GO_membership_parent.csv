@@ -1,0 +1,17 @@
+_MEMBER_MyList,_LogP_MyList,GO,Description,_PATTERN_,_RANK_,CHILD_GO_MyList
+1,-10.848489639865692,GO:0040011,locomotion,M1,1,GO:0006935 chemotaxis
+1,-8.846833435374453,GO:0023052,signaling,M1,1,GO:0070098 chemokine-mediated signaling pathway
+1,-8.589523562158057,GO:0050896,response to stimulus,M1,1,GO:1990868 response to chemokine
+1,-6.475185986950656,GO:0032502,developmental process,M1,1,GO:0001568 blood vessel development
+1,-6.152922910158375,GO:0048518,positive regulation of biological process,M1,1,GO:0051272 positive regulation of cellular component movement
+1,-5.98279768543543,GO:0050789,regulation of biological process,M1,1,GO:0052548 regulation of endopeptidase activity
+1,-5.079954822853438,GO:0002376,immune system process,M1,1,GO:0006959 humoral immune response
+1,-4.397458124393532,GO:0071840,cellular component organization or biogenesis,M1,1,GO:0034332 adherens junction organization
+1,-4.391434716205572,GO:0008283,cell proliferation,M1,1,GO:0008285 negative regulation of cell proliferation
+1,-4.34863683324989,GO:0065007,biological regulation,M1,1,GO:0007204 positive regulation of cytosolic calcium ion concentration
+1,-3.769591317126031,GO:0022414,reproductive process,M1,1,GO:0003006 developmental process involved in reproduction
+1,-3.5758341173892405,GO:0048519,negative regulation of biological process,M1,1,GO:0010951 negative regulation of endopeptidase activity
+1,-3.385829916541135,GO:0022610,biological adhesion,M1,1,GO:0098742 cell-cell adhesion via plasma-membrane adhesion molecules
+1,-3.0505499264315303,GO:0008152,metabolic process,M1,1,GO:0016485 protein processing
+1,-2.9447557477246864,GO:0032501,multicellular organismal process,M1,1,GO:0090132 epithelium migration
+1,-2.045388979712174,GO:0051179,localization,M1,1,GO:0006898 receptor-mediated endocytosis

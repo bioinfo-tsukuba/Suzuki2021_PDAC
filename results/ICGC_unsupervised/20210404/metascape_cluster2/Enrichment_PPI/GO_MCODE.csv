@@ -1,0 +1,99 @@
+Name,Category,CategoryID,GO,Description,PARENT_GO,LogP,Enrichment,Z-score,#TotalGeneInLibrary,#GeneInGO,#GeneInHitList,#GeneInGOAndHitList,%InGO,STDV %InGO,GeneID,Hits,Log(q-value)
+MyList,Reactome Gene Sets,6,R-HSA-373076,Class A/1 (Rhodopsin-like receptors),,-9.5,37,16,28133,335,16,7,44,12,1235|2532|2798|3576|57007|256933|257313,CCR6|ACKR1|GNRHR|CXCL8|ACKR3|NPB|UTS2B,-5.1
+MyList,Reactome Gene Sets,6,R-HSA-375276,Peptide ligand-binding receptors,,-9,52,17,28133,201,16,6,38,12,1235|2532|3576|57007|256933|257313,CCR6|ACKR1|CXCL8|ACKR3|NPB|UTS2B,-5
+MyList,Reactome Gene Sets,6,R-HSA-500792,GPCR ligand binding,,-8.5,26,13,28133,467,16,7,44,12,1235|2532|2798|3576|57007|256933|257313,CCR6|ACKR1|GNRHR|CXCL8|ACKR3|NPB|UTS2B,-4.8
+MyList,GO Biological Processes,19,GO:0070098,chemokine-mediated signaling pathway,19_GO:0023052 signaling,-6.8,80,18,28133,88,16,4,25,11,1235|2532|3576|57007,CCR6|ACKR1|CXCL8|ACKR3,-3.7
+MyList,GO Biological Processes,19,GO:1990868,response to chemokine,19_GO:0050896 response to stimulus,-6.6,73,17,28133,97,16,4,25,11,1235|2532|3576|57007,CCR6|ACKR1|CXCL8|ACKR3,-3.6
+MyList,GO Biological Processes,19,GO:1990869,cellular response to chemokine,19_GO:0050896 response to stimulus,-6.6,73,17,28133,97,16,4,25,11,1235|2532|3576|57007,CCR6|ACKR1|CXCL8|ACKR3,-3.6
+MyList,KEGG Pathway,24,ko04060,Cytokine-cytokine receptor interaction,,-6.5,33,12,28133,270,16,5,31,12,1235|3576|56832|57007|163702,CCR6|CXCL8|IFNK|ACKR3|IFNLR1,-3.5
+MyList,KEGG Pathway,24,hsa04060,Cytokine-cytokine receptor interaction,,-6.1,27,11,28133,328,16,5,31,12,1235|3576|56832|57007|163702,CCR6|CXCL8|IFNK|ACKR3|IFNLR1,-3.1
+MyList,GO Biological Processes,19,GO:0044344,cellular response to fibroblast growth factor stimulus,19_GO:0050896 response to stimulus,-6,50,14,28133,142,16,4,25,11,1490|2250|3576|27006,CCN2|FGF5|CXCL8|FGF22,-3
+MyList,GO Biological Processes,19,GO:0071774,response to fibroblast growth factor,19_GO:0050896 response to stimulus,-5.9,48,14,28133,148,16,4,25,11,1490|2250|3576|27006,CCN2|FGF5|CXCL8|FGF22,-3
+MyList,Reactome Gene Sets,6,R-HSA-380108,Chemokine receptors bind chemokines,,-5.3,89,16,28133,59,16,3,19,9.8,1235|3576|57007,CCR6|CXCL8|ACKR3,-2.5
+MyList,WikiPathways,27,WP24,Peptide GPCRs,,-5,70,14,28133,75,16,3,19,9.8,1235|2532|2798,CCR6|ACKR1|GNRHR,-2.2
+MyList,GO Biological Processes,19,GO:0001525,angiogenesis,19_GO:0032502 developmental process,-4.8,15,8.2,28133,588,16,5,31,12,506|1490|3576|4856|57007,ATP5F1B|CCN2|CXCL8|CCN3|ACKR3,-2.1
+MyList,GO Biological Processes,19,GO:0060326,cell chemotaxis,19_GO:0040011 locomotion,-4.6,23,9.2,28133,307,16,4,25,11,1235|3576|4856|57007,CCR6|CXCL8|CCN3|ACKR3,-1.9
+MyList,GO Biological Processes,19,GO:0048514,blood vessel morphogenesis,19_GO:0032502 developmental process,-4.6,13,7.5,28133,677,16,5,31,12,506|1490|3576|4856|57007,ATP5F1B|CCN2|CXCL8|CCN3|ACKR3,-1.8
+MyList,GO Biological Processes,19,GO:0008543,fibroblast growth factor receptor signaling pathway,19_GO:0023052 signaling,-4.5,47,12,28133,113,16,3,19,9.8,1490|2250|27006,CCN2|FGF5|FGF22,-1.8
+MyList,Canonical Pathways,11,M5883,NABA SECRETED FACTORS,,-4.5,21,8.7,28133,343,16,4,25,11,2250|3576|27006|56832,FGF5|CXCL8|FGF22|IFNK,-1.8
+MyList,GO Biological Processes,19,GO:0002688,regulation of leukocyte chemotaxis,19_GO:0040011 locomotion,-4.4,44,11,28133,119,16,3,19,9.8,1235|3576|4856,CCR6|CXCL8|CCN3,-1.8
+MyList,GO Biological Processes,19,GO:0008285,negative regulation of cell proliferation,19_GO:0008283 cell proliferation,-4.3,12,7.1,28133,753,16,5,31,12,3576|4856|56832|57007|163702,CXCL8|CCN3|IFNK|ACKR3|IFNLR1,-1.7
+MyList,GO Biological Processes,19,GO:0001568,blood vessel development,19_GO:0032502 developmental process,-4.3,12,7.1,28133,754,16,5,31,12,506|1490|3576|4856|57007,ATP5F1B|CCN2|CXCL8|CCN3|ACKR3,-1.7
+MyList,GO Biological Processes,19,GO:0001944,vasculature development,19_GO:0032502 developmental process,-4.2,11,6.9,28133,786,16,5,31,12,506|1490|3576|4856|57007,ATP5F1B|CCN2|CXCL8|CCN3|ACKR3,-1.7
+MyList,GO Biological Processes,19,GO:0072358,cardiovascular system development,19_GO:0032502 developmental process,-4.2,11,6.9,28133,786,16,5,31,12,506|1490|3576|4856|57007,ATP5F1B|CCN2|CXCL8|CCN3|ACKR3,-1.7
+MyList,Reactome Gene Sets,6,R-HSA-418594,G alpha (i) signalling events,,-4.2,17,7.9,28133,405,16,4,25,11,1235|3576|57007|256933,CCR6|CXCL8|ACKR3|NPB,-1.6
+MyList,GO Biological Processes,19,GO:0007286,spermatid development,19_GO:0022414 reproductive process,-4.1,34,9.8,28133,155,16,3,19,9.8,1235|5819|25945,CCR6|NECTIN2|NECTIN3,-1.5
+MyList,GO Biological Processes,19,GO:0048515,spermatid differentiation,19_GO:0022414 reproductive process,-4,33,9.6,28133,161,16,3,19,9.8,1235|5819|25945,CCR6|NECTIN2|NECTIN3,-1.5
+MyList,GO Biological Processes,19,GO:0002685,regulation of leukocyte migration,19_GO:0040011 locomotion,-3.7,26,8.5,28133,206,16,3,19,9.8,1235|3576|4856,CCR6|CXCL8|CCN3,-1.1
+MyList,GO Biological Processes,19,GO:0019722,calcium-mediated signaling,19_GO:0023052 signaling,-3.7,25,8.3,28133,212,16,3,19,9.8,1235|3576|57007,CCR6|CXCL8|ACKR3,-1.1
+MyList,GO Biological Processes,19,GO:0030335,positive regulation of cell migration,19_GO:0040011 locomotion,-3.6,13,6.6,28133,555,16,4,25,11,506|1235|3576|57007,ATP5F1B|CCR6|CXCL8|ACKR3,-1.1
+MyList,GO Biological Processes,19,GO:0050920,regulation of chemotaxis,19_GO:0040011 locomotion,-3.6,24,8.1,28133,224,16,3,19,9.8,1235|3576|4856,CCR6|CXCL8|CCN3,-1.1
+MyList,GO Biological Processes,19,GO:2000147,positive regulation of cell motility,19_GO:0040011 locomotion,-3.6,12,6.5,28133,579,16,4,25,11,506|1235|3576|57007,ATP5F1B|CCR6|CXCL8|ACKR3,-1.1
+MyList,GO Biological Processes,19,GO:0030595,leukocyte chemotaxis,19_GO:0040011 locomotion,-3.6,23,8,28133,227,16,3,19,9.8,1235|3576|4856,CCR6|CXCL8|CCN3,-1.1
+MyList,GO Biological Processes,19,GO:0051272,positive regulation of cellular component movement,19_GO:0048518 positive regulation of biological process,-3.5,12,6.4,28133,597,16,4,25,11,506|1235|3576|57007,ATP5F1B|CCR6|CXCL8|ACKR3,-1
+MyList,GO Biological Processes,19,GO:0040017,positive regulation of locomotion,19_GO:0040011 locomotion,-3.5,12,6.3,28133,607,16,4,25,11,506|1235|3576|57007,ATP5F1B|CCR6|CXCL8|ACKR3,-0.99
+MyList,GO Biological Processes,19,GO:0006935,chemotaxis,19_GO:0040011 locomotion,-3.4,11,6.1,28133,644,16,4,25,11,1235|3576|4856|57007,CCR6|CXCL8|CCN3|ACKR3,-0.9
+MyList,GO Biological Processes,19,GO:0042330,taxis,19_GO:0040011 locomotion,-3.4,11,6.1,28133,646,16,4,25,11,1235|3576|4856|57007,CCR6|CXCL8|CCN3|ACKR3,-0.9
+MyList,GO Biological Processes,19,GO:0007281,germ cell development,19_GO:0022414 reproductive process,-3.4,20,7.4,28133,261,16,3,19,9.8,1235|5819|25945,CCR6|NECTIN2|NECTIN3,-0.9
+MyList,GO Biological Processes,19,GO:0071363,cellular response to growth factor stimulus,19_GO:0050896 response to stimulus,-3.2,9.9,5.7,28133,707,16,4,25,11,1490|2250|3576|27006,CCN2|FGF5|CXCL8|FGF22,-0.76
+MyList,GO Biological Processes,19,GO:0070848,response to growth factor,19_GO:0050896 response to stimulus,-3.2,9.6,5.6,28133,736,16,4,25,11,1490|2250|3576|27006,CCN2|FGF5|CXCL8|FGF22,-0.7
+MyList,Canonical Pathways,11,M5885,NABA MATRISOME ASSOCIATED,,-3.1,9.4,5.5,28133,751,16,4,25,11,2250|3576|27006|56832,FGF5|CXCL8|FGF22|IFNK,-0.68
+MyList,GO Biological Processes,19,GO:0022412,cellular process involved in reproduction in multicellular organism,19_GO:0022414 reproductive process,-3,15,6.3,28133,354,16,3,19,9.8,1235|5819|25945,CCR6|NECTIN2|NECTIN3,-0.54
+MyList,GO Biological Processes,19,GO:0010631,epithelial cell migration,19_GO:0040011 locomotion,-3,15,6.2,28133,358,16,3,19,9.8,506|1235|4856,ATP5F1B|CCR6|CCN3,-0.53
+MyList,GO Biological Processes,19,GO:0090132,epithelium migration,19_GO:0032501 multicellular organismal process,-3,15,6.2,28133,361,16,3,19,9.8,506|1235|4856,ATP5F1B|CCR6|CCN3,-0.53
+MyList,GO Biological Processes,19,GO:0090130,tissue migration,19_GO:0032501 multicellular organismal process,-3,14,6.2,28133,366,16,3,19,9.8,506|1235|4856,ATP5F1B|CCR6|CCN3,-0.52
+MyList,GO Biological Processes,19,GO:0006959,humoral immune response,19_GO:0002376 immune system process,-2.9,14,6,28133,382,16,3,19,9.8,1235|3576|56832,CCR6|CXCL8|IFNK,-0.47
+MyList,WikiPathways,27,WP3888,VEGFA-VEGFR2 Signaling Pathway,,-2.8,12,5.6,28133,435,16,3,19,9.8,1490|3576|57007,CCN2|CXCL8|ACKR3,-0.31
+MyList,GO Biological Processes,19,GO:0043900,regulation of multi-organism process,19_GO:0051704 multi-organism process,-2.7,12,5.6,28133,437,16,3,19,9.8,3576|5819|163702,CXCL8|NECTIN2|IFNLR1,-0.31
+MyList,GO Biological Processes,19,GO:0019932,second-messenger-mediated signaling,19_GO:0023052 signaling,-2.7,12,5.5,28133,444,16,3,19,9.8,1235|3576|57007,CCR6|CXCL8|ACKR3,-0.3
+MyList,GO Biological Processes,19,GO:0001667,ameboidal-type cell migration,19_GO:0040011 locomotion,-2.6,11,5.3,28133,474,16,3,19,9.8,506|1235|4856,ATP5F1B|CCR6|CCN3,-0.22
+MyList,GO Biological Processes,19,GO:0050900,leukocyte migration,19_GO:0040011 locomotion,-2.6,10,5.1,28133,511,16,3,19,9.8,1235|3576|4856,CCR6|CXCL8|CCN3,-0.13
+MyList,GO Biological Processes,19,GO:0007283,spermatogenesis,19_GO:0022414 reproductive process,-2.5,9.6,4.9,28133,548,16,3,19,9.8,1235|5819|25945,CCR6|NECTIN2|NECTIN3,-0.054
+MyList,GO Biological Processes,19,GO:0048232,male gamete generation,19_GO:0022414 reproductive process,-2.4,9.3,4.8,28133,567,16,3,19,9.8,1235|5819|25945,CCR6|NECTIN2|NECTIN3,-0.018
+MyList,KEGG Pathway,24,hsa05200,Pathways in cancer,,-2.4,9.2,4.7,28133,576,16,3,19,9.8,2250|3576|27006,FGF5|CXCL8|FGF22,-0.0032
+MyList,GO Biological Processes,19,GO:0030003,cellular cation homeostasis,19_GO:0065007 biological regulation,-2.3,8.1,4.4,28133,653,16,3,19,9.8,506|1235|57007,ATP5F1B|CCR6|ACKR3,0
+MyList,GO Biological Processes,19,GO:0003006,developmental process involved in reproduction,19_GO:0022414 reproductive process,-2.2,8,4.3,28133,657,16,3,19,9.8,1235|5819|25945,CCR6|NECTIN2|NECTIN3,0
+MyList,GO Biological Processes,19,GO:0006873,cellular ion homeostasis,19_GO:0065007 biological regulation,-2.2,7.9,4.3,28133,666,16,3,19,9.8,506|1235|57007,ATP5F1B|CCR6|ACKR3,0
+MyList,GO Biological Processes,19,GO:0007276,gamete generation,19_GO:0022414 reproductive process,-2.2,7.6,4.2,28133,695,16,3,19,9.8,1235|5819|25945,CCR6|NECTIN2|NECTIN3,0
+MyList,GO Biological Processes,19,GO:0002250,adaptive immune response,19_GO:0002376 immune system process,-2.1,7.4,4.1,28133,713,16,3,19,9.8,1235|5819|56832,CCR6|NECTIN2|IFNK,0
+MyList,GO Biological Processes,19,GO:0055080,cation homeostasis,19_GO:0065007 biological regulation,-2.1,7.2,4.1,28133,728,16,3,19,9.8,506|1235|57007,ATP5F1B|CCR6|ACKR3,0
+MyList,GO Biological Processes,19,GO:0098771,inorganic ion homeostasis,19_GO:0065007 biological regulation,-2.1,7.1,4,28133,738,16,3,19,9.8,506|1235|57007,ATP5F1B|CCR6|ACKR3,0
+MyList,GO Biological Processes,19,GO:0007169,transmembrane receptor protein tyrosine kinase signaling pathway,19_GO:0023052 signaling,-2.1,7.1,4,28133,741,16,3,19,9.8,1490|2250|27006,CCN2|FGF5|FGF22,0
+MyList_MCODE_ALL,Reactome Gene Sets,6,R-HSA-375276,Peptide ligand-binding receptors,,-8.6,1.4e+02,24,28133,201,4,4,1e+02,22,1235|3576|57007|256933,CCR6|CXCL8|ACKR3|NPB,-4.8
+MyList_MCODE_ALL,Reactome Gene Sets,6,R-HSA-373076,Class A/1 (Rhodopsin-like receptors),,-7.7,84,18,28133,335,4,4,1e+02,22,1235|3576|57007|256933,CCR6|CXCL8|ACKR3|NPB,-4.2
+MyList_MCODE_ALL,Reactome Gene Sets,6,R-HSA-380108,Chemokine receptors bind chemokines,,-7.5,3.6e+02,33,28133,59,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-4.1
+MyList_MCODE_ALL,Reactome Gene Sets,6,R-HSA-418594,G alpha (i) signalling events,,-7.4,69,17,28133,405,4,4,1e+02,22,1235|3576|57007|256933,CCR6|CXCL8|ACKR3|NPB,-4.1
+MyList_MCODE_ALL,Reactome Gene Sets,6,R-HSA-500792,GPCR ligand binding,,-7.1,60,15,28133,467,4,4,1e+02,22,1235|3576|57007|256933,CCR6|CXCL8|ACKR3|NPB,-3.9
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0070098,chemokine-mediated signaling pathway,19_GO:0023052 signaling,-6.9,2.4e+02,27,28133,88,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-3.7
+MyList_MCODE_ALL,GO Biological Processes,19,GO:1990868,response to chemokine,19_GO:0050896 response to stimulus,-6.8,2.2e+02,25,28133,97,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-3.7
+MyList_MCODE_ALL,GO Biological Processes,19,GO:1990869,cellular response to chemokine,19_GO:0050896 response to stimulus,-6.8,2.2e+02,25,28133,97,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-3.7
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0019722,calcium-mediated signaling,19_GO:0023052 signaling,-5.8,1e+02,17,28133,212,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-2.9
+MyList_MCODE_ALL,KEGG Pathway,24,ko04060,Cytokine-cytokine receptor interaction,,-5.5,78,15,28133,270,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-2.6
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0060326,cell chemotaxis,19_GO:0040011 locomotion,-5.3,69,14,28133,307,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-2.5
+MyList_MCODE_ALL,KEGG Pathway,24,hsa04060,Cytokine-cytokine receptor interaction,,-5.2,64,14,28133,328,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-2.4
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0019932,second-messenger-mediated signaling,19_GO:0023052 signaling,-4.8,48,12,28133,444,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-2
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0030335,positive regulation of cell migration,19_GO:0040011 locomotion,-4.5,38,11,28133,555,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-1.8
+MyList_MCODE_ALL,GO Biological Processes,19,GO:2000147,positive regulation of cell motility,19_GO:0040011 locomotion,-4.5,36,10,28133,579,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-1.8
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0051272,positive regulation of cellular component movement,19_GO:0048518 positive regulation of biological process,-4.4,35,10,28133,597,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-1.8
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0040017,positive regulation of locomotion,19_GO:0040011 locomotion,-4.4,35,10,28133,607,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-1.8
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0006935,chemotaxis,19_GO:0040011 locomotion,-4.3,33,9.7,28133,644,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-1.7
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0042330,taxis,19_GO:0040011 locomotion,-4.3,33,9.7,28133,646,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-1.7
+MyList_SUB1_MCODE_1,Reactome Gene Sets,6,R-HSA-375276,Peptide ligand-binding receptors,,-8.6,1.4e+02,24,28133,201,4,4,1e+02,22,1235|3576|57007|256933,CCR6|CXCL8|ACKR3|NPB,-4.8
+MyList_SUB1_MCODE_1,Reactome Gene Sets,6,R-HSA-373076,Class A/1 (Rhodopsin-like receptors),,-7.7,84,18,28133,335,4,4,1e+02,22,1235|3576|57007|256933,CCR6|CXCL8|ACKR3|NPB,-4.2
+MyList_SUB1_MCODE_1,Reactome Gene Sets,6,R-HSA-380108,Chemokine receptors bind chemokines,,-7.5,3.6e+02,33,28133,59,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-4.1
+MyList_SUB1_MCODE_1,Reactome Gene Sets,6,R-HSA-418594,G alpha (i) signalling events,,-7.4,69,17,28133,405,4,4,1e+02,22,1235|3576|57007|256933,CCR6|CXCL8|ACKR3|NPB,-4.1
+MyList_SUB1_MCODE_1,Reactome Gene Sets,6,R-HSA-500792,GPCR ligand binding,,-7.1,60,15,28133,467,4,4,1e+02,22,1235|3576|57007|256933,CCR6|CXCL8|ACKR3|NPB,-3.9
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0070098,chemokine-mediated signaling pathway,19_GO:0023052 signaling,-6.9,2.4e+02,27,28133,88,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-3.7
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:1990869,cellular response to chemokine,19_GO:0050896 response to stimulus,-6.8,2.2e+02,25,28133,97,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-3.7
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:1990868,response to chemokine,19_GO:0050896 response to stimulus,-6.8,2.2e+02,25,28133,97,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-3.7
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0019722,calcium-mediated signaling,19_GO:0023052 signaling,-5.8,1e+02,17,28133,212,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-2.9
+MyList_SUB1_MCODE_1,KEGG Pathway,24,ko04060,Cytokine-cytokine receptor interaction,,-5.5,78,15,28133,270,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-2.6
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0060326,cell chemotaxis,19_GO:0040011 locomotion,-5.3,69,14,28133,307,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-2.5
+MyList_SUB1_MCODE_1,KEGG Pathway,24,hsa04060,Cytokine-cytokine receptor interaction,,-5.2,64,14,28133,328,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-2.4
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0019932,second-messenger-mediated signaling,19_GO:0023052 signaling,-4.8,48,12,28133,444,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-2
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0030335,positive regulation of cell migration,19_GO:0040011 locomotion,-4.5,38,11,28133,555,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-1.8
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:2000147,positive regulation of cell motility,19_GO:0040011 locomotion,-4.5,36,10,28133,579,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-1.8
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0051272,positive regulation of cellular component movement,19_GO:0048518 positive regulation of biological process,-4.4,35,10,28133,597,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-1.8
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0040017,positive regulation of locomotion,19_GO:0040011 locomotion,-4.4,35,10,28133,607,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-1.8
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0006935,chemotaxis,19_GO:0040011 locomotion,-4.3,33,9.7,28133,644,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-1.7
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0042330,taxis,19_GO:0040011 locomotion,-4.3,33,9.7,28133,646,4,3,75,22,1235|3576|57007,CCR6|CXCL8|ACKR3,-1.7

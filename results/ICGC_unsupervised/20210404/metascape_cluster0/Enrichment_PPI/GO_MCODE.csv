@@ -1,0 +1,89 @@
+Name,Category,CategoryID,GO,Description,PARENT_GO,LogP,Enrichment,Z-score,#TotalGeneInLibrary,#GeneInGO,#GeneInHitList,#GeneInGOAndHitList,%InGO,STDV %InGO,GeneID,Hits,Log(q-value)
+MyList,Reactome Gene Sets,6,R-HSA-420597,Nectin/Necl  trans heterodimerization,,-12,1.5e+03,76,28133,7,11,4,36,15,5818|5819|25945|81607,NECTIN1|NECTIN2|NECTIN3|NECTIN4,-9.1
+MyList,Reactome Gene Sets,6,R-HSA-418990,Adherens junctions interactions,,-12,3.9e+02,44,28133,33,11,5,45,15,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-8.9
+MyList,Reactome Gene Sets,6,R-HSA-421270,Cell-cell junction organization,,-11,2e+02,31,28133,64,11,5,45,15,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-7.6
+MyList,KEGG Pathway,24,ko04520,Adherens junction,,-10,1.8e+02,30,28133,72,11,5,45,15,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-7.3
+MyList,KEGG Pathway,24,hsa04520,Adherens junction,,-10,1.6e+02,28,28133,81,11,5,45,15,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-7.1
+MyList,Reactome Gene Sets,6,R-HSA-446728,Cell junction organization,,-9.8,1.4e+02,26,28133,91,11,5,45,15,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-6.9
+MyList,Canonical Pathways,11,M72,PID NECTIN PATHWAY,,-9.5,3.4e+02,37,28133,30,11,4,36,15,4301|5818|5819|25945,AFDN|NECTIN1|NECTIN2|NECTIN3,-6.5
+MyList,Reactome Gene Sets,6,R-HSA-1500931,Cell-Cell communication,,-9.1,99,22,28133,129,11,5,45,15,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-6.2
+MyList,GO Biological Processes,19,GO:0034332,adherens junction organization,19_GO:0071840 cellular component organization or biogenesis,-8.7,85,20,28133,150,11,5,45,15,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-5.8
+MyList,GO Biological Processes,19,GO:0034330,cell junction organization,19_GO:0071840 cellular component organization or biogenesis,-7.1,40,14,28133,317,11,5,45,15,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-4.3
+MyList,GO Biological Processes,19,GO:0044409,entry into host,19_GO:0051704 multi-organism process,-6.6,66,16,28133,154,11,4,36,15,3576|5818|5819|81607,CXCL8|NECTIN1|NECTIN2|NECTIN4,-3.8
+MyList,GO Biological Processes,19,GO:0051806,entry into cell of other organism involved in symbiotic interaction,19_GO:0051704 multi-organism process,-6.6,66,16,28133,154,11,4,36,15,3576|5818|5819|81607,CXCL8|NECTIN1|NECTIN2|NECTIN4,-3.8
+MyList,GO Biological Processes,19,GO:0030260,entry into host cell,19_GO:0051704 multi-organism process,-6.6,66,16,28133,154,11,4,36,15,3576|5818|5819|81607,CXCL8|NECTIN1|NECTIN2|NECTIN4,-3.8
+MyList,GO Biological Processes,19,GO:0051828,entry into other organism involved in symbiotic interaction,19_GO:0051704 multi-organism process,-6.5,66,16,28133,155,11,4,36,15,3576|5818|5819|81607,CXCL8|NECTIN1|NECTIN2|NECTIN4,-3.8
+MyList,GO Biological Processes,19,GO:0007156,homophilic cell adhesion via plasma membrane adhesion molecules,19_GO:0022610 biological adhesion,-6.4,61,15,28133,169,11,4,36,15,5818|5819|25945|81607,NECTIN1|NECTIN2|NECTIN3|NECTIN4,-3.7
+MyList,GO Biological Processes,19,GO:0007157,heterophilic cell-cell adhesion via plasma membrane cell adhesion molecules,19_GO:0022610 biological adhesion,-6.1,1.6e+02,22,28133,47,11,3,27,13,5818|25945|81607,NECTIN1|NECTIN3|NECTIN4,-3.4
+MyList,GO Biological Processes,19,GO:0051701,interaction with host,19_GO:0051704 multi-organism process,-5.9,46,13,28133,224,11,4,36,15,3576|5818|5819|81607,CXCL8|NECTIN1|NECTIN2|NECTIN4,-3.2
+MyList,GO Biological Processes,19,GO:0098742,cell-cell adhesion via plasma-membrane adhesion molecules,19_GO:0022610 biological adhesion,-5.6,37,12,28133,275,11,4,36,15,5818|5819|25945|81607,NECTIN1|NECTIN2|NECTIN3|NECTIN4,-3
+MyList,GO Biological Processes,19,GO:0030155,regulation of cell adhesion,19_GO:0022610 biological adhesion,-5.3,17,8.9,28133,734,11,5,45,15,506|3491|3576|4241|4301,ATP5F1B|CCN1|CXCL8|MELTF|AFDN,-2.7
+MyList,GO Biological Processes,19,GO:0019058,viral life cycle,19_GO:0051704 multi-organism process,-5.1,29,11,28133,349,11,4,36,15,3576|5818|5819|81607,CXCL8|NECTIN1|NECTIN2|NECTIN4,-2.6
+MyList,WikiPathways,27,WP3888,VEGFA-VEGFR2 Signaling Pathway,,-4.8,24,9.4,28133,435,11,4,36,15,3491|3576|4301|57007,CCN1|CXCL8|AFDN|ACKR3,-2.2
+MyList,GO Biological Processes,19,GO:0046718,viral entry into host cell,19_GO:0051704 multi-organism process,-4.7,54,13,28133,141,11,3,27,13,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-2.2
+MyList,KEGG Pathway,24,ko04514,Cell adhesion molecules (CAMs),,-4.7,53,12,28133,144,11,3,27,13,5818|5819|25945,NECTIN1|NECTIN2|NECTIN3,-2.1
+MyList,KEGG Pathway,24,hsa04514,Cell adhesion molecules,,-4.6,50,12,28133,153,11,3,27,13,5818|5819|25945,NECTIN1|NECTIN2|NECTIN3,-2.1
+MyList,GO Biological Processes,19,GO:0030335,positive regulation of cell migration,19_GO:0040011 locomotion,-4.4,18,8.2,28133,555,11,4,36,15,506|3491|3576|57007,ATP5F1B|CCN1|CXCL8|ACKR3,-1.8
+MyList,GO Biological Processes,19,GO:2000147,positive regulation of cell motility,19_GO:0040011 locomotion,-4.3,18,8,28133,579,11,4,36,15,506|3491|3576|57007,ATP5F1B|CCN1|CXCL8|ACKR3,-1.8
+MyList,GO Biological Processes,19,GO:0001525,angiogenesis,19_GO:0032502 developmental process,-4.3,17,7.9,28133,588,11,4,36,15,506|3491|3576|57007,ATP5F1B|CCN1|CXCL8|ACKR3,-1.7
+MyList,GO Biological Processes,19,GO:0051272,positive regulation of cellular component movement,19_GO:0048518 positive regulation of biological process,-4.2,17,7.9,28133,597,11,4,36,15,506|3491|3576|57007,ATP5F1B|CCN1|CXCL8|ACKR3,-1.7
+MyList,GO Biological Processes,19,GO:0040017,positive regulation of locomotion,19_GO:0040011 locomotion,-4.2,17,7.8,28133,607,11,4,36,15,506|3491|3576|57007,ATP5F1B|CCN1|CXCL8|ACKR3,-1.7
+MyList,GO Biological Processes,19,GO:0006935,chemotaxis,19_GO:0040011 locomotion,-4.1,16,7.6,28133,644,11,4,36,15,3491|3576|5818|57007,CCN1|CXCL8|NECTIN1|ACKR3,-1.6
+MyList,GO Biological Processes,19,GO:0042330,taxis,19_GO:0040011 locomotion,-4.1,16,7.5,28133,646,11,4,36,15,3491|3576|5818|57007,CCN1|CXCL8|NECTIN1|ACKR3,-1.6
+MyList,GO Biological Processes,19,GO:0048514,blood vessel morphogenesis,19_GO:0032502 developmental process,-4,15,7.4,28133,677,11,4,36,15,506|3491|3576|57007,ATP5F1B|CCN1|CXCL8|ACKR3,-1.5
+MyList,GO Biological Processes,19,GO:0001568,blood vessel development,19_GO:0032502 developmental process,-3.8,14,6.9,28133,754,11,4,36,15,506|3491|3576|57007,ATP5F1B|CCN1|CXCL8|ACKR3,-1.4
+MyList,GO Biological Processes,19,GO:0001944,vasculature development,19_GO:0032502 developmental process,-3.8,13,6.8,28133,786,11,4,36,15,506|3491|3576|57007,ATP5F1B|CCN1|CXCL8|ACKR3,-1.3
+MyList,GO Biological Processes,19,GO:0072358,cardiovascular system development,19_GO:0032502 developmental process,-3.8,13,6.8,28133,786,11,4,36,15,506|3491|3576|57007,ATP5F1B|CCN1|CXCL8|ACKR3,-1.3
+MyList,GO Biological Processes,19,GO:0090150,establishment of protein localization to membrane,19_GO:0051179 localization,-3.5,22,7.7,28133,356,11,3,27,13,4301|7917|25945,AFDN|BAG6|NECTIN3,-1.1
+MyList,GO Biological Processes,19,GO:0045862,positive regulation of proteolysis,19_GO:0048518 positive regulation of biological process,-3.4,20,7.5,28133,378,11,3,27,13,3491|4241|7917,CCN1|MELTF|BAG6,-0.99
+MyList,GO Biological Processes,19,GO:0007283,spermatogenesis,19_GO:0022414 reproductive process,-3,14,6.1,28133,548,11,3,27,13,5819|7917|25945,NECTIN2|BAG6|NECTIN3,-0.52
+MyList,GO Biological Processes,19,GO:0048232,male gamete generation,19_GO:0022414 reproductive process,-2.9,14,6,28133,567,11,3,27,13,5819|7917|25945,NECTIN2|BAG6|NECTIN3,-0.49
+MyList,GO Biological Processes,19,GO:0003006,developmental process involved in reproduction,19_GO:0022414 reproductive process,-2.7,12,5.5,28133,657,11,3,27,13,3491|5819|25945,CCN1|NECTIN2|NECTIN3,-0.31
+MyList,GO Biological Processes,19,GO:0072657,protein localization to membrane,19_GO:0051179 localization,-2.7,12,5.5,28133,658,11,3,27,13,4301|7917|25945,AFDN|BAG6|NECTIN3,-0.31
+MyList,GO Biological Processes,19,GO:0007276,gamete generation,19_GO:0022414 reproductive process,-2.7,11,5.3,28133,695,11,3,27,13,5819|7917|25945,NECTIN2|BAG6|NECTIN3,-0.25
+MyList,GO Biological Processes,19,GO:0055080,cation homeostasis,19_GO:0065007 biological regulation,-2.6,11,5.2,28133,728,11,3,27,13,506|4241|57007,ATP5F1B|MELTF|ACKR3,-0.19
+MyList,GO Biological Processes,19,GO:0098771,inorganic ion homeostasis,19_GO:0065007 biological regulation,-2.6,10,5.1,28133,738,11,3,27,13,506|4241|57007,ATP5F1B|MELTF|ACKR3,-0.18
+MyList_MCODE_ALL,Reactome Gene Sets,6,R-HSA-418990,Adherens junctions interactions,,-15,8.5e+02,65,28133,33,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-11
+MyList_MCODE_ALL,Reactome Gene Sets,6,R-HSA-420597,Nectin/Necl  trans heterodimerization,,-14,3.2e+03,1.1e+02,28133,7,5,4,80,18,5818|5819|25945|81607,NECTIN1|NECTIN2|NECTIN3|NECTIN4,-10
+MyList_MCODE_ALL,Reactome Gene Sets,6,R-HSA-421270,Cell-cell junction organization,,-13,4.4e+02,47,28133,64,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-9.7
+MyList_MCODE_ALL,KEGG Pathway,24,ko04520,Adherens junction,,-13,3.9e+02,44,28133,72,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-9.6
+MyList_MCODE_ALL,KEGG Pathway,24,hsa04520,Adherens junction,,-13,3.5e+02,42,28133,81,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-9.4
+MyList_MCODE_ALL,Reactome Gene Sets,6,R-HSA-446728,Cell junction organization,,-12,3.1e+02,39,28133,91,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-9.2
+MyList_MCODE_ALL,Reactome Gene Sets,6,R-HSA-1500931,Cell-Cell communication,,-12,2.2e+02,33,28133,129,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-8.6
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0034332,adherens junction organization,19_GO:0071840 cellular component organization or biogenesis,-11,1.9e+02,31,28133,150,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-8.3
+MyList_MCODE_ALL,Canonical Pathways,11,M72,PID NECTIN PATHWAY,,-11,7.5e+02,55,28133,30,5,4,80,18,4301|5818|5819|25945,AFDN|NECTIN1|NECTIN2|NECTIN3,-8.2
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0034330,cell junction organization,19_GO:0071840 cellular component organization or biogenesis,-9.8,89,21,28133,317,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-6.8
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0007156,homophilic cell adhesion via plasma membrane adhesion molecules,19_GO:0022610 biological adhesion,-8.2,1.3e+02,23,28133,169,5,4,80,18,5818|5819|25945|81607,NECTIN1|NECTIN2|NECTIN3|NECTIN4,-5.3
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0007157,heterophilic cell-cell adhesion via plasma membrane cell adhesion molecules,19_GO:0022610 biological adhesion,-7.4,3.6e+02,33,28133,47,5,3,60,22,5818|25945|81607,NECTIN1|NECTIN3|NECTIN4,-4.5
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0098742,cell-cell adhesion via plasma-membrane adhesion molecules,19_GO:0022610 biological adhesion,-7.4,82,18,28133,275,5,4,80,18,5818|5819|25945|81607,NECTIN1|NECTIN2|NECTIN3|NECTIN4,-4.5
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0046718,viral entry into host cell,19_GO:0051704 multi-organism process,-5.9,1.2e+02,19,28133,141,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-3.2
+MyList_MCODE_ALL,KEGG Pathway,24,ko04514,Cell adhesion molecules (CAMs),,-5.9,1.2e+02,19,28133,144,5,3,60,22,5818|5819|25945,NECTIN1|NECTIN2|NECTIN3,-3.2
+MyList_MCODE_ALL,KEGG Pathway,24,hsa04514,Cell adhesion molecules,,-5.8,1.1e+02,18,28133,153,5,3,60,22,5818|5819|25945,NECTIN1|NECTIN2|NECTIN3,-3.2
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0044409,entry into host,19_GO:0051704 multi-organism process,-5.8,1.1e+02,18,28133,154,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-3.2
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0051806,entry into cell of other organism involved in symbiotic interaction,19_GO:0051704 multi-organism process,-5.8,1.1e+02,18,28133,154,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-3.2
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0030260,entry into host cell,19_GO:0051704 multi-organism process,-5.8,1.1e+02,18,28133,154,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-3.2
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0051828,entry into other organism involved in symbiotic interaction,19_GO:0051704 multi-organism process,-5.8,1.1e+02,18,28133,155,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-3.2
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0051701,interaction with host,19_GO:0051704 multi-organism process,-5.3,75,15,28133,224,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-2.7
+MyList_MCODE_ALL,GO Biological Processes,19,GO:0019058,viral life cycle,19_GO:0051704 multi-organism process,-4.7,48,12,28133,349,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-2.2
+MyList_SUB1_MCODE_1,Reactome Gene Sets,6,R-HSA-418990,Adherens junctions interactions,,-15,8.5e+02,65,28133,33,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-11
+MyList_SUB1_MCODE_1,Reactome Gene Sets,6,R-HSA-420597,Nectin/Necl  trans heterodimerization,,-14,3.2e+03,1.1e+02,28133,7,5,4,80,18,5818|5819|25945|81607,NECTIN1|NECTIN2|NECTIN3|NECTIN4,-10
+MyList_SUB1_MCODE_1,Reactome Gene Sets,6,R-HSA-421270,Cell-cell junction organization,,-13,4.4e+02,47,28133,64,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-9.7
+MyList_SUB1_MCODE_1,KEGG Pathway,24,ko04520,Adherens junction,,-13,3.9e+02,44,28133,72,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-9.6
+MyList_SUB1_MCODE_1,KEGG Pathway,24,hsa04520,Adherens junction,,-13,3.5e+02,42,28133,81,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-9.4
+MyList_SUB1_MCODE_1,Reactome Gene Sets,6,R-HSA-446728,Cell junction organization,,-12,3.1e+02,39,28133,91,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-9.2
+MyList_SUB1_MCODE_1,Reactome Gene Sets,6,R-HSA-1500931,Cell-Cell communication,,-12,2.2e+02,33,28133,129,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-8.6
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0034332,adherens junction organization,19_GO:0071840 cellular component organization or biogenesis,-11,1.9e+02,31,28133,150,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-8.3
+MyList_SUB1_MCODE_1,Canonical Pathways,11,M72,PID NECTIN PATHWAY,,-11,7.5e+02,55,28133,30,5,4,80,18,4301|5818|5819|25945,AFDN|NECTIN1|NECTIN2|NECTIN3,-8.2
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0034330,cell junction organization,19_GO:0071840 cellular component organization or biogenesis,-9.8,89,21,28133,317,5,5,1e+02,18,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-6.8
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0007156,homophilic cell adhesion via plasma membrane adhesion molecules,19_GO:0022610 biological adhesion,-8.2,1.3e+02,23,28133,169,5,4,80,18,5818|5819|25945|81607,NECTIN1|NECTIN2|NECTIN3|NECTIN4,-5.3
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0007157,heterophilic cell-cell adhesion via plasma membrane cell adhesion molecules,19_GO:0022610 biological adhesion,-7.4,3.6e+02,33,28133,47,5,3,60,22,5818|25945|81607,NECTIN1|NECTIN3|NECTIN4,-4.5
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0098742,cell-cell adhesion via plasma-membrane adhesion molecules,19_GO:0022610 biological adhesion,-7.4,82,18,28133,275,5,4,80,18,5818|5819|25945|81607,NECTIN1|NECTIN2|NECTIN3|NECTIN4,-4.5
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0046718,viral entry into host cell,19_GO:0051704 multi-organism process,-5.9,1.2e+02,19,28133,141,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-3.2
+MyList_SUB1_MCODE_1,KEGG Pathway,24,ko04514,Cell adhesion molecules (CAMs),,-5.9,1.2e+02,19,28133,144,5,3,60,22,5818|5819|25945,NECTIN1|NECTIN2|NECTIN3,-3.2
+MyList_SUB1_MCODE_1,KEGG Pathway,24,hsa04514,Cell adhesion molecules,,-5.8,1.1e+02,18,28133,153,5,3,60,22,5818|5819|25945,NECTIN1|NECTIN2|NECTIN3,-3.2
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0051806,entry into cell of other organism involved in symbiotic interaction,19_GO:0051704 multi-organism process,-5.8,1.1e+02,18,28133,154,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-3.2
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0030260,entry into host cell,19_GO:0051704 multi-organism process,-5.8,1.1e+02,18,28133,154,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-3.2
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0044409,entry into host,19_GO:0051704 multi-organism process,-5.8,1.1e+02,18,28133,154,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-3.2
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0051828,entry into other organism involved in symbiotic interaction,19_GO:0051704 multi-organism process,-5.8,1.1e+02,18,28133,155,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-3.2
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0051701,interaction with host,19_GO:0051704 multi-organism process,-5.3,75,15,28133,224,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-2.7
+MyList_SUB1_MCODE_1,GO Biological Processes,19,GO:0019058,viral life cycle,19_GO:0051704 multi-organism process,-4.7,48,12,28133,349,5,3,60,22,5818|5819|81607,NECTIN1|NECTIN2|NECTIN4,-2.2

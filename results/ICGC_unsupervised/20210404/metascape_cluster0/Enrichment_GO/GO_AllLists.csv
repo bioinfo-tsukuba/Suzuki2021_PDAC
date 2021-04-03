@@ -1,0 +1,91 @@
+Category,CategoryID,GO,Description,PARENT_GO,LogP,Enrichment,Z-score,#TotalGeneInLibrary,#GeneInGO,#GeneInHitList,#GeneInGOAndHitList,%InGO,STDV %InGO,GeneID,Hits,Log(q-value),GeneList
+Reactome Gene Sets,6,R-HSA-420597,Nectin/Necl  trans heterodimerization,,-11,6.7e+02,52,28133,7,24,4,17,7.6,5818|5819|25945|81607,NECTIN1|NECTIN2|NECTIN3|NECTIN4,-6.5,MyList
+Reactome Gene Sets,6,R-HSA-418990,Adherens junctions interactions,,-10,1.8e+02,30,28133,33,24,5,21,8.3,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-6.1,MyList
+Reactome Gene Sets,6,R-HSA-421270,Cell-cell junction organization,,-8.7,92,21,28133,64,24,5,21,8.3,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-4.8,MyList
+KEGG Pathway,24,ko04520,Adherens junction,,-8.4,81,20,28133,72,24,5,21,8.3,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-4.7,MyList
+KEGG Pathway,24,hsa04520,Adherens junction,,-8.1,72,19,28133,81,24,5,21,8.3,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-4.5,MyList
+Canonical Pathways,11,M72,PID NECTIN PATHWAY,,-8,1.6e+02,25,28133,30,24,4,17,7.6,4301|5818|5819|25945,AFDN|NECTIN1|NECTIN2|NECTIN3,-4.4,MyList
+Reactome Gene Sets,6,R-HSA-446728,Cell junction organization,,-7.9,64,18,28133,91,24,5,21,8.3,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-4.4,MyList
+GO Biological Processes,19,GO:0019932,second-messenger-mediated signaling,19_GO:0023052 signaling,-7.2,18,11,28133,444,24,7,29,9.3,575|976|3576|9289|22859|51554|57007,ADGRB1|ADGRE5|CXCL8|ADGRG1|ADGRL1|ACKR4|ACKR3,-3.8,MyList
+GO Biological Processes,19,GO:0007157,heterophilic cell-cell adhesion via plasma membrane cell adhesion molecules,19_GO:0022610 biological adhesion,-7.1,1e+02,20,28133,47,24,4,17,7.6,5818|22859|25945|81607,NECTIN1|ADGRL1|NECTIN3|NECTIN4,-3.8,MyList
+Reactome Gene Sets,6,R-HSA-1500931,Cell-Cell communication,,-7.1,45,15,28133,129,24,5,21,8.3,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-3.8,MyList
+GO Biological Processes,19,GO:0030155,regulation of cell adhesion,19_GO:0022610 biological adhesion,-7,13,9.4,28133,734,24,8,33,9.6,506|3491|3576|4241|4301|4321|9289|64115,ATP5F1B|CCN1|CXCL8|MELTF|AFDN|MMP12|ADGRG1|VSIR,-3.7,MyList
+GO Biological Processes,19,GO:0034332,adherens junction organization,19_GO:0071840 cellular component organization or biogenesis,-6.8,39,14,28133,150,24,5,21,8.3,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-3.6,MyList
+GO Biological Processes,19,GO:0044409,entry into host,19_GO:0051704 multi-organism process,-6.7,38,13,28133,154,24,5,21,8.3,3576|4360|5818|5819|81607,CXCL8|MRC1|NECTIN1|NECTIN2|NECTIN4,-3.6,MyList
+GO Biological Processes,19,GO:0051806,entry into cell of other organism involved in symbiotic interaction,19_GO:0051704 multi-organism process,-6.7,38,13,28133,154,24,5,21,8.3,3576|4360|5818|5819|81607,CXCL8|MRC1|NECTIN1|NECTIN2|NECTIN4,-3.6,MyList
+GO Biological Processes,19,GO:0030260,entry into host cell,19_GO:0051704 multi-organism process,-6.7,38,13,28133,154,24,5,21,8.3,3576|4360|5818|5819|81607,CXCL8|MRC1|NECTIN1|NECTIN2|NECTIN4,-3.6,MyList
+GO Biological Processes,19,GO:0051828,entry into other organism involved in symbiotic interaction,19_GO:0051704 multi-organism process,-6.7,38,13,28133,155,24,5,21,8.3,3576|4360|5818|5819|81607,CXCL8|MRC1|NECTIN1|NECTIN2|NECTIN4,-3.6,MyList
+GO Biological Processes,19,GO:0001525,angiogenesis,19_GO:0032502 developmental process,-6.4,14,9.3,28133,588,24,7,29,9.3,506|575|3491|3576|4856|9289|57007,ATP5F1B|ADGRB1|CCN1|CXCL8|CCN3|ADGRG1|ACKR3,-3.2,MyList
+GO Biological Processes,19,GO:0045862,positive regulation of proteolysis,19_GO:0048518 positive regulation of biological process,-6.2,19,10,28133,378,24,6,25,8.8,3491|4241|7917|27018|55848|64115,CCN1|MELTF|BAG6|BEX3|PLGRKT|VSIR,-3.1,MyList
+GO Biological Processes,19,GO:0006935,chemotaxis,19_GO:0040011 locomotion,-6.1,13,8.8,28133,644,24,7,29,9.3,3491|3576|4856|5818|51554|55848|57007,CCN1|CXCL8|CCN3|NECTIN1|ACKR4|PLGRKT|ACKR3,-3,MyList
+GO Biological Processes,19,GO:0042330,taxis,19_GO:0040011 locomotion,-6.1,13,8.8,28133,646,24,7,29,9.3,3491|3576|4856|5818|51554|55848|57007,CCN1|CXCL8|CCN3|NECTIN1|ACKR4|PLGRKT|ACKR3,-3,MyList
+GO Biological Processes,19,GO:0048514,blood vessel morphogenesis,19_GO:0032502 developmental process,-6,12,8.6,28133,677,24,7,29,9.3,506|575|3491|3576|4856|9289|57007,ATP5F1B|ADGRB1|CCN1|CXCL8|CCN3|ADGRG1|ACKR3,-2.9,MyList
+GO Biological Processes,19,GO:0051701,interaction with host,19_GO:0051704 multi-organism process,-5.9,26,11,28133,224,24,5,21,8.3,3576|4360|5818|5819|81607,CXCL8|MRC1|NECTIN1|NECTIN2|NECTIN4,-2.9,MyList
+GO Biological Processes,19,GO:0001568,blood vessel development,19_GO:0032502 developmental process,-5.6,11,8,28133,754,24,7,29,9.3,506|575|3491|3576|4856|9289|57007,ATP5F1B|ADGRB1|CCN1|CXCL8|CCN3|ADGRG1|ACKR3,-2.7,MyList
+GO Biological Processes,19,GO:0001944,vasculature development,19_GO:0032502 developmental process,-5.5,10,7.8,28133,786,24,7,29,9.3,506|575|3491|3576|4856|9289|57007,ATP5F1B|ADGRB1|CCN1|CXCL8|CCN3|ADGRG1|ACKR3,-2.6,MyList
+GO Biological Processes,19,GO:0072358,cardiovascular system development,19_GO:0032502 developmental process,-5.5,10,7.8,28133,786,24,7,29,9.3,506|575|3491|3576|4856|9289|57007,ATP5F1B|ADGRB1|CCN1|CXCL8|CCN3|ADGRG1|ACKR3,-2.6,MyList
+GO Biological Processes,19,GO:0098742,cell-cell adhesion via plasma-membrane adhesion molecules,19_GO:0022610 biological adhesion,-5.5,21,9.9,28133,275,24,5,21,8.3,5818|5819|22859|25945|81607,NECTIN1|NECTIN2|ADGRL1|NECTIN3|NECTIN4,-2.6,MyList
+GO Biological Processes,19,GO:0046718,viral entry into host cell,19_GO:0051704 multi-organism process,-5.2,33,11,28133,141,24,4,17,7.6,4360|5818|5819|81607,MRC1|NECTIN1|NECTIN2|NECTIN4,-2.3,MyList
+GO Biological Processes,19,GO:0034330,cell junction organization,19_GO:0071840 cellular component organization or biogenesis,-5.2,18,9.2,28133,317,24,5,21,8.3,4301|5818|5819|25945|81607,AFDN|NECTIN1|NECTIN2|NECTIN3|NECTIN4,-2.3,MyList
+GO Biological Processes,19,GO:0007189,adenylate cyclase-activating G protein-coupled receptor signaling pathway,19_GO:0023052 signaling,-5.2,33,11,28133,143,24,4,17,7.6,575|976|9289|22859,ADGRB1|ADGRE5|ADGRG1|ADGRL1,-2.3,MyList
+KEGG Pathway,24,hsa04514,Cell adhesion molecules,,-5.1,31,11,28133,153,24,4,17,7.6,5818|5819|25945|64115,NECTIN1|NECTIN2|NECTIN3|VSIR,-2.2,MyList
+GO Biological Processes,19,GO:0019058,viral life cycle,19_GO:0051704 multi-organism process,-5,17,8.7,28133,349,24,5,21,8.3,3576|4360|5818|5819|81607,CXCL8|MRC1|NECTIN1|NECTIN2|NECTIN4,-2.1,MyList
+GO Biological Processes,19,GO:0007156,homophilic cell adhesion via plasma membrane adhesion molecules,19_GO:0022610 biological adhesion,-4.9,28,10,28133,169,24,4,17,7.6,5818|5819|25945|81607,NECTIN1|NECTIN2|NECTIN3|NECTIN4,-2.1,MyList
+Reactome Gene Sets,6,R-HSA-380108,Chemokine receptors bind chemokines,,-4.8,60,13,28133,59,24,3,12,6.8,3576|51554|57007,CXCL8|ACKR4|ACKR3,-1.9,MyList
+GO Biological Processes,19,GO:0031638,zymogen activation,19_GO:0008152 metabolic process,-4.8,60,13,28133,59,24,3,12,6.8,4241|55848|64115,MELTF|PLGRKT|VSIR,-1.9,MyList
+GO Biological Processes,19,GO:0019933,cAMP-mediated signaling,19_GO:0023052 signaling,-4.7,24,9.4,28133,195,24,4,17,7.6,575|976|9289|22859,ADGRB1|ADGRE5|ADGRG1|ADGRL1,-1.9,MyList
+GO Biological Processes,19,GO:0019722,calcium-mediated signaling,19_GO:0023052 signaling,-4.5,22,9,28133,212,24,4,17,7.6,3576|22859|51554|57007,CXCL8|ADGRL1|ACKR4|ACKR3,-1.7,MyList
+GO Biological Processes,19,GO:0008285,negative regulation of cell proliferation,19_GO:0008283 cell proliferation,-4.5,9.3,6.8,28133,753,24,6,25,8.8,575|3576|4856|9289|57007|64115,ADGRB1|CXCL8|CCN3|ADGRG1|ACKR3|VSIR,-1.7,MyList
+GO Biological Processes,19,GO:0019935,cyclic-nucleotide-mediated signaling,19_GO:0023052 signaling,-4.5,21,8.8,28133,222,24,4,17,7.6,575|976|9289|22859,ADGRB1|ADGRE5|ADGRG1|ADGRL1,-1.7,MyList
+GO Biological Processes,19,GO:0007188,adenylate cyclase-modulating G protein-coupled receptor signaling pathway,19_GO:0023052 signaling,-4.4,20,8.6,28133,230,24,4,17,7.6,575|976|9289|22859,ADGRB1|ADGRE5|ADGRG1|ADGRL1,-1.6,MyList
+GO Biological Processes,19,GO:0070098,chemokine-mediated signaling pathway,19_GO:0023052 signaling,-4.2,40,11,28133,88,24,3,12,6.8,3576|51554|57007,CXCL8|ACKR4|ACKR3,-1.5,MyList
+GO Biological Processes,19,GO:0007187,"G protein-coupled receptor signaling pathway, coupled to cyclic nucleotide second messenger",19_GO:0023052 signaling,-4.2,18,8.1,28133,260,24,4,17,7.6,575|976|9289|22859,ADGRB1|ADGRE5|ADGRG1|ADGRL1,-1.4,MyList
+GO Biological Processes,19,GO:1990869,cellular response to chemokine,19_GO:0050896 response to stimulus,-4.1,36,10,28133,97,24,3,12,6.8,3576|51554|57007,CXCL8|ACKR4|ACKR3,-1.4,MyList
+GO Biological Processes,19,GO:1990868,response to chemokine,19_GO:0050896 response to stimulus,-4.1,36,10,28133,97,24,3,12,6.8,3576|51554|57007,CXCL8|ACKR4|ACKR3,-1.4,MyList
+GO Biological Processes,19,GO:0030335,positive regulation of cell migration,19_GO:0040011 locomotion,-4,11,6.6,28133,555,24,5,21,8.3,506|3491|3576|57007|64115,ATP5F1B|CCN1|CXCL8|ACKR3|VSIR,-1.3,MyList
+GO Biological Processes,19,GO:0007162,negative regulation of cell adhesion,19_GO:0022610 biological adhesion,-4,16,7.5,28133,295,24,4,17,7.6,506|4241|4321|64115,ATP5F1B|MELTF|MMP12|VSIR,-1.3,MyList
+GO Biological Processes,19,GO:2000147,positive regulation of cell motility,19_GO:0040011 locomotion,-4,10,6.5,28133,579,24,5,21,8.3,506|3491|3576|57007|64115,ATP5F1B|CCN1|CXCL8|ACKR3|VSIR,-1.3,MyList
+GO Biological Processes,19,GO:0060326,cell chemotaxis,19_GO:0040011 locomotion,-3.9,15,7.3,28133,307,24,4,17,7.6,3576|4856|51554|57007,CXCL8|CCN3|ACKR4|ACKR3,-1.2,MyList
+GO Biological Processes,19,GO:0051272,positive regulation of cellular component movement,19_GO:0048518 positive regulation of biological process,-3.9,9.8,6.4,28133,597,24,5,21,8.3,506|3491|3576|57007|64115,ATP5F1B|CCN1|CXCL8|ACKR3|VSIR,-1.2,MyList
+GO Biological Processes,19,GO:0040017,positive regulation of locomotion,19_GO:0040011 locomotion,-3.9,9.7,6.3,28133,607,24,5,21,8.3,506|3491|3576|57007|64115,ATP5F1B|CCN1|CXCL8|ACKR3|VSIR,-1.2,MyList
+GO Biological Processes,19,GO:0030336,negative regulation of cell migration,19_GO:0040011 locomotion,-3.8,14,7.1,28133,330,24,4,17,7.6,575|4301|4856|9289,ADGRB1|AFDN|CCN3|ADGRG1,-1.1,MyList
+GO Biological Processes,19,GO:2000146,negative regulation of cell motility,19_GO:0040011 locomotion,-3.7,14,6.9,28133,345,24,4,17,7.6,575|4301|4856|9289,ADGRB1|AFDN|CCN3|ADGRG1,-1.1,MyList
+KEGG Pathway,24,ko04514,Cell adhesion molecules (CAMs),,-3.6,24,8.2,28133,144,24,3,12,6.8,5818|5819|25945,NECTIN1|NECTIN2|NECTIN3,-0.97,MyList
+GO Biological Processes,19,GO:0051271,negative regulation of cellular component movement,19_GO:0048519 negative regulation of biological process,-3.6,12,6.5,28133,378,24,4,17,7.6,575|4301|4856|9289,ADGRB1|AFDN|CCN3|ADGRG1,-0.93,MyList
+GO Biological Processes,19,GO:0040013,negative regulation of locomotion,19_GO:0040011 locomotion,-3.5,12,6.4,28133,391,24,4,17,7.6,575|4301|4856|9289,ADGRB1|AFDN|CCN3|ADGRG1,-0.88,MyList
+GO Biological Processes,19,GO:0045785,positive regulation of cell adhesion,19_GO:0022610 biological adhesion,-3.4,11,6.1,28133,425,24,4,17,7.6,3491|4301|9289|64115,CCN1|AFDN|ADGRG1|VSIR,-0.75,MyList
+WikiPathways,27,WP3888,VEGFA-VEGFR2 Signaling Pathway,,-3.3,11,6,28133,435,24,4,17,7.6,3491|3576|4301|57007,CCN1|CXCL8|AFDN|ACKR3,-0.72,MyList
+GO Biological Processes,19,GO:0010950,positive regulation of endopeptidase activity,19_GO:0048518 positive regulation of biological process,-3.3,19,7.2,28133,185,24,3,12,6.8,3491|27018|64115,CCN1|BEX3|VSIR,-0.69,MyList
+Reactome Gene Sets,6,R-HSA-500792,GPCR ligand binding,,-3.2,10,5.8,28133,467,24,4,17,7.6,976|3576|51554|57007,ADGRE5|CXCL8|ACKR4|ACKR3,-0.62,MyList
+Reactome Gene Sets,6,R-HSA-375276,Peptide ligand-binding receptors,,-3.2,17,6.9,28133,201,24,3,12,6.8,3576|51554|57007,CXCL8|ACKR4|ACKR3,-0.6,MyList
+GO Biological Processes,19,GO:0010952,positive regulation of peptidase activity,19_GO:0048518 positive regulation of biological process,-3.2,17,6.8,28133,203,24,3,12,6.8,3491|27018|64115,CCN1|BEX3|VSIR,-0.59,MyList
+GO Biological Processes,19,GO:0050807,regulation of synapse organization,19_GO:0071840 cellular component organization or biogenesis,-3.1,17,6.6,28133,213,24,3,12,6.8,575|5818|22859,ADGRB1|NECTIN1|ADGRL1,-0.54,MyList
+GO Biological Processes,19,GO:0010810,regulation of cell-substrate adhesion,19_GO:0022610 biological adhesion,-3.1,16,6.6,28133,218,24,3,12,6.8,3491|4241|4321,CCN1|MELTF|MMP12,-0.52,MyList
+GO Biological Processes,19,GO:0050803,regulation of synapse structure or activity,19_GO:0065007 biological regulation,-3.1,16,6.5,28133,223,24,3,12,6.8,575|5818|22859,ADGRB1|NECTIN1|ADGRL1,-0.5,MyList
+GO Biological Processes,19,GO:0048872,homeostasis of number of cells,19_GO:0065007 biological regulation,-2.9,14,6.1,28133,250,24,3,12,6.8,4856|9289|55904,CCN3|ADGRG1|KMT2E,-0.36,MyList
+GO Biological Processes,19,GO:0043542,endothelial cell migration,19_GO:0040011 locomotion,-2.8,13,5.7,28133,279,24,3,12,6.8,506|575|4856,ATP5F1B|ADGRB1|CCN3,-0.23,MyList
+GO Biological Processes,19,GO:0003006,developmental process involved in reproduction,19_GO:0022414 reproductive process,-2.7,7.1,4.7,28133,657,24,4,17,7.6,3491|5819|9289|25945,CCN1|NECTIN2|ADGRG1|NECTIN3,-0.13,MyList
+GO Biological Processes,19,GO:0002274,myeloid leukocyte activation,19_GO:0002376 immune system process,-2.7,7.1,4.6,28133,660,24,4,17,7.6,976|3576|5819|55904,ADGRE5|CXCL8|NECTIN2|KMT2E,-0.13,MyList
+KEGG Pathway,24,hsa04060,Cytokine-cytokine receptor interaction,,-2.6,11,5.2,28133,328,24,3,12,6.8,3576|51554|57007,CXCL8|ACKR4|ACKR3,-0.051,MyList
+Reactome Gene Sets,6,R-HSA-373076,Class A/1 (Rhodopsin-like receptors),,-2.6,10,5.1,28133,335,24,3,12,6.8,3576|51554|57007,CXCL8|ACKR4|ACKR3,-0.034,MyList
+GO Biological Processes,19,GO:0006898,receptor-mediated endocytosis,19_GO:0051179 localization,-2.5,10,5.1,28133,336,24,3,12,6.8,3576|4360|57007,CXCL8|MRC1|ACKR3,-0.034,MyList
+GO Biological Processes,19,GO:0016485,protein processing,19_GO:0008152 metabolic process,-2.5,10,5.1,28133,338,24,3,12,6.8,4241|55848|64115,MELTF|PLGRKT|VSIR,-0.033,MyList
+GO Biological Processes,19,GO:0055080,cation homeostasis,19_GO:0065007 biological regulation,-2.5,6.4,4.3,28133,728,24,4,17,7.6,506|4241|51554|57007,ATP5F1B|MELTF|ACKR4|ACKR3,-0.0041,MyList
+GO Biological Processes,19,GO:0098771,inorganic ion homeostasis,19_GO:0065007 biological regulation,-2.5,6.4,4.3,28133,738,24,4,17,7.6,506|4241|51554|57007,ATP5F1B|MELTF|ACKR4|ACKR3,0,MyList
+GO Biological Processes,19,GO:0090150,establishment of protein localization to membrane,19_GO:0051179 localization,-2.5,9.9,4.9,28133,356,24,3,12,6.8,4301|7917|25945,AFDN|BAG6|NECTIN3,0,MyList
+GO Biological Processes,19,GO:0010631,epithelial cell migration,19_GO:0040011 locomotion,-2.5,9.8,4.9,28133,358,24,3,12,6.8,506|575|4856,ATP5F1B|ADGRB1|CCN3,0,MyList
+GO Biological Processes,19,GO:0031589,cell-substrate adhesion,19_GO:0022610 biological adhesion,-2.5,9.8,4.9,28133,360,24,3,12,6.8,3491|4241|4321,CCN1|MELTF|MMP12,0,MyList
+GO Biological Processes,19,GO:0090132,epithelium migration,19_GO:0032501 multicellular organismal process,-2.5,9.7,4.9,28133,361,24,3,12,6.8,506|575|4856,ATP5F1B|ADGRB1|CCN3,0,MyList
+GO Biological Processes,19,GO:0090130,tissue migration,19_GO:0032501 multicellular organismal process,-2.4,9.6,4.8,28133,366,24,3,12,6.8,506|575|4856,ATP5F1B|ADGRB1|CCN3,0,MyList
+GO Biological Processes,19,GO:0051345,positive regulation of hydrolase activity,19_GO:0065007 biological regulation,-2.4,6,4.1,28133,784,24,4,17,7.6,3491|4301|27018|64115,CCN1|AFDN|BEX3|VSIR,0,MyList
+GO Biological Processes,19,GO:0030198,extracellular matrix organization,19_GO:0071840 cellular component organization or biogenesis,-2.4,8.9,4.6,28133,395,24,3,12,6.8,3491|4241|4321,CCN1|MELTF|MMP12,0,MyList
+GO Biological Processes,19,GO:0051604,protein maturation,19_GO:0008152 metabolic process,-2.3,8.6,4.5,28133,408,24,3,12,6.8,4241|55848|64115,MELTF|PLGRKT|VSIR,0,MyList
+GO Biological Processes,19,GO:0050808,synapse organization,19_GO:0071840 cellular component organization or biogenesis,-2.3,8.6,4.5,28133,411,24,3,12,6.8,575|5818|22859,ADGRB1|NECTIN1|ADGRL1,0,MyList
+GO Biological Processes,19,GO:0052548,regulation of endopeptidase activity,19_GO:0050789 regulation of biological process,-2.3,8.2,4.4,28133,429,24,3,12,6.8,3491|27018|64115,CCN1|BEX3|VSIR,0,MyList
+GO Biological Processes,19,GO:0043900,regulation of multi-organism process,19_GO:0051704 multi-organism process,-2.2,8,4.3,28133,437,24,3,12,6.8,3576|4321|5819,CXCL8|MMP12|NECTIN2,0,MyList
+GO Biological Processes,19,GO:0043062,extracellular structure organization,19_GO:0071840 cellular component organization or biogenesis,-2.2,7.7,4.2,28133,457,24,3,12,6.8,3491|4241|4321,CCN1|MELTF|MMP12,0,MyList
+GO Biological Processes,19,GO:0052547,regulation of peptidase activity,19_GO:0050789 regulation of biological process,-2.2,7.7,4.2,28133,458,24,3,12,6.8,3491|27018|64115,CCN1|BEX3|VSIR,0,MyList
+GO Biological Processes,19,GO:0001667,ameboidal-type cell migration,19_GO:0040011 locomotion,-2.1,7.4,4.1,28133,474,24,3,12,6.8,506|575|4856,ATP5F1B|ADGRB1|CCN3,0,MyList
+GO Biological Processes,19,GO:0002683,negative regulation of immune system process,19_GO:0002376 immune system process,-2.1,7.3,4.1,28133,484,24,3,12,6.8,4321|4856|64115,MMP12|CCN3|VSIR,0,MyList
+GO Biological Processes,19,GO:0042119,neutrophil activation,19_GO:0002376 immune system process,-2.1,7,4,28133,501,24,3,12,6.8,976|3576|55904,ADGRE5|CXCL8|KMT2E,0,MyList
+GO Biological Processes,19,GO:0036230,granulocyte activation,19_GO:0002376 immune system process,-2.1,6.9,3.9,28133,506,24,3,12,6.8,976|3576|55904,ADGRE5|CXCL8|KMT2E,0,MyList
