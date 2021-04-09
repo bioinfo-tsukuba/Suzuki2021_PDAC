@@ -9,4 +9,4 @@ NATMI_lrpair = select(.data = NATMI_lrdbs, 3)
 
 head(NATMI_lrpair)
 
-write.csv(NATMI_lrpair, "./data/NATMI_lrpair")
+write.csv(NATMI_lrpair, "./data/NATMI_lrpair.csv")
