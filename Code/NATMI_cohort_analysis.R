@@ -20,3 +20,7 @@ LR_common <- dplyr::inner_join(US,CA, by="lr_pair")
 NATMI_LR_common <- dplyr::inner_join(LR_common, AU, by="lr_pair")
 
 write.csv(NATMI_LR_common, "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_LR_common.csv")
+
+LR_common_pval <- NATMI_LR_common %>% dplyr::select(c("lr_pair", "pval_US", "pval_CA", "pval_AU" ))
+
+write.csv(LR_common_pval, "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_LR_common_pval.csv")
