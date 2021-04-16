@@ -1,0 +1,17 @@
+_MEMBER_MyList,_LogP_MyList,GO,Description,_PATTERN_,_RANK_,CHILD_GO_MyList
+1,-8.799570883311834,GO:0040011,locomotion,M1,1,GO:0071674 mononuclear cell migration
+1,-8.01573010065716,GO:0050896,response to stimulus,M1,1,GO:0071356 cellular response to tumor necrosis factor
+1,-7.9300486711683185,GO:0023052,signaling,M1,1,GO:0070372 regulation of ERK1 and ERK2 cascade
+1,-7.414915511460181,GO:0002376,immune system process,M1,1,GO:0071346 cellular response to interferon-gamma
+1,-7.003662460374318,GO:0048518,positive regulation of biological process,M1,1,GO:0070374 positive regulation of ERK1 and ERK2 cascade
+1,-6.51821385752051,GO:0032502,developmental process,M1,1,GO:0072010 glomerular epithelium development
+1,-5.60475723343967,GO:0065007,biological regulation,M1,1,GO:0043547 positive regulation of GTPase activity
+1,-4.911807149085672,GO:0050789,regulation of biological process,M1,1,GO:0050730 regulation of peptidyl-tyrosine phosphorylation
+1,-4.640237631614472,GO:0032501,multicellular organismal process,M1,1,GO:0019233 sensory perception of pain
+1,-4.560653949836446,GO:0051179,localization,M1,1,GO:0009914 hormone transport
+1,-4.438783375094308,GO:0051704,multi-organism process,M1,1,GO:0002237 response to molecule of bacterial origin
+1,-4.302698722768044,GO:0008152,metabolic process,M1,1,GO:0018108 peptidyl-tyrosine phosphorylation
+1,-4.018886189822447,GO:0008283,cell proliferation,M1,1,GO:0048660 regulation of smooth muscle cell proliferation
+1,-3.32714660902617,GO:0022610,biological adhesion,M1,1,GO:0098742 cell-cell adhesion via plasma-membrane adhesion molecules
+1,-2.712801199929144,GO:0048519,negative regulation of biological process,M1,1,GO:0051051 negative regulation of transport
+1,-2.4765691921449515,GO:0007610,behavior,M1,1,GO:0007610 behavior

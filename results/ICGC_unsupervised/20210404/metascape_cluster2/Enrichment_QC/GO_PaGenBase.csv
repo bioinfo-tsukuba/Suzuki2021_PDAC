@@ -1,0 +1,6 @@
+_MEMBER_MyList,_LogP_MyList,GO,_PATTERN_,_RANK_,GiniIndex,Category,CategoryID,Description,PARENT_GO,LogP,Enrichment,Z-score,#TotalGeneInLibrary,#GeneInGO,#GeneInHitList,#GeneInGOAndHitList,%InGO,STDV %InGO,GeneID,Hits,Log(q-value),EvidenceCutoff
+1,-2.8,PGB:00024,M1,1,0,PaGenBase,36,Cell-specific: GM12878,,-2.8,7.8,4.9,28133,403,36,4,11,5.2,1238|2250|51554|55997,ACKR2|FGF5|ACKR4|CFC1,-0.19,0
+1,-2.7,PGB:00001,M1,1,0,PaGenBase,36,Tissue-specific: liver,,-2.7,5.6,4.4,28133,692,36,5,14,5.8,1238|2250|3273|27329|51554,ACKR2|FGF5|HRG|ANGPTL3|ACKR4,-0.19,0
+1,-2.6,PGB:00014,M1,1,0,PaGenBase,36,Cell-specific: DRG,,-2.6,6.9,4.5,28133,455,36,4,11,5.2,2532|3730|3973|4856,ACKR1|ANOS1|LHCGR|CCN3,-0.1,0
+1,-2.4,PGB:00025,M1,1,0,PaGenBase,36,Tissue-specific: pancreas,,-2.4,9.6,4.8,28133,245,36,3,8.3,4.6,1238|8840|55997,ACKR2|CCN4|CFC1,0,0
+1,-2.2,PGB:00045,M1,1,0,PaGenBase,36,Tissue-specific: placenta,,-2.2,7.7,4.2,28133,304,36,3,8.3,4.6,1238|25945|51554,ACKR2|NECTIN3|ACKR4,0,0

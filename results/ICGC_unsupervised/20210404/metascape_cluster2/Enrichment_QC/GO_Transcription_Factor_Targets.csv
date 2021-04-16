@@ -1,0 +1,3 @@
+_MEMBER_MyList,_LogP_MyList,GO,_PATTERN_,_RANK_,GiniIndex,Category,CategoryID,Description,PARENT_GO,LogP,Enrichment,Z-score,#TotalGeneInLibrary,#GeneInGO,#GeneInHitList,#GeneInGOAndHitList,%InGO,STDV %InGO,GeneID,Hits,Log(q-value),EvidenceCutoff
+1,-2.9,M435,M1,1,0,Transcription Factor Targets,16,YATTNATC UNKNOWN,,-2.9,8.2,5.1,28133,382,36,4,11,5.2,2250|27329|57007|117156,FGF5|ANGPTL3|ACKR3|SCGB3A2,-0.23,0
+1,-2.3,M18920,M1,1,0,Transcription Factor Targets,16,GATA C,,-2.3,8.7,4.6,28133,268,36,3,8.3,4.6,1005|2532|5819,CDH7|ACKR1|NECTIN2,0,0

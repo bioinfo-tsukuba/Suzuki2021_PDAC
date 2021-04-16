@@ -1,0 +1,18 @@
+_MEMBER_MyList,_LogP_MyList,GO,Description,_PATTERN_,_RANK_,CHILD_GO_MyList
+1,-7.194848998749021,GO:0023052,signaling,M1,1,GO:0019932 second-messenger-mediated signaling
+1,-7.149507490284422,GO:0022610,biological adhesion,M1,1,GO:0007157 heterophilic cell-cell adhesion via plasma membrane cell adhesion molecules
+1,-6.801780522399627,GO:0071840,cellular component organization or biogenesis,M1,1,GO:0034332 adherens junction organization
+1,-6.744846182209229,GO:0051704,multi-organism process,M1,1,GO:0044409 entry into host
+1,-6.36928743754837,GO:0032502,developmental process,M1,1,GO:0001525 angiogenesis
+1,-6.20736497268943,GO:0048518,positive regulation of biological process,M1,1,GO:0045862 positive regulation of proteolysis
+1,-6.104416216156773,GO:0040011,locomotion,M1,1,GO:0006935 chemotaxis
+1,-4.764853928968662,GO:0008152,metabolic process,M1,1,GO:0031638 zymogen activation
+1,-4.493224356346466,GO:0008283,cell proliferation,M1,1,GO:0008285 negative regulation of cell proliferation
+1,-4.117478594938773,GO:0050896,response to stimulus,M1,1,GO:1990869 cellular response to chemokine
+1,-3.559856596294084,GO:0048519,negative regulation of biological process,M1,1,GO:0051271 negative regulation of cellular component movement
+1,-3.0557959563412367,GO:0065007,biological regulation,M1,1,GO:0050803 regulation of synapse structure or activity
+1,-2.6657247325402036,GO:0022414,reproductive process,M1,1,GO:0003006 developmental process involved in reproduction
+1,-2.658535751026772,GO:0002376,immune system process,M1,1,GO:0002274 myeloid leukocyte activation
+1,-2.5471239257192377,GO:0051179,localization,M1,1,GO:0006898 receptor-mediated endocytosis
+1,-2.459409307915162,GO:0032501,multicellular organismal process,M1,1,GO:0090132 epithelium migration
+1,-2.2504556424451874,GO:0050789,regulation of biological process,M1,1,GO:0052548 regulation of endopeptidase activity

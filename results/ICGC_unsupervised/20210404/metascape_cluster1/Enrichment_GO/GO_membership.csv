@@ -1,0 +1,116 @@
+_MEMBER_MyList,_LogP_MyList,GO,Description,_PATTERN_,_RANK_,GiniIndex
+1,-4.3,GO:0072073,kidney epithelium development,M1,1,0
+1,-3.5,GO:0033674,positive regulation of kinase activity,M1,1,0
+1,-5.3,GO:0043087,regulation of GTPase activity,M1,1,0
+1,-2.2,GO:0098916,anterograde trans-synaptic signaling,M1,1,0
+1,-3.8,GO:0043902,positive regulation of multi-organism process,M1,1,0
+1,-4.3,GO:0018212,peptidyl-tyrosine modification,M1,1,0
+1,-5.4,GO:0055074,calcium ion homeostasis,M1,1,0
+1,-8.8,GO:0071674,mononuclear cell migration,M1,1,0
+1,-2.2,GO:0007268,chemical synaptic transmission,M1,1,0
+1,-3.9,GO:0001959,regulation of cytokine-mediated signaling pathway,M1,1,0
+1,-5.4,hsa04062,Chemokine signaling pathway,M1,1,0
+1,-2.2,R-HSA-1280215,Cytokine Signaling in Immune system,M1,1,0
+1,-4.6,GO:0030003,cellular cation homeostasis,M1,1,0
+1,-3.6,GO:1903530,regulation of secretion by cell,M1,1,0
+1,-2.9,GO:0070482,response to oxygen levels,M1,1,0
+1,-4,GO:0048659,smooth muscle cell proliferation,M1,1,0
+1,-3.2,GO:0046677,response to antibiotic,M1,1,0
+1,-3.3,GO:0051347,positive regulation of transferase activity,M1,1,0
+1,-2.2,GO:0099536,synaptic signaling,M1,1,0
+1,-6.5,GO:0043410,positive regulation of MAPK cascade,M1,1,0
+1,-4.6,GO:0046879,hormone secretion,M1,1,0
+1,-4.3,M5885,NABA MATRISOME ASSOCIATED,M1,1,0
+1,-2.5,GO:0007610,behavior,M1,1,0
+1,-2.9,GO:0010959,regulation of metal ion transport,M1,1,0
+1,-3,GO:0001666,response to hypoxia,M1,1,0
+1,-6.6,GO:1990868,response to chemokine,M1,1,0
+1,-6.2,GO:0071621,granulocyte chemotaxis,M1,1,0
+1,-5.6,GO:0043547,positive regulation of GTPase activity,M1,1,0
+1,-2,GO:0030855,epithelial cell differentiation,M1,1,0
+1,-3.8,GO:0009636,response to toxic substance,M1,1,0
+1,-5.2,GO:0072507,divalent inorganic cation homeostasis,M1,1,0
+1,-6.1,hsa04060,Cytokine-cytokine receptor interaction,M1,1,0
+1,-4.4,GO:0055080,cation homeostasis,M1,1,0
+1,-5.1,GO:0050900,leukocyte migration,M1,1,0
+1,-4.3,GO:0018108,peptidyl-tyrosine phosphorylation,M1,1,0
+1,-4.4,GO:0002237,response to molecule of bacterial origin,M1,1,0
+1,-4.3,GO:0045471,response to ethanol,M1,1,0
+1,-6.6,GO:1990869,cellular response to chemokine,M1,1,0
+1,-3.8,GO:0060759,regulation of response to cytokine stimulus,M1,1,0
+1,-4.6,GO:0006873,cellular ion homeostasis,M1,1,0
+1,-4.6,GO:0019233,sensory perception of pain,M1,1,0
+1,-2.9,hsa04080,Neuroactive ligand-receptor interaction,M1,1,0
+1,-4.6,GO:0072009,nephron epithelium development,M1,1,0
+1,-3,GO:0009306,protein secretion,M1,1,0
+1,-3.3,GO:0001822,kidney development,M1,1,0
+1,-2.7,GO:0051051,negative regulation of transport,M1,1,0
+1,-3.5,GO:0051046,regulation of secretion,M1,1,0
+1,-3.5,GO:0030072,peptide hormone secretion,M1,1,0
+1,-4.4,GO:0009617,response to bacterium,M1,1,0
+1,-5.2,GO:0032835,glomerulus development,M1,1,0
+1,-7.4,GO:0071346,cellular response to interferon-gamma,M1,1,0
+1,-5.5,ko04062,Chemokine signaling pathway,M1,1,0
+1,-4.9,GO:0050730,regulation of peptidyl-tyrosine phosphorylation,M1,1,0
+1,-3.9,R-HSA-500792,GPCR ligand binding,M1,1,0
+1,-2.6,GO:0031667,response to nutrient levels,M1,1,0
+1,-7.1,GO:0043408,regulation of MAPK cascade,M1,1,0
+1,-2.8,GO:0002790,peptide secretion,M1,1,0
+1,-4.2,GO:0072006,nephron development,M1,1,0
+1,-5.4,GO:0050731,positive regulation of peptidyl-tyrosine phosphorylation,M1,1,0
+1,-6.3,GO:0072676,lymphocyte migration,M1,1,0
+1,-7,GO:0070374,positive regulation of ERK1 and ERK2 cascade,M1,1,0
+1,-5.2,GO:0030595,leukocyte chemotaxis,M1,1,0
+1,-3.6,GO:0033002,muscle cell proliferation,M1,1,0
+1,-7.4,GO:0048247,lymphocyte chemotaxis,M1,1,0
+1,-4.3,GO:0051345,positive regulation of hydrolase activity,M1,1,0
+1,-2,GO:0001817,regulation of cytokine production,M1,1,0
+1,-8.2,GO:1990266,neutrophil migration,M1,1,0
+1,-3.6,GO:0071396,cellular response to lipid,M1,1,0
+1,-3.3,GO:0072001,renal system development,M1,1,0
+1,-3,GO:0036293,response to decreased oxygen levels,M1,1,0
+1,-6.5,ko04060,Cytokine-cytokine receptor interaction,M1,1,0
+1,-5.4,GO:0006874,cellular calcium ion homeostasis,M1,1,0
+1,-2.2,GO:0099537,trans-synaptic signaling,M1,1,0
+1,-3.4,GO:0006935,chemotaxis,M1,1,0
+1,-6.9,GO:0097529,myeloid leukocyte migration,M1,1,0
+1,-7.8,GO:0034612,response to tumor necrosis factor,M1,1,0
+1,-2.5,GO:0009991,response to extracellular stimulus,M1,1,0
+1,-6.5,GO:0030593,neutrophil chemotaxis,M1,1,0
+1,-7.8,GO:0070371,ERK1 and ERK2 cascade,M1,1,0
+1,-6,M5883,NABA SECRETED FACTORS,M1,1,0
+1,-2.5,GO:0050727,regulation of inflammatory response,M1,1,0
+1,-4,GO:0048660,regulation of smooth muscle cell proliferation,M1,1,0
+1,-7.9,GO:0070372,regulation of ERK1 and ERK2 cascade,M1,1,0
+1,-2.7,GO:0022407,regulation of cell-cell adhesion,M1,1,0
+1,-6.8,GO:0070098,chemokine-mediated signaling pathway,M1,1,0
+1,-3.1,GO:0032496,response to lipopolysaccharide,M1,1,0
+1,-7.8,GO:0097530,granulocyte migration,M1,1,0
+1,-3.7,GO:0010817,regulation of hormone levels,M1,1,0
+1,-4.9,GO:0046883,regulation of hormone secretion,M1,1,0
+1,-4,GO:0023061,signal release,M1,1,0
+1,-2.2,GO:0043269,regulation of ion transport,M1,1,0
+1,-2.1,GO:0008285,negative regulation of cell proliferation,M1,1,0
+1,-3,GO:0007159,leukocyte cell-cell adhesion,M1,1,0
+1,-3.4,GO:0042330,taxis,M1,1,0
+1,-3.1,GO:0001655,urogenital system development,M1,1,0
+1,-4.6,GO:0009914,hormone transport,M1,1,0
+1,-5.3,GO:0070555,response to interleukin-1,M1,1,0
+1,-6.5,GO:0072010,glomerular epithelium development,M1,1,0
+1,-3.3,GO:0098742,cell-cell adhesion via plasma-membrane adhesion molecules,M1,1,0
+1,-4.8,WP4754,IL-18 signaling pathway,M1,1,0
+1,-3.7,GO:0045860,positive regulation of protein kinase activity,M1,1,0
+1,-2.4,GO:0090087,regulation of peptide transport,M1,1,0
+1,-5.3,GO:0072503,cellular divalent inorganic cation homeostasis,M1,1,0
+1,-4.9,GO:0006875,cellular metal ion homeostasis,M1,1,0
+1,-5.6,GO:0071347,cellular response to interleukin-1,M1,1,0
+1,-2.7,GO:0043900,regulation of multi-organism process,M1,1,0
+1,-3.8,GO:0071407,cellular response to organic cyclic compound,M1,1,0
+1,-7.2,GO:0034341,response to interferon-gamma,M1,1,0
+1,-2.1,GO:0030155,regulation of cell adhesion,M1,1,0
+1,-7.2,GO:0002548,monocyte chemotaxis,M1,1,0
+1,-4.4,GO:0098771,inorganic ion homeostasis,M1,1,0
+1,-4.6,GO:0060326,cell chemotaxis,M1,1,0
+1,-8,GO:0071356,cellular response to tumor necrosis factor,M1,1,0
+1,-4.7,GO:0055065,metal ion homeostasis,M1,1,0
+1,-3.5,GO:0097305,response to alcohol,M1,1,0

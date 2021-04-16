@@ -1,0 +1,140 @@
+_MEMBER_MyList,_LogP_MyList,GO,Description,_PATTERN_,_RANK_,GiniIndex
+1,-2.2,GO:0010632,regulation of epithelial cell migration,M1,1,0
+1,-3.9,hsa04062,Chemokine signaling pathway,M1,1,0
+1,-2.6,GO:0007169,transmembrane receptor protein tyrosine kinase signaling pathway,M1,1,0
+1,-4.6,GO:0071363,cellular response to growth factor stimulus,M1,1,0
+1,-2.8,GO:0001503,ossification,M1,1,0
+1,-3.8,GO:0030003,cellular cation homeostasis,M1,1,0
+1,-2.9,hsa05226,gastric cancer,M1,1,0
+1,-2.5,GO:0042110,T cell activation,M1,1,0
+1,-2.9,hsa05224,Breast cancer,M1,1,0
+1,-5,R-HSA-5654726,Negative regulation of FGFR1 signaling,M1,1,0
+1,-3.6,GO:0055074,calcium ion homeostasis,M1,1,0
+1,-2,GO:0043065,positive regulation of apoptotic process,M1,1,0
+1,-2.9,GO:0090132,epithelium migration,M1,1,0
+1,-6.2,GO:0051272,positive regulation of cellular component movement,M1,1,0
+1,-3.1,GO:0032103,positive regulation of response to external stimulus,M1,1,0
+1,-2.7,GO:0051604,protein maturation,M1,1,0
+1,-6.3,GO:0001944,vasculature development,M1,1,0
+1,-2.4,GO:0002521,leukocyte differentiation,M1,1,0
+1,-6.4,GO:0030335,positive regulation of cell migration,M1,1,0
+1,-5.4,M5885,NABA MATRISOME ASSOCIATED,M1,1,0
+1,-3.9,GO:0002685,regulation of leukocyte migration,M1,1,0
+1,-6.2,GO:0001525,angiogenesis,M1,1,0
+1,-5.3,M3008,NABA ECM GLYCOPROTEINS,M1,1,0
+1,-3.2,R-HSA-198933,Immunoregulatory interactions between a Lymphoid and a non-Lymphoid cell,M1,1,0
+1,-3.6,WP117,"GPCRs, Other",M1,1,0
+1,-8.6,GO:1990868,response to chemokine,M1,1,0
+1,-3.3,GO:0071621,granulocyte chemotaxis,M1,1,0
+1,-3.8,GO:0003006,developmental process involved in reproduction,M1,1,0
+1,-2.2,hsa05200,Pathways in cancer,M1,1,0
+1,-3,GO:0007286,spermatid development,M1,1,0
+1,-2.6,GO:0043281,regulation of cysteine-type endopeptidase activity involved in apoptotic process,M1,1,0
+1,-6.3,GO:2000147,positive regulation of cell motility,M1,1,0
+1,-3.6,GO:0051346,negative regulation of hydrolase activity,M1,1,0
+1,-3.6,GO:0061448,connective tissue development,M1,1,0
+1,-3.2,GO:0034330,cell junction organization,M1,1,0
+1,-3.7,R-HSA-190236,Signaling by FGFR,M1,1,0
+1,-8.6,GO:1990869,cellular response to chemokine,M1,1,0
+1,-4.1,GO:0050922,negative regulation of chemotaxis,M1,1,0
+1,-2.1,GO:0050865,regulation of cell activation,M1,1,0
+1,-5.8,GO:0052547,regulation of peptidase activity,M1,1,0
+1,-3.7,GO:0006873,cellular ion homeostasis,M1,1,0
+1,-5.9,GO:0071774,response to fibroblast growth factor,M1,1,0
+1,-2.5,GO:0001667,ameboidal-type cell migration,M1,1,0
+1,-3.5,GO:0010466,negative regulation of peptidase activity,M1,1,0
+1,-3.7,R-HSA-446728,Cell junction organization,M1,1,0
+1,-3.3,GO:0050900,leukocyte migration,M1,1,0
+1,-3,hsa04514,Cell adhesion molecules,M1,1,0
+1,-3.5,GO:0055080,cation homeostasis,M1,1,0
+1,-8.1,hsa04060,Cytokine-cytokine receptor interaction,M1,1,0
+1,-2.9,GO:0090130,tissue migration,M1,1,0
+1,-4.4,R-HSA-5654736,Signaling by FGFR1,M1,1,0
+1,-2.6,WP3888,VEGFA-VEGFR2 Signaling Pathway,M1,1,0
+1,-4.3,GO:0007204,positive regulation of cytosolic calcium ion concentration,M1,1,0
+1,-2.9,GO:0045861,negative regulation of proteolysis,M1,1,0
+1,-4.7,GO:0019932,second-messenger-mediated signaling,M1,1,0
+1,-3.4,GO:0001501,skeletal system development,M1,1,0
+1,-2.3,GO:0043542,endothelial cell migration,M1,1,0
+1,-4.1,GO:0051480,regulation of cytosolic calcium ion concentration,M1,1,0
+1,-3.1,GO:0016485,protein processing,M1,1,0
+1,-2.5,GO:2000116,regulation of cysteine-type endopeptidase activity,M1,1,0
+1,-2,GO:2000146,negative regulation of cell motility,M1,1,0
+1,-4,GO:0051216,cartilage development,M1,1,0
+1,-4.5,GO:0070848,response to growth factor,M1,1,0
+1,-12,R-HSA-500792,GPCR ligand binding,M1,1,0
+1,-3.2,R-HSA-1500931,Cell-Cell communication,M1,1,0
+1,-3.4,GO:0072507,divalent inorganic cation homeostasis,M1,1,0
+1,-5,R-HSA-418990,Adherens junctions interactions,M1,1,0
+1,-3,GO:0002831,regulation of response to biotic stimulus,M1,1,0
+1,-13,R-HSA-373076,Class A/1 (Rhodopsin-like receptors),M1,1,0
+1,-4.4,GO:0008285,negative regulation of cell proliferation,M1,1,0
+1,-3.6,GO:0010951,negative regulation of endopeptidase activity,M1,1,0
+1,-2.5,GO:0019724,B cell mediated immunity,M1,1,0
+1,-4.9,GO:0008543,fibroblast growth factor receptor signaling pathway,M1,1,0
+1,-6.1,GO:0040017,positive regulation of locomotion,M1,1,0
+1,-4.1,GO:0061035,regulation of cartilage development,M1,1,0
+1,-5.9,ko04060,Cytokine-cytokine receptor interaction,M1,1,0
+1,-2.8,GO:1903317,regulation of protein maturation,M1,1,0
+1,-2.5,GO:0016064,immunoglobulin mediated immune response,M1,1,0
+1,-4,GO:0010950,positive regulation of endopeptidase activity,M1,1,0
+1,-2.6,GO:0070374,positive regulation of ERK1 and ERK2 cascade,M1,1,0
+1,-3.5,GO:0002062,chondrocyte differentiation,M1,1,0
+1,-4.6,M5884,NABA CORE MATRISOME,M1,1,0
+1,-3.3,GO:1990266,neutrophil migration,M1,1,0
+1,-2,GO:0006898,receptor-mediated endocytosis,M1,1,0
+1,-5,GO:0030595,leukocyte chemotaxis,M1,1,0
+1,-3.9,GO:0045862,positive regulation of proteolysis,M1,1,0
+1,-3.6,GO:0006874,cellular calcium ion homeostasis,M1,1,0
+1,-6,GO:0052548,regulation of endopeptidase activity,M1,1,0
+1,-5.6,WP24,Peptide GPCRs,M1,1,0
+1,-11,GO:0006935,chemotaxis,M1,1,0
+1,-3.8,GO:0097529,myeloid leukocyte migration,M1,1,0
+1,-2.9,GO:0007156,homophilic cell adhesion via plasma membrane adhesion molecules,M1,1,0
+1,-11,R-HSA-375276,Peptide ligand-binding receptors,M1,1,0
+1,-3.5,GO:0030593,neutrophil chemotaxis,M1,1,0
+1,-3.1,ko05224,Breast cancer,M1,1,0
+1,-3.1,GO:0070371,ERK1 and ERK2 cascade,M1,1,0
+1,-2.4,GO:0050727,regulation of inflammatory response,M1,1,0
+1,-6.6,M5883,NABA SECRETED FACTORS,M1,1,0
+1,-3.1,GO:0042060,wound healing,M1,1,0
+1,-3.2,GO:0070372,regulation of ERK1 and ERK2 cascade,M1,1,0
+1,-4.1,R-HSA-421270,Cell-cell junction organization,M1,1,0
+1,-6,R-HSA-190242,FGFR1 ligand binding and activation,M1,1,0
+1,-8.8,GO:0070098,chemokine-mediated signaling pathway,M1,1,0
+1,-4.4,GO:0034332,adherens junction organization,M1,1,0
+1,-2.8,R-HSA-418594,G alpha (i) signalling events,M1,1,0
+1,-7.9,R-HSA-380108,Chemokine receptors bind chemokines,M1,1,0
+1,-3.1,GO:0006875,cellular metal ion homeostasis,M1,1,0
+1,-2.5,GO:0001649,osteoblast differentiation,M1,1,0
+1,-2.9,GO:0048515,spermatid differentiation,M1,1,0
+1,-3.3,WP3931,ESC Pluripotency Pathways,M1,1,0
+1,-2.5,GO:0007160,cell-matrix adhesion,M1,1,0
+1,-2.9,GO:0031589,cell-substrate adhesion,M1,1,0
+1,-2.8,GO:0070613,regulation of protein processing,M1,1,0
+1,-5,GO:0050920,regulation of chemotaxis,M1,1,0
+1,-3.6,GO:0009611,response to wounding,M1,1,0
+1,-3.5,GO:0072503,cellular divalent inorganic cation homeostasis,M1,1,0
+1,-6.5,GO:0001568,blood vessel development,M1,1,0
+1,-5.1,GO:0019722,calcium-mediated signaling,M1,1,0
+1,-3,GO:2001056,positive regulation of cysteine-type endopeptidase activity,M1,1,0
+1,-3.4,GO:0098742,cell-cell adhesion via plasma-membrane adhesion molecules,M1,1,0
+1,-11,GO:0042330,taxis,M1,1,0
+1,-2.5,GO:0002697,regulation of immune effector process,M1,1,0
+1,-6.1,WP455,"GPCRs, Class A Rhodopsin-like",M1,1,0
+1,-2.6,GO:0030155,regulation of cell adhesion,M1,1,0
+1,-6.3,GO:0072358,cardiovascular system development,M1,1,0
+1,-3.1,GO:0043280,positive regulation of cysteine-type endopeptidase activity involved in apoptotic process,M1,1,0
+1,-2.2,GO:0007162,negative regulation of cell adhesion,M1,1,0
+1,-2.1,GO:0030336,negative regulation of cell migration,M1,1,0
+1,-3.5,GO:0098771,inorganic ion homeostasis,M1,1,0
+1,-3.9,GO:0010952,positive regulation of peptidase activity,M1,1,0
+1,-6,GO:0044344,cellular response to fibroblast growth factor stimulus,M1,1,0
+1,-9.8,GO:0060326,cell chemotaxis,M1,1,0
+1,-4.8,GO:0002688,regulation of leukocyte chemotaxis,M1,1,0
+1,-5.7,GO:0048514,blood vessel morphogenesis,M1,1,0
+1,-2.9,GO:0055065,metal ion homeostasis,M1,1,0
+1,-3,GO:0010631,epithelial cell migration,M1,1,0
+1,-3,GO:0097530,granulocyte migration,M1,1,0
+1,-5.1,GO:0006959,humoral immune response,M1,1,0
+1,-2.3,GO:0007281,germ cell development,M1,1,0

@@ -1,0 +1,6 @@
+Cluster,Score,Type,Gene,Symbol,Network
+1,2.0,Clustered,5819,NECTIN2,MyList_SUB1
+1,2.0,Seed,25945,NECTIN3,MyList_SUB1
+1,2.0,Clustered,5818,NECTIN1,MyList_SUB1
+1,2.0,Clustered,4301,AFDN,MyList_SUB1
+1,2.0,Clustered,81607,NECTIN4,MyList_SUB1

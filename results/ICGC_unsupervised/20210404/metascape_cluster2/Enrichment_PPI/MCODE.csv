@@ -1,0 +1,5 @@
+Cluster,Score,Type,Gene,Symbol,Network
+1,1.5,Clustered,256933,NPB,MyList_SUB1
+1,1.5,Clustered,57007,ACKR3,MyList_SUB1
+1,1.5,Clustered,3576,CXCL8,MyList_SUB1
+1,1.5,Seed,1235,CCR6,MyList_SUB1

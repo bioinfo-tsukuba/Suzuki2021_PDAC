@@ -1,0 +1,4 @@
+Network,Annotation
+MyList,R-HSA-373076|Class A/1 (Rhodopsin-like receptors)|-9.5;R-HSA-375276|Peptide ligand-binding receptors|-9.0;R-HSA-500792|GPCR ligand binding|-8.5
+MyList_MCODE_ALL,R-HSA-375276|Peptide ligand-binding receptors|-8.6;R-HSA-373076|Class A/1 (Rhodopsin-like receptors)|-7.7;R-HSA-380108|Chemokine receptors bind chemokines|-7.5
+MyList_SUB1_MCODE_1,R-HSA-375276|Peptide ligand-binding receptors|-8.6;R-HSA-373076|Class A/1 (Rhodopsin-like receptors)|-7.7;R-HSA-380108|Chemokine receptors bind chemokines|-7.5
