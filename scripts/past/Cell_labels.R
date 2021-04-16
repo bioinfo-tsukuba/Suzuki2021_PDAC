@@ -1,0 +1,8 @@
+getwd()
+library(tidyr)
+library(readr)
+library(dplyr)
+Cell_Labels <- read_csv("/Users/sayakasuzuki/Desktop/SSD/Data/PDAC10_meta.csv", col_names = TRUE)
+Cell_Labels <- rename(Cell_Labels, Cell=X1)
+Cell_Labels <- select(Cell_Labels, Cell, types)
+write_csv(Cell_Labels,"/Users/sayakasuzuki/Desktop/SSD/Data/Cell_Labels_Meta.csv", col_names = TRUE)

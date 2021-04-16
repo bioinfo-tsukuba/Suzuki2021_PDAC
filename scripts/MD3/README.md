@@ -13,7 +13,7 @@ The codes to generate FigXXX
 ### Download and preprocess data
 
 ```bash
-./SSD/scripts/MD3/survival.sh
+./SSD/library/survival.sh
 ```
 
 ファイルの保存先はこんな感じです:point_right: `data/ICGC/survival_*.csv.gz`.  
@@ -29,47 +29,67 @@ The codes to generate FigXXX
 
 ### 各細胞ごとに生存時間解析を行うコマンド
 
+#### P-value
+
 ```bash
-Rscript scripts/MD3/celltype_lrpair_pval.R \
+Rscript library/CCI_pval.R \
   data/ICGC/survival_PAAD-US.csv.gz \
-  celltype_and_lrpair.csv > celltype_lrpair_result.csv
+  tests/MD3/data/CCI.csv > results_CCI.csv
 ```
 
-入力ファイル`celltype_and_lrpair.csv`の形式はこんな感じです:point_down:  
-| celltype_pair | ligandreceptor_pair |
-| ------------- | ------------------- |
-| DC->EMT       | VIM->CD44           |
-| CAF->EMT      | TIMP1->CD63         |
-| TIL->EMT      | VIM->CD44           |
+入力ファイル`tests/MD3/data/CCI.csv`の形式はこんな感じです:point_down:  
+| CCI      | LR          |
+| -------- | ----------- |
+| DC->EMT  | VIM->CD44   |
+| CAF->EMT | TIMP1->CD63 |
+| TIL->EMT | VIM->CD44   |
 
-出力ファイル`celltype_lrpair_result.csv`の形式はこんな感じです:point_down:  
-| celltype_pair | pval | median_day_low | median_day_high | diff_day |
-| ------------- | ---- | -------------- | --------------- | -------- |
-| Endo->EMT     | 0    | 180            | 188             | 8        |
-| CAF->EMT      | 0    | 180            | 188             | 8        |
-| TAM->EMT      | 0    | 180            | 188             | 8        |
 
+出力ファイル`results_CCI.csv`の形式はこんな感じです:point_down:  
+| CCI       | pval | median_day_low | median_day_high | diff_day |
+| --------- | ---- | -------------- | --------------- | -------- |
+| Endo->EMT | 0    | 180            | 188             | 8        |
+| CAF->EMT  | 0    | 180            | 188             | 8        |
+| TAM->EMT  | 0    | 180            | 188             | 8        |
+
+#### Plot
+
+```bash
+Rscript ./library/CCI_plot.R \
+  data/ICGC/survival_PAAD-US.csv.gz \
+  tests/MD3/data/CCI.csv
+```
 
 ### 各リガンドレセプターごとに生存時間解析を行うコマンド
 
+#### P-value
+
 ```bash
-Rscript ./scripts/MD3/lrpair_pval.R \
+Rscript ./library/LR_pval.R \
   data/ICGC/survival_PAAD-US.csv.gz \
-  lrpair.csv > lrpair_result.csv
+  tests/MD3/data/LR.csv > results_LR.csv
 ```
 
-入力ファイル`lrpair.csv`の形式はこんな感じです:point_down:  
+入力ファイル`tests/MD3/data/LR.csv`の形式はこんな感じです:point_down:  
 
-| ligandreceptor_pair |
-| ------------------- |
-| VIM->CD44           |
-| TIMP1->CD63         |
-| COL1A2->CD44        |
+| LR           |
+| ------------ |
+| VIM->CD44    |
+| TIMP1->CD63  |
+| COL1A2->CD44 |
 
-出力ファイル`lrpair_result.csv`の形式はこんな感じです:point_down:  
+出力ファイル`results_LR.csv`の形式はこんな感じです:point_down:  
 
-| lr_pair       | pval                  | median_day_low | median_day_high | diff_day |
+| LR            | pval                  | median_day_low | median_day_high | diff_day |
 | ------------- | --------------------- | -------------- | --------------- | -------- |
 | ICOSLG->CTLA4 | 3.834185013928959e-8  | 165.5          | 216             | 50.5     |
 | ICAM4->ITGAL  | 4.794087982151751e-8  | 185.5          | 181             | -4.5     |
 | ICOSLG->CD28  | 1.1746727190953266e-7 | 181            | 216             | 35       |
+
+#### Plot
+
+```bash
+Rscript ./library/LR_plot.R \
+  data/ICGC/survival_PAAD-US.csv.gz \
+  tests/MD3/data/LR_top10.csv
+```
