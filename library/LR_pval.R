@@ -64,7 +64,7 @@ df_pval <-
   mutate(pval = map_dbl(data, report_pval)) %>%
   # Report HR
   mutate(hr = map_dbl(data, report_hr)) %>%
-  filter(pval < 0.05) %>%
+  # filter(pval < 0.05) %>%
   arrange(pval) %>%
   unnest(data) %>%
   select(LR, pval, hr, exp_bin, median_time) %>%

@@ -1,6 +1,7 @@
 ################################################################################
 # Initialization
 ################################################################################
+options(warn=-1)
 
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(survival, survminer, broom, tidyverse)
@@ -47,3 +48,4 @@ fit <- survfit(Surv(time, status) ~ exp_bin, data = df_plot)
 g <- ggsurvplot_facet(fit, df_plot, facet.by = "CCI", pval = TRUE)
 
 ggsave("results/MD3/CCI.pdf", g, dpi = 300, width = 20, height = 20)
+print("output file: results/MD3/CCI.pdf")
