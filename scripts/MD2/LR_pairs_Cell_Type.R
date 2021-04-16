@@ -19,7 +19,8 @@ df_all_edge_summary %>%
   geom_bar(stat="identity") +
   theme(axis.text=element_text(size=3))-> g1
 
-plot(g1)
+#plot(g1)
+
 
 ggsave("~/Desktop/SSD/analysis/cell_type/df_all_edge_summary.pdf", g1)
 
