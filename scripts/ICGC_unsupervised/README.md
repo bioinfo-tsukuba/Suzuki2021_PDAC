@@ -1,6 +1,12 @@
 # ICGC_unsupervised
 
-## `20210404`
+## 2021/04/18
+
+### Added
+
+- Add logging functions
+
+## 2021/04/04
 
 ### Added
 

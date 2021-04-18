@@ -6,8 +6,12 @@ paths_icgc_data <- c(
   "data/ICGC/survival_PACA-AU.csv.gz",
   "data/ICGC/survival_PACA-CA.csv.gz"
 )
-outdir = "results/ICGC_unsupervised/20210404"
+outdir = "results/ICGC_unsupervised/20210418"
 
+args <- commandArgs(trailingOnly = TRUE)
+if(length(args)>0){
+  outdir <- args[1]
+}
 
 #####################################
 # Make directory
@@ -71,7 +75,7 @@ seurat <- ScaleData(seurat)
 
 # Run PCA
 seurat <- RunPCA(seurat, verbose = FALSE, approx=FALSE)
-ElbowPlot(seurat, ndims = 50)
+ElbowPlot(seurat, ndims = 50) + theme(aspect.ratio=1)
 ggsave(file.path(outdir, "pca_elbow_plot.pdf"))
 
 # Run umap on PCA result
@@ -81,30 +85,30 @@ seurat <- RunUMAP(seurat, dims=1:20, seed.use=1234, n.components=2)
 # Visualize PCA
 #########################################
 FeaturePlot(seurat, reduction = 'pca', features = "time",
-            shape.by = 'sex')
+            shape.by = 'sex') + theme(aspect.ratio=1)
 ggsave(file.path(outdir, "pca_by_time_sex.pdf"))
 
 FeaturePlot(seurat, reduction = 'pca', features = "time",
-            shape.by = 'cohort')
+            shape.by = 'cohort') + theme(aspect.ratio=1)
 ggsave(file.path(outdir, "pca_by_time_cohort.pdf"))
 
 DimPlot(seurat, reduction = 'pca', group.by = "cohort",
-        shape.by = 'cohort') 
+        shape.by = 'cohort') + theme(aspect.ratio=1)
 ggsave(file.path(outdir, "pca_by_cohort.pdf"))
 
 #########################################
 # Visualize UMAP
 #########################################
 FeaturePlot(seurat, reduction = 'umap', features = "time",
-            shape.by = 'sex') 
+            shape.by = 'sex') + theme(aspect.ratio=1)
 ggsave(file.path(outdir, "umap_by_time_sex.pdf"))
 
 FeaturePlot(seurat, reduction = 'umap', features = "time",
-            shape.by = 'cohort') 
+            shape.by = 'cohort') + theme(aspect.ratio=1)
 ggsave(file.path(outdir, "umap_by_time_cohort.pdf"))
 
 DimPlot(seurat, reduction = 'umap', group.by = "cohort",
-            shape.by = 'cohort') 
+            shape.by = 'cohort') + theme(aspect.ratio=1)
 ggsave(file.path(outdir, "umap_by_cohort.pdf"))
 
 #########################################
@@ -116,12 +120,12 @@ seurat <- FindClusters(seurat, resolution = 0.8)
 
 # Visualize clusters on PCA
 DimPlot(seurat, reduction = 'pca', group.by = "seurat_clusters",
-        shape.by = 'cohort') 
+        shape.by = 'cohort') + theme(aspect.ratio=1)
 ggsave(file.path(outdir, "pca_by_cluster_cohort.pdf"))
 
 # Visualize clusters on PCA
 DimPlot(seurat, reduction = 'umap', group.by = "seurat_clusters",
-        shape.by = 'cohort') 
+        shape.by = 'cohort') + theme(aspect.ratio=1)
 ggsave(file.path(outdir, "umap_by_cluster_cohort.pdf"))
 
 # Find cluster marker genes
