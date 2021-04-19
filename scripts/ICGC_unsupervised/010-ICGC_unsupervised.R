@@ -39,9 +39,11 @@ df1 %>%
     names_from = id, 
     values_from = exp
     ) -> df_tmp
+
 df_tmp %>% 
   select(-gene) %>%
   as.matrix() -> exp_mat
+
 rownames(exp_mat) <- df_tmp$gene
 
 ###############
@@ -55,7 +57,14 @@ seurat <- CreateSeuratObject(counts = exp_mat)
 df1 %>%
   select(-exp, -gene) %>%
   distinct() %>%
-  right_join(tibble(id=colnames(exp_mat)), by="id") -> df_meta
+  left_join(tibble(id=colnames(exp_mat), num=1:ncol(exp_mat)), by="id") %>%
+  arrange(num) %>%
+  select(-num) -> df_meta
+
+if(!all(df_meta$id == colnames(exp_mat))){
+  simpleError("IDs are not correctly ordered")
+}
+
 seurat <- AddMetaData(seurat, metadata=df_meta$sex, col.name = "sex")
 seurat <- AddMetaData(seurat, metadata=df_meta$status, col.name = "status")
 seurat <- AddMetaData(seurat, metadata=df_meta$time, col.name = "time")
@@ -133,8 +142,14 @@ df_seurat_markers <- FindAllMarkers(seurat, min.diff.pct = 0.3, only.pos = TRUE)
   as_tibble()
 
 # Save cluster annotation
-tibble(id=names(seurat$seurat_clusters), cluster=seurat$seurat_clusters) -> 
-  df_cluster
+tibble(
+    id=names(seurat$seurat_clusters), 
+    cluster=seurat$seurat_clusters,
+    cohort=seurat$cohort,
+    sex=seurat$sex,
+    status=seurat$status,
+    time=seurat$time,
+  ) -> df_cluster
 write_tsv(
   df_cluster, file.path(outdir, "df_cluster.tsv")
 )
