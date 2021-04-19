@@ -1,5 +1,11 @@
 # ICGC_unsupervised
 
+## 2021/04/19
+
+### Fixed
+
+- Fixed bugs in the ordering of samples, resulting in the samples in UMAP being almost completely separated by the derived cohort.
+
 ## 2021/04/18
 
 ### Added
