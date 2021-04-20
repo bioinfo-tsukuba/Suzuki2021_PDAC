@@ -1,5 +1,13 @@
 # ICGC_unsupervised
 
+## 2021/04/20
+
+### Added
+
+- Added clustering results followed by data integration by Seurat.
+  - Later proven to be negative in survival analysis:
+    - P-value: 0.6589839
+    - HR: 1.02
 ## 2021/04/19
 
 ### Fixed
