@@ -65,3 +65,5 @@ for(id in sample_ids){
     write_csv(pdac_meta_subset, path_output_annFile)
 
 }
+
+sessionInfo()
