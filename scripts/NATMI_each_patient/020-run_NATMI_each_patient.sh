@@ -17,11 +17,11 @@ samples=`ls ${indir}/*_annot.csv | awk '{gsub(/.+\//,""); gsub("_annot.csv", "")
 for sample in $samples
 do
     echo $sample
-    emFile="${sample}_expression.csv"
-    annFile="${sample}_annot.csv"
+    emFile="${indir}/${sample}_expression.csv"
+    annFile="${indir}/${sample}_annot.csv"
     out="${outdir_base}/${sample}"
 
-    python ExtractEdges.py --species human --emFile ${emFile} --annFile ${annFile} --interDB lrc2p --out ${out}
+    /Users/sayakasuzuki/opt/anaconda3/envs/ssd/bin/python ExtractEdges.py --species human --emFile ${emFile} --annFile ${annFile} --interDB lrc2p --out ${out}
 
 done
 
