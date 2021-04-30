@@ -1,0 +1,183 @@
+results/NATMI_each_patient
+git commit: 062b3d3
+git diff --cached:
+P01
+===================================================
+Input data:
+Species to obtain abundance data: human
+The expression matrix file: ../processed_data/NATMI_each_patient/P01_expression.csv
+The metafile: ../processed_data/NATMI_each_patient/P01_annot.csv
+The ligand-receptor interaction database: lrc2p.csv
+Species to obtain ligand-receptor interactions: human
+The number of cores to use: 1
+The folder to save all results: /Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P01
+===================================================
+#### the folder "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P01" has been created to save the analysis results
+#### cluster the expression matrix
+#### generate cell-to-cell interactions
+#### extract signaling factors
+#### construct signaling interactions
+#### collected 13583 LR-mediated edges
+#### DONE
+P02
+===================================================
+Input data:
+Species to obtain abundance data: human
+The expression matrix file: ../processed_data/NATMI_each_patient/P02_expression.csv
+The metafile: ../processed_data/NATMI_each_patient/P02_annot.csv
+The ligand-receptor interaction database: lrc2p.csv
+Species to obtain ligand-receptor interactions: human
+The number of cores to use: 1
+The folder to save all results: /Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P02
+===================================================
+#### the folder "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P02" has been created to save the analysis results
+#### cluster the expression matrix
+#### generate cell-to-cell interactions
+#### extract signaling factors
+#### construct signaling interactions
+#### collected 5470 LR-mediated edges
+#### DONE
+P03
+===================================================
+Input data:
+Species to obtain abundance data: human
+The expression matrix file: ../processed_data/NATMI_each_patient/P03_expression.csv
+The metafile: ../processed_data/NATMI_each_patient/P03_annot.csv
+The ligand-receptor interaction database: lrc2p.csv
+Species to obtain ligand-receptor interactions: human
+The number of cores to use: 1
+The folder to save all results: /Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P03
+===================================================
+#### the folder "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P03" has been created to save the analysis results
+#### cluster the expression matrix
+#### generate cell-to-cell interactions
+#### extract signaling factors
+#### construct signaling interactions
+#### collected 19410 LR-mediated edges
+#### DONE
+P04
+===================================================
+Input data:
+Species to obtain abundance data: human
+The expression matrix file: ../processed_data/NATMI_each_patient/P04_expression.csv
+The metafile: ../processed_data/NATMI_each_patient/P04_annot.csv
+The ligand-receptor interaction database: lrc2p.csv
+Species to obtain ligand-receptor interactions: human
+The number of cores to use: 1
+The folder to save all results: /Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P04
+===================================================
+#### the folder "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P04" has been created to save the analysis results
+#### cluster the expression matrix
+#### generate cell-to-cell interactions
+#### extract signaling factors
+#### construct signaling interactions
+#### collected 3575 LR-mediated edges
+#### DONE
+P05
+===================================================
+Input data:
+Species to obtain abundance data: human
+The expression matrix file: ../processed_data/NATMI_each_patient/P05_expression.csv
+The metafile: ../processed_data/NATMI_each_patient/P05_annot.csv
+The ligand-receptor interaction database: lrc2p.csv
+Species to obtain ligand-receptor interactions: human
+The number of cores to use: 1
+The folder to save all results: /Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P05
+===================================================
+#### the folder "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P05" has been created to save the analysis results
+#### cluster the expression matrix
+#### generate cell-to-cell interactions
+#### extract signaling factors
+#### construct signaling interactions
+#### collected 18678 LR-mediated edges
+#### DONE
+P06
+===================================================
+Input data:
+Species to obtain abundance data: human
+The expression matrix file: ../processed_data/NATMI_each_patient/P06_expression.csv
+The metafile: ../processed_data/NATMI_each_patient/P06_annot.csv
+The ligand-receptor interaction database: lrc2p.csv
+Species to obtain ligand-receptor interactions: human
+The number of cores to use: 1
+The folder to save all results: /Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P06
+===================================================
+#### the folder "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P06" has been created to save the analysis results
+#### cluster the expression matrix
+#### generate cell-to-cell interactions
+#### extract signaling factors
+#### construct signaling interactions
+#### collected 22744 LR-mediated edges
+#### DONE
+P07
+===================================================
+Input data:
+Species to obtain abundance data: human
+The expression matrix file: ../processed_data/NATMI_each_patient/P07_expression.csv
+The metafile: ../processed_data/NATMI_each_patient/P07_annot.csv
+The ligand-receptor interaction database: lrc2p.csv
+Species to obtain ligand-receptor interactions: human
+The number of cores to use: 1
+The folder to save all results: /Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P07
+===================================================
+#### the folder "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P07" has been created to save the analysis results
+#### cluster the expression matrix
+#### generate cell-to-cell interactions
+#### extract signaling factors
+#### construct signaling interactions
+#### collected 29316 LR-mediated edges
+#### DONE
+P08
+===================================================
+Input data:
+Species to obtain abundance data: human
+The expression matrix file: ../processed_data/NATMI_each_patient/P08_expression.csv
+The metafile: ../processed_data/NATMI_each_patient/P08_annot.csv
+The ligand-receptor interaction database: lrc2p.csv
+Species to obtain ligand-receptor interactions: human
+The number of cores to use: 1
+The folder to save all results: /Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P08
+===================================================
+#### the folder "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P08" has been created to save the analysis results
+#### cluster the expression matrix
+#### generate cell-to-cell interactions
+#### extract signaling factors
+#### construct signaling interactions
+#### collected 22517 LR-mediated edges
+#### DONE
+P09
+===================================================
+Input data:
+Species to obtain abundance data: human
+The expression matrix file: ../processed_data/NATMI_each_patient/P09_expression.csv
+The metafile: ../processed_data/NATMI_each_patient/P09_annot.csv
+The ligand-receptor interaction database: lrc2p.csv
+Species to obtain ligand-receptor interactions: human
+The number of cores to use: 1
+The folder to save all results: /Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P09
+===================================================
+#### the folder "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P09" has been created to save the analysis results
+#### cluster the expression matrix
+#### generate cell-to-cell interactions
+#### extract signaling factors
+#### construct signaling interactions
+#### collected 21896 LR-mediated edges
+#### DONE
+P10
+===================================================
+Input data:
+Species to obtain abundance data: human
+The expression matrix file: ../processed_data/NATMI_each_patient/P10_expression.csv
+The metafile: ../processed_data/NATMI_each_patient/P10_annot.csv
+The ligand-receptor interaction database: lrc2p.csv
+Species to obtain ligand-receptor interactions: human
+The number of cores to use: 1
+The folder to save all results: /Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P10
+===================================================
+#### the folder "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P10" has been created to save the analysis results
+#### cluster the expression matrix
+#### generate cell-to-cell interactions
+#### extract signaling factors
+#### construct signaling interactions
+#### collected 13145 LR-mediated edges
+#### DONE
