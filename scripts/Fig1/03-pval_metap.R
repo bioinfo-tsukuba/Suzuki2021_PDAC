@@ -30,23 +30,33 @@ df_meta_pval <- df_wider %>%
   inner_join(df) %>%
   select(LR, HR, Pval, meta_Pval, adjPval)
 
+df_meta_pval %>%
+  mutate(Pval = -log10(meta_Pval)) %>%
+  mutate(LR = fct_reorder(LR, Pval)) %>%
+  select(LR, Pval) %>%
+  distinct() %>%
+  mutate(color = if_else(Pval > 1, "red", "gray")) %>%
+  ggplot(aes(x = Pval, y = LR, fill = color)) +
+  geom_col() +
+  scale_fill_manual(value = .$color)
 
 # Filter LR by p-val and HR
 df_result <- df_meta_pval %>%
-  # Pval after metaP and Storey < 0.05
-  filter(adjPval < 0.05) %>%
+  # Pval after metaP and Storey < 0.1
+  filter(adjPval < 0.1) %>%
   group_by(LR) %>%
   mutate(high_HR = sum(HR > 1)) %>%
   mutate(low_HR = sum(HR < 1)) %>%
   # Extract HR>1 or HR<1 in every three cohorts
   filter(high_HR == 3 || low_HR == 3) %>%
   group_by(LR) %>%
-  mutate(HR = median(HR)) %>%
-  select(LR, adjPval, HR) %>%
-  distinct()
+  mutate(meanHR = mean(HR)) %>%
+  select(LR, adjPval, meanHR) %>%
+  distinct() %>%
+  arrange(adjPval)
 
 ################################################################################
 # Output
 ################################################################################
 
-write_csv(df_result, "results/Fig1/LR_adjPval_HR.csv")
+write_csv(df_result, "results/Fig1/LR_adjPval_meanHR_screened.csv")

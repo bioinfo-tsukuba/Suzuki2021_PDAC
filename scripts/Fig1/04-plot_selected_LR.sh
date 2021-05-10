@@ -2,11 +2,11 @@
 
 mkdir -p results/Fig1/kaplan_meier/
 
-cat results/Fig1/LR_selected.csv |
+cat results/Fig1/LR_adjPval_meanHR_screened.csv |
   sed 1d |
   awk -F, '$NF=="HR>1" {print $1}' >tmp_high
 
-cat results/Fig1/LR_selected.csv |
+cat results/Fig1/LR_adjPval_meanHR_screened.csv |
   sed 1d |
   awk -F, '$NF=="HR<1" {print $1}' >tmp_low
 

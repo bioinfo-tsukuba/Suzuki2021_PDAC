@@ -9,13 +9,12 @@ pacman::p_load(tidyverse, enrichR)
 # Input and format
 ################################################################################
 
-df <- read_csv("results/Fig1/LR_selected.csv") %>%
+df <- read_csv("results/Fig1/LR_adjPval_meanHR_screened.csv") %>%
   mutate(lr_pair = LR) %>%
   separate(lr_pair, c("ligand", "receptor"), sep = "->") %>%
   pivot_longer(c(ligand, receptor), names_to = "lr", values_to = "gene") %>%
   select(lr, gene, HR) %>%
   distinct()
-
 
 dbs <- listEnrichrDbs()
 
