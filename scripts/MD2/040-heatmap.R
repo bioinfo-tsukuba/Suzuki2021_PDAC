@@ -7,23 +7,26 @@ files <- files[!str_detect(files, "Stable")]
 
 df <- map_dfr(files, function(.x) {
   read_csv(paste0(file_dir, .x), col_names = TRUE, col_types = cols()) %>%
-  mutate(category = str_remove(.x, ".csv")) %>%
-  clean_names()
-  })
+    mutate(category = str_remove(.x, ".csv")) %>%
+    clean_names()
+})
 
 df_formatted <- df %>%
   mutate(celltype_pair = paste0(sending_cluster, "->", target_cluster)) %>%
   mutate(ligandreceptor_pair = paste0(ligand_symbol, "->", receptor_symbol)) %>%
-  select(category, celltype_pair, ligandreceptor_pair,
+  select(
+    category, celltype_pair, ligandreceptor_pair,
     delta_edge_expression_weight, delta_edge_specificity_weight,
     log2_transformed_fold_change_of_edge_expression_weight,
-    log2_transformed_fold_change_of_edge_specificity_weight) %>%
+    log2_transformed_fold_change_of_edge_specificity_weight
+  ) %>%
   pivot_longer(-c(category, celltype_pair, ligandreceptor_pair),
-    names_to = "weight", values_to = "value")
+    names_to = "weight", values_to = "value"
+  )
 
-write_tsv(df_formatted, 'results/MD2/DiffEdges/tableForHeatmap.tsv')
+write_tsv(df_formatted, "results/MD2/DiffEdges/tableForHeatmap.tsv")
 
-walk(df_formatted$weight %>% unique, ~ {
+walk(df_formatted$weight %>% unique(), ~ {
   df_formatted %>%
     filter(weight == .x) %>%
     group_by(category) %>%
@@ -33,10 +36,14 @@ walk(df_formatted$weight %>% unique, ~ {
     scale_x_discrete(guide = guide_axis(n.dodge = 2)) +
     theme_classic() +
     theme(text = element_text(size = 12)) +
-    labs(title = "Top 20 pairs",
-      fill = glue({.x}),
+    labs(
+      title = "Top 20 pairs",
+      fill = glue({
+        .x
+      }),
       x = NULL,
-      y = NULL) +
-    facet_wrap(~ category, scales = "free")
-    ggsave(glue("results/MD2/DiffEdges/heatmap_top20_{.x}.pdf"), width = 30)
+      y = NULL
+    ) +
+    facet_wrap(~category, scales = "free")
+  ggsave(glue("results/MD2/DiffEdges/heatmap_top20_{.x}.pdf"), width = 30)
 })

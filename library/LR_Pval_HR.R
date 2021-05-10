@@ -35,8 +35,8 @@ df_lr <- df_lr %>%
 
 report_pval <- function(data) {
   survdiff(Surv(time, status) ~ exp_bin, data = data, rho = 1) %>%
-  glance() %>%
-  pull(p.value)
+    glance() %>%
+    pull(p.value)
 }
 
 report_hr <- function(data) {
@@ -73,4 +73,3 @@ df_pval <-
 ################################################################################
 
 cat(format_csv(df_pval))
-

@@ -9,7 +9,7 @@ pacman::p_load(tidyverse, enrichR)
 # Input and format
 ################################################################################
 
-df <- read_csv("results/Fig1_ICGC/LR_selected.csv") %>%
+df <- read_csv("results/Fig1/LR_selected.csv") %>%
   mutate(lr_pair = LR) %>%
   separate(lr_pair, c("ligand", "receptor"), sep = "->") %>%
   pivot_longer(c(ligand, receptor), names_to = "lr", values_to = "gene") %>%
@@ -57,8 +57,7 @@ p_col <- df_enriched %>%
   ggplot(aes(x = minusLogAdjPval, y = Term)) +
   geom_col() +
   theme_bw() +
-  theme(text = element_text(size=15)) +
+  theme(text = element_text(size = 15)) +
   facet_wrap(~ HR + DB, scale = "free", ncol = 3)
 
-
-ggsave("results/Fig1_ICGC/enrichments.pdf", p_col, width=30, height=10)
+ggsave("results/Fig1/enrichments.pdf", p_col, width = 30, height = 10)

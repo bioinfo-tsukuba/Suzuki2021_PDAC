@@ -1,7 +1,7 @@
 ################################################################################
 # Initialization
 ################################################################################
-options(warn=-1)
+options(warn = -1)
 
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(survival, survminer, broom, tidyverse, glue)
@@ -18,7 +18,7 @@ if (length(args) > 0) {
   output <- args[3]
 } else {
   df_survival <- read_csv("data/ICGC/survival_PAAD-US.csv.gz", col_types = cols())
-  df_lr <- read_csv("tests/MD3/data/LR_top10.csv", col_types = cols())
+  df_lr <- read_csv("tests/data/LR_top10.csv", col_types = cols())
   output <- "results/Fig1_ICGC/LR.pdf"
 }
 
@@ -49,6 +49,11 @@ df_plot <-
 
 fit <- survfit(Surv(time, status) ~ exp_bin, data = df_plot)
 g <- ggsurvplot_facet(fit, df_plot, facet.by = "LR", pval = TRUE)
+
+
+################################################################################
+# Output
+################################################################################
 
 ggsave(output, g, dpi = 350, width = 20, height = 20)
 sprintf("output file: %s", output)

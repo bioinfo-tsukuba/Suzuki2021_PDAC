@@ -14,20 +14,23 @@ df_LR_top <-
   slice_max(`Delta edge specificity weight`, n = 100)
 
 # Target gene lists
-genes <- df_LR_top %>% pull(`Ligand-receptor pair`) %>% unique
+genes <- df_LR_top %>%
+  pull(`Ligand-receptor pair`) %>%
+  unique()
 
 df_genes <-
   map_dfr(genes, function(x) {
     df_raw %>%
-    filter(gene %in% str_split(x, "->", simplify=TRUE)) %>%
-    mutate(LRpair = as.factor(x))}
-    )
+      filter(gene %in% str_split(x, "->", simplify = TRUE)) %>%
+      mutate(LRpair = as.factor(x))
+  })
 
 # high and low by median value
 
 df_plot <-
   df_genes %>%
-  mutate(status = if_else(status == "alive", 0, 1)) %>% # alive=0, dead=1
+  mutate(status = if_else(status == "alive", 0, 1)) %>%
+  # alive=0, dead=1
   group_by(LRpair) %>%
   mutate(exp_bin = if_else(exp > quantile(exp, 0.5), "high", "low")) %>%
   as.data.frame()
