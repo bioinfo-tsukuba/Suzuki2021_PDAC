@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mkdir -p results/Fig1_ICGC
+mkdir -p results/Fig1
 
 # Donwload and format NATMI LR pairs
 wget -O - https://raw.githubusercontent.com/asrhou/NATMI/master/lrdbs/lrc2p.csv |
@@ -19,4 +19,4 @@ find data/ICGC/survival_*.csv.gz |
       sed 1d |
       sed "s/^/${cohort},/"
   done |
-  awk 'BEGIN{print "Cohort,LR,Pval,HR"}1' >results/Fig1_ICGC/LR_Pval_HR.csv
+  awk 'BEGIN{print "Cohort,LR,Pval,HR"}1' >results/Fig1/LR_Pval_HR.csv

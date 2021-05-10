@@ -151,8 +151,6 @@ gzip -dc data/ICGC/specimen.PACA-CA.tsv.gz data/ICGC/specimen.PACA-AU.tsv.gz |
 # Generate CSV files including "Patient ID", "Sex", "Status", "Survival time", "Gene", "Expression"
 #==============================================================================
 
-mkdir -p data/ICGC/
-
 cut -d " " -f 1 tmp_patients_info | sort -u >tmp_patients_id
 
 gzip -dc data/ICGC/donor.* |
@@ -194,6 +192,6 @@ sort -t " " tmp_patients_info |
   join - tmp_donor_w_rnaseq |
   awk 'BEGIN{OFS=","; print "ID", "Project", "Grade", "Stage"}1' |
   tr " " "," |
-  cat >results/MD3/patients_info.csv
+  cat >results/Fig1/patients_info.csv
 
 rm tmp_*
