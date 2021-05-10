@@ -5,7 +5,6 @@ options(warn=-1)
 
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(survival, survminer, broom, tidyverse, glue)
-system("mkdir -p results/MD3/")
 
 ################################################################################
 # Input and format
@@ -15,17 +14,18 @@ args <- commandArgs(trailingOnly = TRUE)
 
 if (length(args) > 0) {
   df_survival <- read_csv(args[1], col_types = cols())
-  df_lr <- read_csv(args[2], col_names = c("LR","pval","hr","median_day_low","median_day_high","diff_day"), col_types = cols())
+  df_lr <- read_csv(args[2], col_names = c("LR"), col_types = cols())
+  output <- args[3]
 } else {
   df_survival <- read_csv("data/ICGC/survival_PAAD-US.csv.gz", col_types = cols())
   df_lr <- read_csv("tests/MD3/data/LR_top10.csv", col_types = cols())
+  output <- "results/Fig1_ICGC/LR.pdf"
 }
 
 df_survival <- df_survival %>%
-  mutate(status = if_else(status == "alive", 0, 1))# alive=0, dead=1
+  mutate(status = if_else(status == "alive", 0, 1)) # alive=0, dead=1
 
 df_lr <- df_lr %>%
-  filter(LR != "LR") %>%
   mutate(lr_pair = LR) %>%
   separate(lr_pair, c("ligand", "receptor"), sep = "->") %>%
   pivot_longer(c(ligand, receptor), names_to = "lr", values_to = "gene") %>%
@@ -50,5 +50,5 @@ df_plot <-
 fit <- survfit(Surv(time, status) ~ exp_bin, data = df_plot)
 g <- ggsurvplot_facet(fit, df_plot, facet.by = "LR", pval = TRUE)
 
-ggsave("results/MD3/LR.pdf", g, dpi = 300, width = 20, height = 20)
-print("output file: results/MD3/LR.pdf")
+ggsave(output, g, dpi = 350, width = 20, height = 20)
+sprintf("output file: %s", output)
