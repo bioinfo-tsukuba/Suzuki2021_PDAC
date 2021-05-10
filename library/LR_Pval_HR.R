@@ -17,7 +17,7 @@ if (length(args) > 0) {
   df_survival <- read_csv(args[1], col_types = cols())
   df_lr <- read_csv(args[2], col_names = "LR", col_types = cols())
 } else {
-  df_survival <- read_csv("survival_PACA-AU", col_types = cols())
+  df_survival <- read_csv("data/ICGC/survival_PAAD-US.csv.gz", col_types = cols())
   df_lr <- read_csv("data/NATMI_LR.csv", col_names = "LR", col_types = cols())
 }
 

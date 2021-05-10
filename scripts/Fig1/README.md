@@ -12,13 +12,18 @@ The codes to generate FigXXX
 
 ### Download and preprocess data
 
-```bash
-./SSD/library/survival.sh
+```sh
+./scripts/Fig1/00-format_ICGC.sh
 ```
 
-ファイルの保存先はこんな感じです:point_right: `data/ICGC/survival_*.csv.gz`.  
+The script downloads and formats ICGC PDAC cohort data.  
 
-`data/ICGC/survival_*.csv.gz`の形式はこんな感じです:point_down:
+Output files are followings.
+- data/ICGC/survival_PAAD-US.csv.gz
+- data/ICGC/survival_PACA-AU.csv.gz
+- data/ICGC/survival_PACA-CA.csv.gz
+
+The formats of `data/ICGC/survival_*.csv.gz`:point_down:
 
 | id       | sex  | status | time | gene  | exp     |
 | -------- | ---- | ------ | ---- | ----- | ------- |
@@ -26,69 +31,24 @@ The codes to generate FigXXX
 | DO221539 | male | alive  | 1733 | AANAT | 0       |
 | DO221539 | male | alive  | 1733 | ABCA1 | 144.511 |
 
-### Perform survival analysis for each ligand receptor pair
+The `exp` represents CPM normalized gene expression.
 
-#### Calculate P-value
+### Calculate P-value and HR for each ligand-receptor pair
 
-```bash
-Rscript ./library/LR_pval.R \
-  data/ICGC/survival_PAAD-US.csv.gz \
-  tests/MD3/data/LR.csv > results_LR.csv
+```sh
+./scripts/Fig1/02-pval_ICGC.sh
 ```
 
-入力ファイル`tests/MD3/data/LR.csv`の形式はこんな感じです:point_down:  
+Output file is:
+- results/Fig1/LR_Pval_HR.csv
 
-| LR           |
-| ------------ |
-| VIM->CD44    |
-| TIMP1->CD63  |
-| COL1A2->CD44 |
+## Extract LR pairs with adj-Pval < 0.1 and consistent HR values (all cohorts shows HR>1 or HR<1)
 
-出力ファイル`results_LR.csv`の形式はこんな感じです:point_down:  
-
-| LR            | pval                  | median_day_low | median_day_high | diff_day |
-| ------------- | --------------------- | -------------- | --------------- | -------- |
-| ICOSLG->CTLA4 | 3.834185013928959e-8  | 165.5          | 216             | 50.5     |
-| ICAM4->ITGAL  | 4.794087982151751e-8  | 185.5          | 181             | -4.5     |
-| ICOSLG->CD28  | 1.1746727190953266e-7 | 181            | 216             | 35       |
-
-#### Plot
-
-```bash
-Rscript ./library/LR_plot.R \
-  data/ICGC/survival_PAAD-US.csv.gz \
-  tests/MD3/data/LR_top10.csv
+```sh
+Rscript --slave --vanilla ./scripts/Fig1/03-pval_metap.R
 ```
 
-### Perform survival analysis for each cell-type pair
+Output file is:
+- results/Fig1/LR_adjPval_meanHR_screened.csv
 
-#### P-value
-
-```bash
-Rscript library/CCI_pval.R \
-  data/ICGC/survival_PAAD-US.csv.gz \
-  tests/MD3/data/CCI.csv > results_CCI.csv
-```
-
-入力ファイル`tests/MD3/data/CCI.csv`の形式はこんな感じです:point_down:  
-| CCI      | LR          |
-| -------- | ----------- |
-| DC->EMT  | VIM->CD44   |
-| CAF->EMT | TIMP1->CD63 |
-| TIL->EMT | VIM->CD44   |
-
-
-出力ファイル`results_CCI.csv`の形式はこんな感じです:point_down:  
-| CCI       | pval | median_day_low | median_day_high | diff_day |
-| --------- | ---- | -------------- | --------------- | -------- |
-| Endo->EMT | 0    | 180            | 188             | 8        |
-| CAF->EMT  | 0    | 180            | 188             | 8        |
-| TAM->EMT  | 0    | 180            | 188             | 8        |
-
-#### Plot
-
-```bash
-Rscript ./library/CCI_plot.R \
-  data/ICGC/survival_PAAD-US.csv.gz \
-  tests/MD3/data/CCI.csv
-```
+The file contains 199 LR pairs (67 LRs in HR<1 and 133 LRs in HR>1)

@@ -10,6 +10,7 @@ pacman::p_load(tidyverse, enrichR)
 ################################################################################
 
 df <- read_csv("results/Fig1/LR_adjPval_meanHR_screened.csv") %>%
+  mutate(HR = if_else(meanHR > 1, "HR>1", "HR<1")) %>%
   mutate(lr_pair = LR) %>%
   separate(lr_pair, c("ligand", "receptor"), sep = "->") %>%
   pivot_longer(c(ligand, receptor), names_to = "lr", values_to = "gene") %>%
@@ -28,8 +29,8 @@ dbs_go <- dbs %>%
 # Reactome, WikiPathways, KEGG
 dbs_path <- dbs %>%
   select(libraryName) %>%
-  filter(str_detect(libraryName, "Reactome|_Human$")) %>%
-  tail(3) %>%
+  filter(str_detect(libraryName, "BioPlanet|Reactome|_Human$")) %>%
+  tail(4) %>%
   pull()
 
 dbs_cat <- append(dbs_go, dbs_path)
@@ -50,7 +51,7 @@ df_enriched <- unique(df$HR) %>%
   select(HR, DB, Term, minusLogAdjPval, Genes)
 
 p_col <- df_enriched %>%
-  group_by(DB) %>%
+  group_by(HR, DB) %>%
   slice_max(minusLogAdjPval, n = 10) %>%
   mutate(Term = reorder(Term, minusLogAdjPval)) %>%
   ggplot(aes(x = minusLogAdjPval, y = Term)) +
