@@ -3,7 +3,7 @@
 ################################################################################
 
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
-pacman::p_load(tidyverse, enrichR)
+pacman::p_load(tidyverse, tidytext, enrichR)
 
 ################################################################################
 # Input and format
@@ -17,47 +17,53 @@ df <- read_csv("results/Fig1/LR_adjPval_meanHR_screened.csv") %>%
   select(lr, gene, HR) %>%
   distinct()
 
-dbs <- listEnrichrDbs()
+dbs_all <- listEnrichrDbs()
 
 # Gene Ontology 2018
-dbs_go <- dbs %>%
+dbs_go <- dbs_all %>%
   select(libraryName) %>%
   filter(str_detect(libraryName, "GO")) %>%
   tail(3) %>%
   pull()
 
-# Reactome, WikiPathways, KEGG
-dbs_path <- dbs %>%
+# BioPlanet, Reactome, WikiPathways, KEGG
+dbs_path <- dbs_all %>%
   select(libraryName) %>%
   filter(str_detect(libraryName, "BioPlanet|Reactome|_Human$")) %>%
   tail(4) %>%
   pull()
 
-dbs_cat <- append(dbs_go, dbs_path)
+dbs <- append(dbs_go, dbs_path)
 
-df_enriched <- unique(df$HR) %>%
-  map_dfr(function(.x) {
-    map_dfr(dbs_cat, function(.dbs) {
-      df %>%
-        filter(HR == .x) %>%
-        pull(gene) %>%
-        enrichr(.dbs) %>%
-        flatten_dfr() %>%
-        mutate(DB = .dbs) %>%
-        mutate(HR = .x)
+df_enriched <-
+  map_dfr(unique(df$HR), function(.hr) {
+    map_dfr(unique(df$lr), function(.lr) {
+      map_dfr(dbs, function(.dbs) {
+        df %>%
+          filter(lr == .lr) %>%
+          filter(HR == .hr) %>%
+          pull(gene) %>%
+          enrichr(.dbs) %>%
+          flatten_dfr() %>%
+          mutate(DB = .dbs) %>%
+          mutate(lr = .lr) %>%
+          mutate(HR = .hr)
+      })
     })
   }) %>%
   mutate(minusLogAdjPval = -log10(Adjusted.P.value)) %>%
-  select(HR, DB, Term, minusLogAdjPval, Genes)
+  select(lr, HR, DB, Term, minusLogAdjPval, Genes)
 
 p_col <- df_enriched %>%
-  group_by(HR, DB) %>%
+  group_by(lr, HR, DB) %>%
   slice_max(minusLogAdjPval, n = 10) %>%
-  mutate(Term = reorder(Term, minusLogAdjPval)) %>%
-  ggplot(aes(x = minusLogAdjPval, y = Term)) +
-  geom_col() +
-  theme_bw() +
-  theme(text = element_text(size = 15)) +
-  facet_wrap(~ HR + DB, scale = "free", ncol = 3)
+  mutate(Term = reorder_within(Term, minusLogAdjPval, lr)) %>%
+  mutate(Term = reorder_within(Term, minusLogAdjPval, HR)) %>%
+  mutate(Term = reorder_within(Term, minusLogAdjPval, DB)) %>%
+  ggplot(aes(x = minusLogAdjPval, y = Term, fill = "FF99CC")) +
+    geom_col() +
+    theme_bw() +
+    theme(text = element_text(size = 15)) +
+    facet_wrap(vars(HR, lr, DB), scale = "free", ncol = 4)
 
-ggsave("results/Fig1/enrichments.pdf", p_col, width = 30, height = 10)
+ggsave("results/Fig1/enrichments.pdf", p_col, width = 70, height = 40, limitsize = FALSE)
