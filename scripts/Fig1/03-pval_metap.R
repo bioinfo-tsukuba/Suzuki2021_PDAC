@@ -24,9 +24,11 @@ mat_pval <- df_wider %>%
 meta_pval <- apply(mat_pval, 1, function(x) sump(x)$p)
 meta_pval_storey <- qvalue(meta_pval)$qvalues
 
-df_meta_pval <- df_wider %>%
+df_wider_meta_pval <- df_wider %>%
   mutate(meta_Pval = meta_pval) %>%
-  mutate(adjPval = meta_pval_storey) %>%
+  mutate(adjPval = meta_pval_storey)
+
+df_meta_pval <- df_wider_meta_pval %>%
   inner_join(df) %>%
   select(LR, HR, Pval, meta_Pval, adjPval)
 
@@ -50,3 +52,4 @@ df_result <- df_meta_pval %>%
 ################################################################################
 
 write_csv(df_result, "results/Fig1/LR_adjPval_meanHR_screened.csv")
+write_csv(df_wider_meta_pval, "results/Fig1/LR_HR_adjPval.csv")
