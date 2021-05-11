@@ -95,5 +95,11 @@ write_csv(df_result, "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient
 select(.data = df_result, LR, cell_type_pair, Patient) ->df_natmi_common_LR_patients
 write_csv(df_natmi_common_LR_patients, "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/NATMI_common_LR_patients.csv")
 
+# 集計
+df_result %>% 
+  filter(!is.na(Patient)) %>%
+  group_by(LR, cell_type_pair) %>%
+  summarize(number_of_patient = n()) -> df_summary
+write_csv(df_summary, "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/summary_number_of_patient.csv")
 
 
