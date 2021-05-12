@@ -15,12 +15,12 @@ df_all_LR <-
   clean_names() %>%
   mutate(pair = str_c(ligand_gene_symbol, receptor_gene_symbol, sep = "->")) %>%
   select(pair, ligand_gene_symbol, receptor_gene_symbol) %>%
-  pivot_longer(-pair, names_to="LR", values_to="gene")
+  pivot_longer(-pair, names_to = "LR", values_to = "gene")
 
 report_pval <- function(data) {
   survdiff(Surv(time, status) ~ exp_bin, data = data, rho = 1) %>%
-  glance() %>%
-  pull(p.value)
+    glance() %>%
+    pull(p.value)
 }
 
 df_pval <-
@@ -46,4 +46,3 @@ df_pval <-
   arrange(pval)
 
 write_csv(df_pval, "results/MD3/survival_all_LR.csv")
-

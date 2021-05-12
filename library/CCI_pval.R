@@ -4,7 +4,6 @@
 
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(survival, survminer, broom, tidyverse)
-system("mkdir -p results/MD3/")
 
 ################################################################################
 # Input and format
@@ -17,7 +16,7 @@ if (length(args) > 0) {
   df_lr <- read_csv(args[2], col_names = c("CCI", "LR"), col_types = cols())
 } else {
   df_survival <- read_csv("data/ICGC/survival_PAAD-US.csv.gz", col_types = cols())
-  df_lr <- read_csv("tests/MD3/data/CCI.csv", col_names = c("CCI", "LR"), col_types = cols())
+  df_lr <- read_csv("tests/data/CCI.csv", col_names = c("CCI", "LR"), col_types = cols())
 }
 
 df_survival <- df_survival %>%
@@ -34,8 +33,8 @@ df_lr <- df_lr %>%
 
 report_pval <- function(data) {
   survdiff(Surv(time, status) ~ exp_bin, data = data, rho = 1) %>%
-  glance() %>%
-  pull(p.value)
+    glance() %>%
+    pull(p.value)
 }
 
 report_hr <- function(data) {
@@ -77,4 +76,3 @@ df_pval <-
 ################################################################################
 
 cat(format_csv(df_pval))
-

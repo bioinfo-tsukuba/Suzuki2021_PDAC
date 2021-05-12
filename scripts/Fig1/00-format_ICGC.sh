@@ -27,7 +27,7 @@ type gzip >/dev/null 2>&1 || {
 # Retrieve gene lists related to ligand-receptor interaction from NATMI
 #==============================================================================
 
-mkdir -p data/gene_info
+mkdir -p data/ICGC/gene_info
 
 wget --no-check-certificate -qO - https://asrhou.github.io/NATMI/ |
   awk 'BEGIN{RS=""} {$1=$1}1' |
@@ -36,7 +36,7 @@ wget --no-check-certificate -qO - https://asrhou.github.io/NATMI/ |
   sed "s/ .*<td class=\"col4\">//" |
   cut -d " " -f 1,2 |
   tr " " "\n" |
-  sort -u >data/gene_info/natmi_genes.txt
+  sort -u >data/ICGC/gene_info/natmi_genes.txt
 
 #==============================================================================
 # Retrieve HGNC gene list to convert Ensemble to Gene Symbol
@@ -47,12 +47,12 @@ wget --no-check-certificate -qO - ftp://ftp.ebi.ac.uk/pub/databases/genenames/hg
   cut -f 2,20 |
   awk 'NF==2' |
   sort |
-  join - data/gene_info/natmi_genes.txt |
+  join - data/ICGC/gene_info/natmi_genes.txt |
   awk '{print $2,$1}' |
-  sort -t " " >data/gene_info/natmi_ensemble_symbol.txt
+  sort -t " " >data/ICGC/gene_info/natmi_ensemble_symbol.txt
 
-cut -d " " -f 1 data/gene_info/natmi_ensemble_symbol.txt | sort | awk '{print $1,"LR"}' >data/gene_info/natmi_ensemble.txt
-cut -d " " -f 2 data/gene_info/natmi_ensemble_symbol.txt | sort | awk '{print $1,"LR"}' >data/gene_info/natmi_symbol.txt
+cut -d " " -f 1 data/ICGC/gene_info/natmi_ensemble_symbol.txt | sort | awk '{print $1,"LR"}' >data/ICGC/gene_info/natmi_ensemble.txt
+cut -d " " -f 2 data/ICGC/gene_info/natmi_ensemble_symbol.txt | sort | awk '{print $1,"LR"}' >data/ICGC/gene_info/natmi_symbol.txt
 
 #==============================================================================
 # Retrieve patients data from ICGC
@@ -151,8 +151,6 @@ gzip -dc data/ICGC/specimen.PACA-CA.tsv.gz data/ICGC/specimen.PACA-AU.tsv.gz |
 # Generate CSV files including "Patient ID", "Sex", "Status", "Survival time", "Gene", "Expression"
 #==============================================================================
 
-mkdir -p data/ICGC/
-
 cut -d " " -f 1 tmp_patients_info | sort -u >tmp_patients_id
 
 gzip -dc data/ICGC/donor.* |
@@ -170,10 +168,10 @@ find data/ICGC/exp_seq_* -type f |
     output=$(echo "${line##*/}" | sed "s/.txt//" | sed "s/exp_seq_/survival_/")
     cat "$line" |
       sort |
-      join -a 1 - data/gene_info/natmi_symbol.txt |
-      join -a 1 - data/gene_info/natmi_ensemble.txt |
+      join -a 1 - data/ICGC/gene_info/natmi_symbol.txt |
+      join -a 1 - data/ICGC/gene_info/natmi_ensemble.txt |
       awk '/LR$/ {print $1,$2,$3}' |
-      join -a 1 - data/gene_info/natmi_ensemble_symbol.txt |
+      join -a 1 - data/ICGC/gene_info/natmi_ensemble_symbol.txt |
       awk 'NF==4 {$1=$4} {print $2,$1,$3}' |
       sort -t " " |
       join tmp_donor - |
@@ -194,6 +192,6 @@ sort -t " " tmp_patients_info |
   join - tmp_donor_w_rnaseq |
   awk 'BEGIN{OFS=","; print "ID", "Project", "Grade", "Stage"}1' |
   tr " " "," |
-  cat >results/MD3/patients_info.csv
+  cat >results/Fig1/patients_info.csv
 
 rm tmp_*
