@@ -2,7 +2,7 @@ library(tidyverse)
 library(dplyr)
 
 # read Dataframe_D
-DFD <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/Dataframe_D.csv")
+DFD <- read_csv("results/NATMI_each_patient/Dataframe_AtoE/Dataframe_D.csv")
 
 unique(DFD$cell_type_pair)
 
@@ -14,4 +14,4 @@ DFD %>% group_by(cell_type_pair) %>%
   summarise(mean_NormHRL = mean(NormHRL), mean_NormHRH = mean(NormHRH)) ->DF_E
 
 # save
-write_csv(DF_E, "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/Dataframe_E.csv")
+write_csv(DF_E, "results/NATMI_each_patient/Dataframe_AtoE/Dataframe_E.csv")

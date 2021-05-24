@@ -2,15 +2,15 @@ library(tidyverse)
 library(dplyr)
 
 # HR<1 = HRL
-HRL <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/NATMI_LR_patients_HMA.csv")
+HRL <- read_csv("results/NATMI_each_patient/NATMI_LR_patients_HMA.csv")
 unique(HRL$LR)
 
 # HR>1 = HRH
-HRH <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/NATMI_LR_patients_HMB.csv")
+HRH <- read_csv("results/NATMI_each_patient/NATMI_LR_patients_HMB.csv")
 unique(HRH$LR)
 
 # P01 
-df_natmi_01 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P01/Edges_lrc2p.csv")
+df_natmi_01 <- read_csv("results/NATMI_each_patient/ExtractEdges/P01/Edges_lrc2p.csv")
 df_01 <- mutate(df_natmi_01, Patient = "P01") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
@@ -49,7 +49,7 @@ full_join(P01, HRH_P01, by = "cell_type_pair") -> P01
 mutate(P01, Patient = "P01") -> P01
 
 # P02
-df_natmi_02 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P02/Edges_lrc2p.csv")
+df_natmi_02 <- read_csv("results/NATMI_each_patient/ExtractEdges/P02/Edges_lrc2p.csv")
 df_02 <- mutate(df_natmi_02, Patient = "P02") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
@@ -88,7 +88,7 @@ full_join(P02, HRH_P02, by = "cell_type_pair") -> P02
 mutate(P02, Patient = "P02") -> P02
 
 # P03
-df_natmi_03 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P03/Edges_lrc2p.csv")
+df_natmi_03 <- read_csv("results/NATMI_each_patient/ExtractEdges/P03/Edges_lrc2p.csv")
 df_03 <- mutate(df_natmi_03, Patient = "P03") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
@@ -127,7 +127,7 @@ full_join(P03, HRH_P03, by = "cell_type_pair") -> P03
 mutate(P03, Patient = "P03") -> P03
 
 # P04
-df_natmi_04 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P04/Edges_lrc2p.csv")
+df_natmi_04 <- read_csv("results/NATMI_each_patient/ExtractEdges/P04/Edges_lrc2p.csv")
 df_04 <- mutate(df_natmi_04, Patient = "P04") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
@@ -166,7 +166,7 @@ full_join(P04, HRH_P04, by = "cell_type_pair") -> P04
 mutate(P04, Patient = "P04") -> P04
 
 # P05
-df_natmi_05 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P05/Edges_lrc2p.csv")
+df_natmi_05 <- read_csv("results/NATMI_each_patient/ExtractEdges/P05/Edges_lrc2p.csv")
 df_05 <- mutate(df_natmi_05, Patient = "P05") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
@@ -205,7 +205,7 @@ full_join(P05, HRH_P05, by = "cell_type_pair") -> P05
 mutate(P05, Patient = "P05") -> P05
 
 # P06
-df_natmi_06 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P06/Edges_lrc2p.csv")
+df_natmi_06 <- read_csv("results/NATMI_each_patient/ExtractEdges/P06/Edges_lrc2p.csv")
 df_06 <- mutate(df_natmi_06, Patient = "P06") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
@@ -244,7 +244,7 @@ full_join(P06, HRH_P06, by = "cell_type_pair") -> P06
 mutate(P06, Patient = "P06") -> P06
 
 # P07
-df_natmi_07 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P07/Edges_lrc2p.csv")
+df_natmi_07 <- read_csv("results/NATMI_each_patient/ExtractEdges/P07/Edges_lrc2p.csv")
 df_07 <- mutate(df_natmi_07, Patient = "P07") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
@@ -283,7 +283,7 @@ full_join(P07, HRH_P07, by = "cell_type_pair") -> P07
 mutate(P07, Patient = "P07") -> P07
 
 # P08
-df_natmi_08 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P08/Edges_lrc2p.csv")
+df_natmi_08 <- read_csv("results/NATMI_each_patient/ExtractEdges/P08/Edges_lrc2p.csv")
 df_08 <- mutate(df_natmi_08, Patient = "P08") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
@@ -322,7 +322,7 @@ full_join(P08, HRH_P08, by = "cell_type_pair") -> P08
 mutate(P08, Patient = "P08") -> P08
 
 # P09
-df_natmi_09 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P09/Edges_lrc2p.csv")
+df_natmi_09 <- read_csv("results/NATMI_each_patient/ExtractEdges/P09/Edges_lrc2p.csv")
 df_09 <- mutate(df_natmi_09, Patient = "P09") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
@@ -361,7 +361,7 @@ full_join(P09, HRH_P09, by = "cell_type_pair") -> P09
 mutate(P09, Patient = "P09") -> P09
 
 # P10
-df_natmi_10 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P10/Edges_lrc2p.csv")
+df_natmi_10 <- read_csv("results/NATMI_each_patient/ExtractEdges/P10/Edges_lrc2p.csv")
 df_10 <- mutate(df_natmi_10, Patient = "P10") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
@@ -397,9 +397,14 @@ HRH_P10 %>%
 full_join(P10, HRL_P10, by = "cell_type_pair") -> P10
 full_join(P10, HRH_P10, by = "cell_type_pair") -> P10
 
+mutate(P09, Patient = "P10") -> P10
 
 # Bind
 bind_rows(P01, P02, P03, P04, P05, P06, P07, P08, P09, P10) -> DFD
+
+# Replace NA in HRL and HRH columns to 0
+DFD %>%
+  replace_na(list(HRL=0, HRH=0)) -> DFD
 
 # row HRL/all
 mutate(DFD, NormHRL = (HRL)/(NATMI_LR_ALL)) -> DFD
@@ -408,6 +413,4 @@ mutate(DFD, NormHRL = (HRL)/(NATMI_LR_ALL)) -> DFD
 mutate(DFD, NormHRH = (HRH)/(NATMI_LR_ALL)) -> DFD
 
 # save
-write_csv(DFD, "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/Dataframe_D.csv")
-
-
+write_csv(DFD, "results/NATMI_each_patient/Dataframe_AtoE/Dataframe_D.csv")
