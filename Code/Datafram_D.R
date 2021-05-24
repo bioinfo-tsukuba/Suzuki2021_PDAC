@@ -397,7 +397,7 @@ HRH_P10 %>%
 full_join(P10, HRL_P10, by = "cell_type_pair") -> P10
 full_join(P10, HRH_P10, by = "cell_type_pair") -> P10
 
-mutate(P09, Patient = "P10") -> P10
+mutate(P10, Patient = "P10") -> P10
 
 # Bind
 bind_rows(P01, P02, P03, P04, P05, P06, P07, P08, P09, P10) -> DFD
