@@ -1,5 +1,5 @@
 
-path_result <- "/Users/ozakiharuka/Dropbox/research/2021/01_SSD/SSD/results/NATMI_each_patient/Dataframe_AtoE/Dataframe_D.csv"
+path_result <- "results/NATMI_each_patient/Dataframe_AtoE/Dataframe_D.csv"
 path_metadata <- "data/WeiLin_pdac10/Patient_data.csv"
 path_LR <- "results/Fig1/LR_adjPval_meanHR_screened.csv"
 path_LR_all <- "results/Fig1/LR_HR_adjPval.csv"
@@ -11,13 +11,18 @@ if (!dir.exists(path_outdir)) {
 }
 
 # Load library
-library(tidyverse)
-library(ggrepel)
-library(qgraph)
+if (!require("pacman", quietly = TRUE)) install.packages("pacman")
+pacman::p_load(tidyverse, ggrepel, qgraph)
 
 # Read data
-df1 <- read_csv(path_result) %>%
-        replace_na(list(HRL=0, HRH=0))
+df1 <- read_csv(path_result)
+
+###COMMENT
+# df1 <- read_csv(path_result) %>%
+#         replace_na(list(HRL=0, HRH=0))
+# df_test <- read_csv(path_result)
+# all_equal(df1, df_test) # TRUE
+###<<<<<<<
 
 # Read metadata
 dfmeta <- read_csv(path_metadata) %>%
@@ -25,7 +30,7 @@ dfmeta <- read_csv(path_metadata) %>%
 
 # Count the number of LR pairs
 dflr <- read_csv(path_LR)
-dflr %>% 
+dflr %>%
     filter(meanHR<1) %>%
     nrow -> n_HRL
 dflr %>% 
