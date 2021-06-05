@@ -1,5 +1,5 @@
 
-path_result <- "/Users/ozakiharuka/Dropbox/research/2021/01_SSD/SSD/results/NATMI_each_patient/Dataframe_AtoE/Dataframe_D.csv"
+path_result <- "results/NATMI_each_patient/Dataframe_AtoE/Dataframe_D.csv"
 path_metadata <- "data/WeiLin_pdac10/Patient_data.csv"
 path_LR <- "results/Fig1/LR_adjPval_meanHR_screened.csv"
 path_LR_all <- "results/Fig1/LR_HR_adjPval.csv"
@@ -111,6 +111,21 @@ for(grade in grades){
         title = sprintf("Difference of HR<1 from HR>1, Grade %s", grade))
     dev.off()
 
+    # Define edges, HR<1 / HR>1
+    df1sub %>%
+        separate(cell_type_pair, sep="->", into=c("from", "to")) %>%
+        mutate(thickness = log2(adjusted_mean_NormHRL+1e-5) - log2(adjusted_mean_NormHRH+1e-5) ) %>%
+        select(from, to, thickness) -> Edges
+
+    pdfname <- file.path(
+        path_outdir, 
+        sprintf("network_cell_type_fc_Grade%s.pdf", grade)
+    )
+    pdf(pdfname)
+    qgraph(Edges, esize=5, 
+        theme = 'gray', layout="circle",
+        title = sprintf("log2 fold change of HR<1 from HR>1, Grade %s", grade))
+    dev.off()
 
 
     # Scatter plot
