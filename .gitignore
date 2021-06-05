@@ -2,6 +2,10 @@
 tmp*
 temp*
 todo*
+
+# vscode
+.vscode
+
 # MacOS
 .DS_Store
 
