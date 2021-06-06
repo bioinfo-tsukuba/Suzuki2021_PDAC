@@ -16,7 +16,7 @@ df2 <- read_csv(path_data2)
 
 # 
 df2 %>%
-    separate(cell_type_pair, sep="->", into=c("From", "To")) %>%
+    separate(cell_type_pair, sep="->", into=c("From", "To"), remove=FALSE) %>%
     left_join(df1, by=c("From"="Cell_type", "Patient")) %>%
     left_join(df1, by=c("To"="Cell_type", "Patient")) -> df3
 df3 %>%
