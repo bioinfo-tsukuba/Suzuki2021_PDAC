@@ -116,6 +116,21 @@ for(grade in grades){
         title = sprintf("Difference of HR<1 from HR>1, Grade %s", grade))
     dev.off()
 
+    # Define edges, HR<1 / HR>1
+    df1sub %>%
+        separate(cell_type_pair, sep="->", into=c("from", "to")) %>%
+        mutate(thickness = log2(adjusted_mean_NormHRL+1e-5) - log2(adjusted_mean_NormHRH+1e-5) ) %>%
+        select(from, to, thickness) -> Edges
+
+    pdfname <- file.path(
+        path_outdir, 
+        sprintf("network_cell_type_fc_Grade%s.pdf", grade)
+    )
+    pdf(pdfname)
+    qgraph(Edges, esize=5, 
+        theme = 'gray', layout="circle",
+        title = sprintf("log2 fold change of HR<1 from HR>1, Grade %s", grade))
+    dev.off()
 
 
     # Scatter plot
