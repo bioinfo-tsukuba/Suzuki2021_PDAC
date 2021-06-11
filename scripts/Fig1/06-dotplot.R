@@ -17,7 +17,7 @@ df_plot <-
   pivot_longer(!c(LR, adjPval), names_to = "group", values_to = "HR") %>%
   mutate(mlogPval = -log10(adjPval)) %>%
   group_by(LR) %>%
-  mutate(mean_HR = 1/mean(HR)) %>%
+  mutate(mean_HR = mean(HR)) %>%
   select(LR, mlogPval, mean_HR) %>%
   distinct() %>%
   mutate(label = case_when(
