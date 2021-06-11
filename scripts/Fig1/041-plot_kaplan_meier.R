@@ -16,7 +16,6 @@ df_survival <- map2_dfr(files, cohorts, ~ read_csv(.x, col_types = cols()) %>% m
 
 df_lr <- read_csv("data/NATMI_LR.csv", col_names = "LR", col_types = cols()) %>%
   filter(str_detect(LR,"SHH->SMO|SEMA4B->DCBLD2"))
-output <- "results/Fig1/Fig1c.pdf"
 
 df_survival <- df_survival %>%
   mutate(status = if_else(status == "alive", 0, 1)) # alive=0, dead=1
@@ -42,10 +41,11 @@ df_plot <-
   as.data.frame()
 
 fit <- survfit(Surv(time, status) ~ exp_bin, data = df_plot)
-g <- ggsurvplot_facet(fit, df_plot, scales = "free", pval = TRUE, facet.by = c("LR", "cohort"))
+g <- ggsurvplot_facet(fit, df_plot, scales = "free", pval = TRUE, facet.by = c("LR", "cohort")) +
+  theme_bw()
 
 ################################################################################
 # Output
 ################################################################################
 
-ggsave(output, g, dpi = 350, width = 10, height = 5)
+ggsave("results/Fig1/Fig1c.pdf", g, dpi = 350, width = 10, height = 5)
