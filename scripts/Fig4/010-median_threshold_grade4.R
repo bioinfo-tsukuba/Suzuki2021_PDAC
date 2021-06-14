@@ -2,6 +2,7 @@
 # Initialization
 ################################################################################
 
+options(repos= "https//cran.r-project.org")
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(tidyverse, janitor)
 system("mkdir -p results/Fig4/")
@@ -10,7 +11,8 @@ system("mkdir -p results/Fig4/")
 # Input and format
 ################################################################################
 
-df_prognostic_lr <- read_csv("results/Fig1/LR_adjPval_meanHR_screened.csv", col_types = cols()) %>%
+df_prognostic_lr <-
+  read_csv("results/Fig1/LR_adjPval_meanHR_screened.csv", col_types = cols()) %>%
   mutate(prognosis = if_else(meanHR > 1, "poor", "good")) %>%
   select(LR, prognosis)
 
@@ -47,10 +49,11 @@ df_result <-
   df_prognostic_lr %>%
   inner_join(df_natmi_median_grade4, by = "LR") %>%
   mutate(candidate = if_else(mean > median, TRUE, FALSE)) %>%
-  select(CCI, LR, prognosis, candidate, mean, median)
+  select(CCI, LR, prognosis, candidate, mean, median) %>%
+  rename(mean_exp_weight_grade4 = mean, median_exp_weight_grade4 = median)
 
 ################################################################################
 # Output
 ################################################################################
 
-write_csv(df_result, "results/Fig4/median_threshold.csv")
+write_csv(df_result, "results/Fig4/median_threshold_grade4.csv")
