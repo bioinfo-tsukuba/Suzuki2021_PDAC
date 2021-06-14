@@ -30,10 +30,11 @@ df_natmi_formatted <-
 
 df_natmi_median_grade4 <-
   df_natmi_formatted %>%
-  filter(id == 1 | id == 3) %>% # Grade4 patients
+  # Grade4 patients
+  filter(id == 1 | id == 3) %>%
   group_by(CCI, LR) %>%
   mutate(mean = mean(edge_average_expression_weight)) %>%
-  select(!c(id,edge_average_expression_weight)) %>%
+  select(!c(id, edge_average_expression_weight)) %>%
   distinct() %>%
   ungroup(LR) %>%
   mutate(median = median(mean))
@@ -46,7 +47,7 @@ df_result <-
   df_prognostic_lr %>%
   inner_join(df_natmi_median_grade4, by = "LR") %>%
   mutate(candidate = if_else(mean > median, TRUE, FALSE)) %>%
-  select(CCI,LR,prognosis,candidate, mean,median)
+  select(CCI, LR, prognosis, candidate, mean, median)
 
 ################################################################################
 # Output
