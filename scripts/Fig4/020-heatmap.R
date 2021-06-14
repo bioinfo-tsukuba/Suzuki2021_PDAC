@@ -2,6 +2,7 @@
 # Initialization
 ################################################################################
 
+options(repos= "https//cran.r-project.org")
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(tidyverse, janitor, patchwork)
 system("mkdir -p results/Fig4/")
@@ -10,7 +11,7 @@ system("mkdir -p results/Fig4/")
 # Input and format
 ################################################################################
 
-df_lr <- read_csv("results/Fig4/median_threshold.csv", col_types = cols())
+df_lr <- read_csv("results/Fig4/median_threshold_grade4.csv", col_types = cols())
 
 files <- system("find results/NATMI_each_patient/ExtractEdges/ | grep Edges_lrc2p.csv | sort", intern = TRUE)
 patients_grade <-
