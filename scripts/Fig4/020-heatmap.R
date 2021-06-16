@@ -64,13 +64,18 @@ df_plot <-
 # Plot
 ################################################################################
 
-g_list <-
-  map(unique(df_plot$CCI), ~
-  df_plot %>%
-    filter(CCI == .x) %>%
-    ggplot(aes(x = grade, y = fct_rev(LR), fill = mean_weight)) +
+plot_tile <- function(data) {
+  ggplot(data, aes(x = grade, y = fct_rev(LR), fill = mean_weight)) +
     geom_tile() +
-    labs(title = .x, x = "Grade", y = "LR pair", fill = "Score"))
-g <- wrap_plots(g_list)
+    scale_fill_gradient(limits=c(0, max(data$mean_weight))) +
+    labs(title = .x, x = "Grade", y = "LR pair", fill = "Score")
+}
+
+g <-
+  df_plot %>%
+  group_nest(CCI) %>%
+  mutate(g = map(data, plot_tile)) %>%
+  pull(g) %>%
+  wrap_plots()
 
 ggsave("results/Fig4/heatmap.pdf", g, width = 30, height = 30)
