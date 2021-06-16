@@ -64,17 +64,17 @@ df_plot <-
 # Plot
 ################################################################################
 
-plot_tile <- function(data) {
+plot_tile <- function(data, title) {
   ggplot(data, aes(x = grade, y = fct_rev(LR), fill = mean_weight)) +
     geom_tile() +
     scale_fill_gradient(limits=c(0, max(data$mean_weight))) +
-    labs(title = .x, x = "Grade", y = "LR pair", fill = "Score")
+    labs(title = title, x = "Grade", y = "LR pair", fill = "Score")
 }
 
 g <-
   df_plot %>%
   group_nest(CCI) %>%
-  mutate(g = map(data, plot_tile)) %>%
+  mutate(g = map2(data, CCI, plot_tile)) %>%
   pull(g) %>%
   wrap_plots()
 
