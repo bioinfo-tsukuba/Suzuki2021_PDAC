@@ -27,10 +27,10 @@ df_natmi_formatted <-
   unite("LR", c(ligand_symbol, receptor_symbol), sep = "->")
 
 ################################################################################
-# Calculate threshold using  Grade4 patients LR expression
+# Calculate threshold using Grade4 patients LR expression
 ################################################################################
 
-df_natmi_median_grade4 <-
+df_natmi_grade4 <-
   df_natmi_formatted %>%
   # Grade4 patients
   filter(id == 1 | id == 3) %>%
@@ -47,7 +47,7 @@ df_natmi_median_grade4 <-
 
 df_result <-
   df_prognostic_lr %>%
-  inner_join(df_natmi_median_grade4, by = "LR") %>%
+  inner_join(df_natmi_grade4, by = "LR") %>%
   mutate(candidate = if_else(mean > median, TRUE, FALSE)) %>%
   select(CCI, LR, prognosis, candidate, mean, median) %>%
   rename(mean_exp_weight_grade4 = mean, median_exp_weight_grade4 = median)

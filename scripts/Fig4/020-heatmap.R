@@ -28,41 +28,21 @@ df_natmi_formatted <-
   unite("LR", c(ligand_symbol, receptor_symbol), sep = "->") %>%
   group_by(grade, CCI, LR) %>%
   summarize(mean_weight = mean(edge_average_expression_weight)) %>%
-  ungroup()
+  ungroup() %>%
+  # ENDOとDCの組み合わせを除きます.
+  filter(!CCI %in% c("Endo->Endo", "Endo->DC", "DC->Endo", "DC->DC"))
+
 
 ################################################################################
-# Filter LR:
-# (1) ENDOとDCの組み合わせを除きます.
-# (2) 2<3<4と発現が上昇しているLRペアを抽出します.
-################################################################################
-
-df_filtered <-
-  df_natmi_formatted %>%
-  filter(!CCI %in% c("Endo->Endo", "Endo->DC", "DC->Endo", "DC->DC")) %>%
-  group_by(CCI, LR) %>%
-  mutate(rank = rank(mean_weight) + 1) %>%
-  count(trend = (grade == rank)) %>%
-  filter(trend == TRUE, n == 3) %>%
-  select(CCI, LR)
-
-################################################################################
-# Join dataframes
-# (1) 予後に関わるLRペア群df_lrと結合します
-# (2) 前項のdf_filteredと結合します
-# (3) Grade4での平均の発現が中央値よりも高いペアを抽出します
-# (4) 予後不良因子のみを抽出します
+# Filterしない場合のヒートマップを描出します
 ################################################################################
 
 df_plot <-
   df_natmi_formatted %>%
   inner_join(df_lr, by = c("CCI", "LR")) %>%
-  inner_join(df_filtered, by = c("CCI", "LR")) %>%
-  filter(candidate == TRUE) %>%
   filter(prognosis == "poor")
 
-################################################################################
-# Plot
-################################################################################
+df_plot %>% select(LR) %>% n_distinct() #55
 
 plot_tile <- function(data, title) {
   ggplot(data, aes(x = grade, y = fct_rev(LR), fill = mean_weight)) +
@@ -71,6 +51,60 @@ plot_tile <- function(data, title) {
     labs(title = title, x = "Grade", y = "LR pair", fill = "Score")
 }
 
+g_no_filter <-
+  df_plot %>%
+  group_nest(CCI) %>%
+  mutate(g = map2(data, CCI, plot_tile)) %>%
+  pull(g) %>%
+  wrap_plots()
+
+ggsave("results/Fig4/heatmap_no_filter.pdf", g_no_filter, width = 30, height = 30)
+
+################################################################################
+# Grade4での平均の発現が中央値よりも高いペアを抽出します
+################################################################################
+
+df_plot <-
+  df_natmi_formatted %>%
+  inner_join(df_lr, by = c("CCI", "LR")) %>%
+  filter(candidate == TRUE) %>%
+  filter(prognosis == "poor")
+
+df_plot %>% select(LR) %>% n_distinct() #47
+
+g_grade4 <-
+  df_plot %>%
+  group_nest(CCI) %>%
+  mutate(g = map2(data, CCI, plot_tile)) %>%
+  pull(g) %>%
+  wrap_plots()
+
+ggsave("results/Fig4/heatmap_grade4.pdf", g_grade4, width = 30, height = 30)
+
+
+################################################################################
+# Filter LR:
+# Grade4での平均の発現が中央値よりも高いペアを抽出します
+# 2<3<4と発現が上昇しているLRペアを抽出します.
+################################################################################
+
+df_increase <-
+  df_natmi_formatted %>%
+  group_by(CCI, LR) %>%
+  mutate(rank = rank(mean_weight) + 1) %>%
+  count(trend = (grade == rank)) %>%
+  filter(trend == TRUE, n == 3) %>%
+  select(CCI, LR)
+
+df_plot <-
+  df_natmi_formatted %>%
+  inner_join(df_lr, by = c("CCI", "LR")) %>%
+  inner_join(df_increase, by = c("CCI", "LR")) %>%
+  filter(candidate == TRUE) %>%
+  filter(prognosis == "poor")
+
+df_plot %>% select(LR) %>% n_distinct() #23
+
 g <-
   df_plot %>%
   group_nest(CCI) %>%
@@ -78,4 +112,5 @@ g <-
   pull(g) %>%
   wrap_plots()
 
-ggsave("results/Fig4/heatmap.pdf", g, width = 30, height = 30)
+ggsave("results/Fig4/heatmap_grade4_trend.pdf", g, width = 30, height = 30)
+
