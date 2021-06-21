@@ -39,7 +39,9 @@ df_natmi_grade4 <-
   select(!c(id, edge_average_expression_weight)) %>%
   distinct() %>%
   ungroup(LR) %>%
-  mutate(median = median(mean))
+  mutate(median = median(mean)) %>%
+  mutate(q1 = quantile(mean, 0.25)) %>%
+  mutate(q3 = quantile(mean, 0.75))
 
 ################################################################################
 # Join with df_prognostic_lr
@@ -48,12 +50,15 @@ df_natmi_grade4 <-
 df_result <-
   df_prognostic_lr %>%
   inner_join(df_natmi_grade4, by = "LR") %>%
-  mutate(candidate = if_else(mean > median, TRUE, FALSE)) %>%
-  select(CCI, LR, prognosis, candidate, mean, median) %>%
-  rename(mean_exp_weight_grade4 = mean, median_exp_weight_grade4 = median)
+  select(CCI, LR, prognosis, mean, median, q1, q3) %>%
+  rename(mean_exp_weight_grade4 = mean,
+    median_exp_weight_grade4 = median,
+    q1_exp_weight_grade4 = q1,
+    q3_exp_weight_grade4 = q3,
+    )
 
 ################################################################################
 # Output
 ################################################################################
 
-write_csv(df_result, "results/Fig4/median_threshold_grade4.csv")
+write_csv(df_result, "results/Fig4/quantile_threshold_grade4.csv")

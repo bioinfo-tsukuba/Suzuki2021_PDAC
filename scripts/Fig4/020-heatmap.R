@@ -11,7 +11,7 @@ system("mkdir -p results/Fig4/")
 # Input and format
 ################################################################################
 
-df_lr <- read_csv("results/Fig4/median_threshold_grade4.csv", col_types = cols())
+df_lr <- read_csv("results/Fig4/quantile_threshold_grade4.csv", col_types = cols())
 
 files <- system("find results/NATMI_each_patient/ExtractEdges/ | grep Edges_lrc2p.csv | sort", intern = TRUE)
 patients_grade <-
@@ -67,7 +67,7 @@ ggsave("results/Fig4/heatmap_no_filter.pdf", g_no_filter, width = 30, height = 3
 df_plot <-
   df_natmi_formatted %>%
   inner_join(df_lr, by = c("CCI", "LR")) %>%
-  filter(candidate == TRUE) %>%
+  filter(mean_exp_weight_grade4 > median_exp_weight_grade4) %>%
   filter(prognosis == "poor")
 
 df_plot %>% select(LR) %>% n_distinct() #47
@@ -79,11 +79,10 @@ g_grade4 <-
   pull(g) %>%
   wrap_plots()
 
-ggsave("results/Fig4/heatmap_grade4.pdf", g_grade4, width = 30, height = 30)
+ggsave("results/Fig4/heatmap_median_grade4.pdf", g_grade4, width = 30, height = 30)
 
 
 ################################################################################
-# Filter LR:
 # Grade4での平均の発現が中央値よりも高いペアを抽出します
 # 2<3<4と発現が上昇しているLRペアを抽出します.
 ################################################################################
@@ -100,7 +99,7 @@ df_plot <-
   df_natmi_formatted %>%
   inner_join(df_lr, by = c("CCI", "LR")) %>%
   inner_join(df_increase, by = c("CCI", "LR")) %>%
-  filter(candidate == TRUE) %>%
+  filter(mean_exp_weight_grade4 > median_exp_weight_grade4) %>%
   filter(prognosis == "poor")
 
 df_plot %>% select(LR) %>% n_distinct() #23
@@ -112,5 +111,27 @@ g <-
   pull(g) %>%
   wrap_plots()
 
-ggsave("results/Fig4/heatmap_grade4_trend.pdf", g, width = 30, height = 30)
+ggsave("results/Fig4/heatmap_median_grade4_trend.pdf", g, width = 30, height = 30)
+
+
+################################################################################
+# Grade4での平均の発現が75%値よりも高いペアを抽出します
+################################################################################
+
+df_plot <-
+  df_natmi_formatted %>%
+  inner_join(df_lr, by = c("CCI", "LR")) %>%
+  filter(mean_exp_weight_grade4 > q3_exp_weight_grade4) %>%
+  filter(prognosis == "poor")
+
+df_plot %>% select(LR) %>% n_distinct() #33
+
+g_grade4 <-
+  df_plot %>%
+  group_nest(CCI) %>%
+  mutate(g = map2(data, CCI, plot_tile)) %>%
+  pull(g) %>%
+  wrap_plots()
+
+ggsave("results/Fig4/heatmap_q3_grade4.pdf", g_grade4, width = 30, height = 30)
 
