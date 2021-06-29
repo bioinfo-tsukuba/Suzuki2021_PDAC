@@ -26,6 +26,10 @@ df_natmi_formatted <-
   unite("CCI", c(sending_cluster, target_cluster), sep = "->") %>%
   unite("LR", c(ligand_symbol, receptor_symbol), sep = "->")
 
+################################################################################
+# Count patients number
+################################################################################
+
 df_patients_num <-
   inner_join(df_prognostic_lr, df_natmi_formatted, key = "LR") %>%
   filter(prognosis == "poor") %>%
@@ -35,10 +39,6 @@ df_patients_num <-
   ungroup() %>%
   distinct()
 
-# df_patients_num %>%
-#   filter(LR == "SEMA4B->DCBLD2") %>%
-#   as.data.frame() %>%
-#   filter(CCI == "CAF->CAF")
 plot_heatmap <- function(data) {
   tmp_wider <-
     data %>%
@@ -56,16 +56,20 @@ plot_heatmap <- function(data) {
     scale_x_dendrogram(hclust = clust_CCI) +
     scale_y_dendrogram(hclust = clust_LR) +
     scale_fill_gradient(limits = c(0, 10)) +
-    # scale_x_discrete(guide = guide_axis(n.dodge = 2)) +
     theme_bw(base_size = 8)
 }
+
+################################################################################
+# Plot heatmap
+################################################################################
 
 g <- plot_heatmap(df_patients_num)
 ggsave("results/Fig3/heatmap_patients_num.pdf", g, width = 30, height = 15)
 
+
+
 df_patients_num_filter <-
   df_patients_num %>%
-  # filter(LR == "ANXA1->FPR1") %>%
   filter(n > 7)
 
 g_fiter <- plot_heatmap(df_patients_num_filter)
