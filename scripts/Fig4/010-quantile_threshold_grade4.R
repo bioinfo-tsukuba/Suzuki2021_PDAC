@@ -2,7 +2,7 @@
 # Initialization
 ################################################################################
 
-options(repos= "https//cran.r-project.org")
+options(repos = "https//cran.r-project.org")
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(tidyverse, janitor)
 system("mkdir -p results/Fig4/")
