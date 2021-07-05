@@ -41,7 +41,7 @@ report_pval <- function(data) {
 
 report_hr <- function(data) {
   cox <- coxph(Surv(time, status) ~ exp_bin, data = data)
-  1/exp(cox$coefficients)
+  1 / exp(cox$coefficients)
 }
 
 ################################################################################

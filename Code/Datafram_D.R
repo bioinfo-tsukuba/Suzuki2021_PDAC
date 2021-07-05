@@ -9,21 +9,21 @@ unique(HRL$LR)
 HRH <- read_csv("results/NATMI_each_patient/NATMI_LR_patients_HMB.csv")
 unique(HRH$LR)
 
-# P01 
+# P01
 df_natmi_01 <- read_csv("results/NATMI_each_patient/ExtractEdges/P01/Edges_lrc2p.csv")
 df_01 <- mutate(df_natmi_01, Patient = "P01") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
 df_01 %>% select(cell_type_pair, LR, Patient) -> P01
-P01 %>% 
+P01 %>%
   group_by(cell_type_pair) %>%
   summarize(NATMI_LR_ALL = n()) -> P01
 
 str(P01)
 
 # HRL
-HRL[HRL$Patient=="P01",] -> HRL_P01
+HRL[HRL$Patient == "P01", ] -> HRL_P01
 unique(HRL_P01$LR)
 
 HRL_P01 %>%
@@ -33,7 +33,7 @@ HRL_P01 %>%
   summarize(HRL = n()) -> HRL_P01
 
 # HRH
-HRH[HRH$Patient=="P01",] -> HRH_P01
+HRH[HRH$Patient == "P01", ] -> HRH_P01
 unique(HRH_P01$LR)
 
 HRH_P01 %>%
@@ -55,14 +55,14 @@ df_02 <- mutate(df_natmi_02, Patient = "P02") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
 df_02 %>% select(cell_type_pair, LR, Patient) -> P02
-P02 %>% 
+P02 %>%
   group_by(cell_type_pair) %>%
   summarize(NATMI_LR_ALL = n()) -> P02
 
 str(P02)
 
 # HRL
-HRL[HRL$Patient=="P02",] -> HRL_P02
+HRL[HRL$Patient == "P02", ] -> HRL_P02
 unique(HRL_P02$LR)
 
 HRL_P02 %>%
@@ -72,7 +72,7 @@ HRL_P02 %>%
   summarize(HRL = n()) -> HRL_P02
 
 # HRH
-HRH[HRH$Patient=="P02",] -> HRH_P02
+HRH[HRH$Patient == "P02", ] -> HRH_P02
 unique(HRH_P02$LR)
 
 HRH_P02 %>%
@@ -94,14 +94,14 @@ df_03 <- mutate(df_natmi_03, Patient = "P03") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
 df_03 %>% select(cell_type_pair, LR, Patient) -> P03
-P03 %>% 
+P03 %>%
   group_by(cell_type_pair) %>%
   summarize(NATMI_LR_ALL = n()) -> P03
 
 str(P03)
 
 # HRL
-HRL[HRL$Patient=="P03",] -> HRL_P03
+HRL[HRL$Patient == "P03", ] -> HRL_P03
 unique(HRL_P03$LR)
 
 HRL_P03 %>%
@@ -111,7 +111,7 @@ HRL_P03 %>%
   summarize(HRL = n()) -> HRL_P03
 
 # HRH
-HRH[HRH$Patient=="P03",] -> HRH_P03
+HRH[HRH$Patient == "P03", ] -> HRH_P03
 unique(HRH_P03$LR)
 
 HRH_P03 %>%
@@ -133,14 +133,14 @@ df_04 <- mutate(df_natmi_04, Patient = "P04") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
 df_04 %>% select(cell_type_pair, LR, Patient) -> P04
-P04 %>% 
+P04 %>%
   group_by(cell_type_pair) %>%
   summarize(NATMI_LR_ALL = n()) -> P04
 
 str(P04)
 
 # HRL
-HRL[HRL$Patient=="P04",] -> HRL_P04
+HRL[HRL$Patient == "P04", ] -> HRL_P04
 unique(HRL_P04$LR)
 
 HRL_P04 %>%
@@ -150,7 +150,7 @@ HRL_P04 %>%
   summarize(HRL = n()) -> HRL_P04
 
 # HRH
-HRH[HRH$Patient=="P04",] -> HRH_P04
+HRH[HRH$Patient == "P04", ] -> HRH_P04
 unique(HRH_P04$LR)
 
 HRH_P04 %>%
@@ -172,14 +172,14 @@ df_05 <- mutate(df_natmi_05, Patient = "P05") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
 df_05 %>% select(cell_type_pair, LR, Patient) -> P05
-P05 %>% 
+P05 %>%
   group_by(cell_type_pair) %>%
   summarize(NATMI_LR_ALL = n()) -> P05
 
 str(P05)
 
 # HRL
-HRL[HRL$Patient=="P05",] -> HRL_P05
+HRL[HRL$Patient == "P05", ] -> HRL_P05
 unique(HRL_P05$LR)
 
 HRL_P05 %>%
@@ -189,7 +189,7 @@ HRL_P05 %>%
   summarize(HRL = n()) -> HRL_P05
 
 # HRH
-HRH[HRH$Patient=="P05",] -> HRH_P05
+HRH[HRH$Patient == "P05", ] -> HRH_P05
 unique(HRH_P05$LR)
 
 HRH_P05 %>%
@@ -211,14 +211,14 @@ df_06 <- mutate(df_natmi_06, Patient = "P06") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
 df_06 %>% select(cell_type_pair, LR, Patient) -> P06
-P06 %>% 
+P06 %>%
   group_by(cell_type_pair) %>%
   summarize(NATMI_LR_ALL = n()) -> P06
 
 str(P06)
 
 # HRL
-HRL[HRL$Patient=="P06",] -> HRL_P06
+HRL[HRL$Patient == "P06", ] -> HRL_P06
 unique(HRL_P06$LR)
 
 HRL_P06 %>%
@@ -228,7 +228,7 @@ HRL_P06 %>%
   summarize(HRL = n()) -> HRL_P06
 
 # HRH
-HRH[HRH$Patient=="P06",] -> HRH_P06
+HRH[HRH$Patient == "P06", ] -> HRH_P06
 unique(HRH_P06$LR)
 
 HRH_P06 %>%
@@ -250,14 +250,14 @@ df_07 <- mutate(df_natmi_07, Patient = "P07") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
 df_07 %>% select(cell_type_pair, LR, Patient) -> P07
-P07 %>% 
+P07 %>%
   group_by(cell_type_pair) %>%
   summarize(NATMI_LR_ALL = n()) -> P07
 
 str(P07)
 
 # HRL
-HRL[HRL$Patient=="P07",] -> HRL_P07
+HRL[HRL$Patient == "P07", ] -> HRL_P07
 unique(HRL_P07$LR)
 
 HRL_P07 %>%
@@ -267,7 +267,7 @@ HRL_P07 %>%
   summarize(HRL = n()) -> HRL_P07
 
 # HRH
-HRH[HRH$Patient=="P07",] -> HRH_P07
+HRH[HRH$Patient == "P07", ] -> HRH_P07
 unique(HRH_P07$LR)
 
 HRH_P07 %>%
@@ -289,14 +289,14 @@ df_08 <- mutate(df_natmi_08, Patient = "P08") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
 df_08 %>% select(cell_type_pair, LR, Patient) -> P08
-P08 %>% 
+P08 %>%
   group_by(cell_type_pair) %>%
   summarize(NATMI_LR_ALL = n()) -> P08
 
 str(P08)
 
 # HRL
-HRL[HRL$Patient=="P08",] -> HRL_P08
+HRL[HRL$Patient == "P08", ] -> HRL_P08
 unique(HRL_P08$LR)
 
 HRL_P08 %>%
@@ -306,7 +306,7 @@ HRL_P08 %>%
   summarize(HRL = n()) -> HRL_P08
 
 # HRH
-HRH[HRH$Patient=="P08",] -> HRH_P08
+HRH[HRH$Patient == "P08", ] -> HRH_P08
 unique(HRH_P08$LR)
 
 HRH_P08 %>%
@@ -328,14 +328,14 @@ df_09 <- mutate(df_natmi_09, Patient = "P09") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
 df_09 %>% select(cell_type_pair, LR, Patient) -> P09
-P09 %>% 
+P09 %>%
   group_by(cell_type_pair) %>%
   summarize(NATMI_LR_ALL = n()) -> P09
 
 str(P09)
 
 # HRL
-HRL[HRL$Patient=="P09",] -> HRL_P09
+HRL[HRL$Patient == "P09", ] -> HRL_P09
 unique(HRL_P09$cell_type_pair)
 
 HRL_P09 %>%
@@ -345,7 +345,7 @@ HRL_P09 %>%
   summarize(HRL = n()) -> HRL_P09
 
 # HRH
-HRH[HRH$Patient=="P09",] -> HRH_P09
+HRH[HRH$Patient == "P09", ] -> HRH_P09
 unique(HRH_P09$cell_type_pair)
 
 HRH_P09 %>%
@@ -367,14 +367,14 @@ df_10 <- mutate(df_natmi_10, Patient = "P10") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
 df_10 %>% select(cell_type_pair, LR, Patient) -> P10
-P10 %>% 
+P10 %>%
   group_by(cell_type_pair) %>%
   summarize(NATMI_LR_ALL = n()) -> P10
 
 str(P10)
 
 # HRL
-HRL[HRL$Patient=="P10",] -> HRL_P10
+HRL[HRL$Patient == "P10", ] -> HRL_P10
 unique(HRL_P10$cell_type_pair)
 
 HRL_P10 %>%
@@ -384,7 +384,7 @@ HRL_P10 %>%
   summarize(HRL = n()) -> HRL_P10
 
 # HRH
-HRH[HRH$Patient=="P10",] -> HRH_P10
+HRH[HRH$Patient == "P10", ] -> HRH_P10
 unique(HRH_P10$cell_type_pair)
 
 HRH_P10 %>%
@@ -404,13 +404,13 @@ bind_rows(P01, P02, P03, P04, P05, P06, P07, P08, P09, P10) -> DFD
 
 # Replace NA in HRL and HRH columns to 0
 DFD %>%
-  replace_na(list(HRL=0, HRH=0)) -> DFD
+  replace_na(list(HRL = 0, HRH = 0)) -> DFD
 
 # row HRL/all
-mutate(DFD, NormHRL = (HRL)/(NATMI_LR_ALL)) -> DFD
+mutate(DFD, NormHRL = (HRL) / (NATMI_LR_ALL)) -> DFD
 
 # row HRH/all
-mutate(DFD, NormHRH = (HRH)/(NATMI_LR_ALL)) -> DFD
+mutate(DFD, NormHRH = (HRH) / (NATMI_LR_ALL)) -> DFD
 
 # save
 write_csv(DFD, "results/NATMI_each_patient/Dataframe_AtoE/Dataframe_D.csv")

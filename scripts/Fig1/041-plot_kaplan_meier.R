@@ -10,12 +10,12 @@ pacman::p_load(survival, survminer, broom, tidyverse)
 # Input and format
 ################################################################################
 
-files <- dir(path= "data/ICGC/", pattern = "*.csv.gz", full.names = TRUE)
+files <- dir(path = "data/ICGC/", pattern = "*.csv.gz", full.names = TRUE)
 cohorts <- files %>% str_remove_all(".*survival_|.csv.gz")
 df_survival <- map2_dfr(files, cohorts, ~ read_csv(.x, col_types = cols()) %>% mutate(cohort = .y))
 
 df_lr <- read_csv("data/NATMI_LR.csv", col_names = "LR", col_types = cols()) %>%
-  filter(str_detect(LR,"SHH->SMO|SEMA4B->DCBLD2"))
+  filter(str_detect(LR, "SHH->SMO|SEMA4B->DCBLD2"))
 
 df_survival <- df_survival %>%
   mutate(status = if_else(status == "alive", 0, 1)) # alive=0, dead=1

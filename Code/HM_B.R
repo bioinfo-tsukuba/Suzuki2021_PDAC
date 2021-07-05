@@ -8,7 +8,9 @@ library(circlize)
 df <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/Fig1/LR_adjPval_meanHR_screened.csv")
 
 # [HM-B] HR>1 の LRペアのヒートマップ
-df %>% filter(meanHR >= 1) %>% select(LR) -> HMB
+df %>%
+  filter(meanHR >= 1) %>%
+  select(LR) -> HMB
 
 
 # P01
@@ -112,7 +114,7 @@ unique(df_common_LR$LR)
 write_csv(df_common_LR, "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/NATMI_common_LR_patients_HMB.csv")
 
 # 集計
-df_result %>% 
+df_result %>%
   filter(!is.na(Patient)) %>%
   group_by(LR, cell_type_pair) %>%
   summarize(number_of_patient = n()) -> df_summary
@@ -129,8 +131,8 @@ filter(dfdf, cell_type_pair %in% c("Endo->Endo", "Endo->DC", "DC->Endo", "DC->DC
 filter(dfdf, !cell_type_pair %in% c("Endo->Endo", "Endo->DC", "DC->Endo", "DC->DC")) -> df2
 
 # Convert tidy data into matrix
-df2 %>% 
-  pivot_wider(names_from=cell_type_pair, values_from=number_of_patient, values_fill=0) -> df_mat
+df2 %>%
+  pivot_wider(names_from = cell_type_pair, values_from = number_of_patient, values_fill = 0) -> df_mat
 
 df_mat %>%
   select(-LR) %>%
@@ -143,15 +145,15 @@ str(mat1)
 
 library(circlize)
 # この後グラフィックの出力はPDFとして保存しますよモード
-pdf("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/HMB_heatmap_all_patients.pdf") 
+pdf("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/HMB_heatmap_all_patients.pdf")
 
 # col = f1をオプションにする
 f1 <- colorRamp2(seq(min(mat1), max(mat1), length = 2), c("#EEEEEE", "blue"))
 
 # heatmap
-Heatmap(mat1, col = f1,
-        row_names_gp = gpar(fontsize = 4), column_names_gp =gpar(fontsize = 5))
+Heatmap(mat1,
+  col = f1,
+  row_names_gp = gpar(fontsize = 4), column_names_gp = gpar(fontsize = 5)
+)
 
 dev.off() # これでモードが終了し、 PDFができる
-
-

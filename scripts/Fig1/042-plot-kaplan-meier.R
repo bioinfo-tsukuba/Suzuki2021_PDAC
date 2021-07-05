@@ -32,18 +32,18 @@ df_lr <-
 # Main
 ################################################################################
 
-report_pval <- function(data) {
-  survdiff(Surv(time, status) ~ exp_bin, data = data, rho = 1) %>%
-    glance() %>%
-    pull(p.value)
-}
+# report_pval <- function(data) {
+#   survdiff(Surv(time, status) ~ exp_bin, data = data, rho = 1) %>%
+#     glance() %>%
+#     pull(p.value)
+# }
 
-report_hr <- function(data) {
-  cox <- coxph(Surv(time, status) ~ exp_bin, data = data)
-  1 / exp(cox$coefficients)
-}
+# report_hr <- function(data) {
+#   cox <- coxph(Surv(time, status) ~ exp_bin, data = data)
+#   1 / exp(cox$coefficients)
+# }
 
-df_plot <-
+df_exp_bin <-
   inner_join(df_survival, df_lr, by = "gene") %>%
   group_by(LR, cohort, id) %>%
   # high and low by median value
@@ -53,7 +53,7 @@ df_plot <-
   select(LR, cohort, time, status, exp_bin) %>%
   distinct()
 
-tmp <- df_plot %>%
+df_plot <- df_exp_bin %>%
   group_nest(cohort, LR) %>%
   mutate(surv = map(data, ~ survfit(Surv(time, status) ~ exp_bin, data = .x))) %>%
   mutate(surv = map(surv, tidy)) %>%
@@ -61,23 +61,17 @@ tmp <- df_plot %>%
   unnest(surv) %>%
   mutate(strata = str_remove_all(strata, "exp_bin="))
 
-# tmp1 <- tmp %>% filter(str_detect(LR, "ANXA1"))
-
 g <-
-  ggplot(tmp, aes(time, estimate, group = strata)) +
+  ggplot(df_plot, aes(time, estimate, group = strata)) +
   geom_line(aes(color = strata)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = .25) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), alpha = .2) +
   labs(x = "Time (days)", y = "Survival probability %") +
   ylim(0, 1) +
   theme_bw() +
   facet_wrap(~ LR + cohort, ncol = 3, scale = "free_x")
-ggsave("tmp.pdf", height = 200, limitsize = FALSE)
-
-g <- ggsurvplot_facet(fit, df_plot, scales = "free", pval = TRUE, facet.by = c("LR", "cohort")) +
-  theme_bw()
 
 ################################################################################
 # Output
 ################################################################################
 
-ggsave("results/Fig1/Fig1c.pdf", g, dpi = 350, width = 10, height = 5)
+ggsave("results/Fig1/kaplan_meier/unfavorable.pdf", g, dpi = 350, width = 10, height = 150, limitsize = FALSE)
