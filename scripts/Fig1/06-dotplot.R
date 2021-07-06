@@ -27,13 +27,15 @@ df_plot <-
   )) %>%
   ungroup()
 
-df_plot %>% group_by(label) %>% count(label)
+df_plot %>%
+  group_by(label) %>%
+  count(label)
 
 p <- ggplot(df_plot, aes(x = mean_HR, y = mlogPval, color = label)) +
   geom_point() +
   scale_color_manual(values = c("#ff5050", "gray", "#0066ff")) +
   labs(x = "mean HR", y = "-log10 P-value") +
-  theme(text=element_text(size = 16,  family="Arial")) +
+  theme(text = element_text(size = 16, family = "Arial")) +
   theme_bw()
 
 ggsave("tmp.png", p, width = 5, height = 3)

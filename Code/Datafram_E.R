@@ -10,8 +10,9 @@ unique(DFD$cell_type_pair)
 DFD[is.na(DFD)] <- 0
 
 # make dataframe E
-DFD %>% group_by(cell_type_pair) %>%
-  summarise(mean_NormHRL = mean(NormHRL), mean_NormHRH = mean(NormHRH)) ->DF_E
+DFD %>%
+  group_by(cell_type_pair) %>%
+  summarise(mean_NormHRL = mean(NormHRL), mean_NormHRH = mean(NormHRH)) -> DF_E
 
 # save
 write_csv(DF_E, "results/NATMI_each_patient/Dataframe_AtoE/Dataframe_E.csv")

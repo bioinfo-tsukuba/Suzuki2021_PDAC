@@ -2,7 +2,8 @@
 tmp*
 temp*
 todo*
-
+%
+Rplots*
 # vscode
 .vscode
 

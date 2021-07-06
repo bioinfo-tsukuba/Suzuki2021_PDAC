@@ -2,7 +2,7 @@
 # Initialization
 ################################################################################
 
-options(repos= "https//cran.r-project.org")
+options(repos = "https//cran.r-project.org")
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(tidyverse, janitor, patchwork)
 system("mkdir -p results/Fig4/")
@@ -42,12 +42,14 @@ df_plot <-
   inner_join(df_lr, by = c("CCI", "LR")) %>%
   filter(prognosis == "poor")
 
-df_plot %>% select(LR) %>% n_distinct() #55
+df_plot %>%
+  select(LR) %>%
+  n_distinct() # 55
 
 plot_tile <- function(data, title) {
   ggplot(data, aes(x = grade, y = fct_rev(LR), fill = mean_weight)) +
     geom_tile() +
-    scale_fill_gradient(limits=c(0, max(data$mean_weight))) +
+    scale_fill_gradient(limits = c(0, max(data$mean_weight)), low = "#EEEEEE", high = "blue") +
     labs(title = title, x = "Grade", y = "LR pair", fill = "Score")
 }
 
@@ -70,7 +72,9 @@ df_plot <-
   filter(mean_exp_weight_grade4 > median_exp_weight_grade4) %>%
   filter(prognosis == "poor")
 
-df_plot %>% select(LR) %>% n_distinct() #47
+df_plot %>%
+  select(LR) %>%
+  n_distinct() # 47
 
 g_grade4 <-
   df_plot %>%
@@ -102,7 +106,9 @@ df_plot <-
   filter(mean_exp_weight_grade4 > median_exp_weight_grade4) %>%
   filter(prognosis == "poor")
 
-df_plot %>% select(LR) %>% n_distinct() #23
+df_plot %>%
+  select(LR) %>%
+  n_distinct() # 23
 
 g <-
   df_plot %>%
@@ -124,7 +130,9 @@ df_plot <-
   filter(mean_exp_weight_grade4 > q3_exp_weight_grade4) %>%
   filter(prognosis == "poor")
 
-df_plot %>% select(LR) %>% n_distinct() #33
+df_plot %>%
+  select(LR) %>%
+  n_distinct() # 33
 
 g_grade4 <-
   df_plot %>%
@@ -134,4 +142,3 @@ g_grade4 <-
   wrap_plots()
 
 ggsave("results/Fig4/heatmap_q3_grade4.pdf", g_grade4, width = 30, height = 30)
-

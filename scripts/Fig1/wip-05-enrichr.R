@@ -61,11 +61,11 @@ p_col <- df_enriched %>%
   mutate(Term = reorder_within(Term, minusLogAdjPval, HR)) %>%
   mutate(Term = reorder_within(Term, minusLogAdjPval, DB)) %>%
   ggplot(aes(x = minusLogAdjPval, y = Term, fill = "FF99CC")) +
-    geom_col() +
-    theme_bw() +
-    scale_x_reverse() +
-    theme(text = element_text(size = 15)) +
-    facet_wrap(vars(HR, lr, DB), scale = "free", ncol = 4)
+  geom_col() +
+  theme_bw() +
+  scale_x_reverse() +
+  theme(text = element_text(size = 15)) +
+  facet_wrap(vars(HR, lr, DB), scale = "free", ncol = 4)
 
 p_tile <- df_enriched %>%
   group_by(lr, HR, DB) %>%
@@ -73,13 +73,15 @@ p_tile <- df_enriched %>%
   mutate(Term = reorder_within(Term, minusLogAdjPval, lr)) %>%
   mutate(Term = reorder_within(Term, minusLogAdjPval, HR)) %>%
   mutate(Term = reorder_within(Term, minusLogAdjPval, DB)) %>%
-  separate_rows(Genes, sep=";", convert = TRUE) %>%
+  separate_rows(Genes, sep = ";", convert = TRUE) %>%
   ggplot(aes(x = Genes, y = Term, fill = "FF99CC")) +
-    geom_tile() +
-    theme_bw() +
-    theme(text = element_text(size = 15),
-      axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
-    facet_wrap(vars(HR, lr, DB), scale = "free", ncol = 4)
+  geom_tile() +
+  theme_bw() +
+  theme(
+    text = element_text(size = 15),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+  ) +
+  facet_wrap(vars(HR, lr, DB), scale = "free", ncol = 4)
 
 
 ggsave("results/Fig1/enrichr_barplot.pdf", p_col, width = 70, height = 40, limitsize = FALSE)

@@ -51,11 +51,12 @@ df_result <-
   df_prognostic_lr %>%
   inner_join(df_natmi_grade4, by = "LR") %>%
   select(CCI, LR, prognosis, mean, median, q1, q3) %>%
-  rename(mean_exp_weight_grade4 = mean,
+  rename(
+    mean_exp_weight_grade4 = mean,
     median_exp_weight_grade4 = median,
     q1_exp_weight_grade4 = q1,
     q3_exp_weight_grade4 = q3,
-    )
+  )
 
 ################################################################################
 # Output
