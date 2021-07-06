@@ -43,7 +43,7 @@ df1_long %>%
         aspect.ratio = 0.3
     ) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-    scale_y_continuous(expand = expansion(mult = c(0, 0)), limits=c(0, max_sum_LR_pair)) + # max_sum_LR_pair
+    scale_y_continuous(expand = expansion(mult = c(0, 0)), limits=c(0, max_sum_LR_pair*1.05)) + # max_sum_LR_pair
     theme(legend.position="bottom") +
     labs(x="Cell type pair", y="") -> g1
 
