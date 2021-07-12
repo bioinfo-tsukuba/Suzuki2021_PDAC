@@ -54,6 +54,23 @@ plot_func <- function(data, LR) {
     scale_fill_discrete(labels = c("high", "low")) +
     scale_color_discrete(labels = c("high", "low")) +
     theme_bw() +
+        theme(
+        axis.ticks = element_blank(),
+        axis.title = element_text(size = 8, family = "Helvetica", color = "black"),
+        axis.text = element_text(size = 6, family = "Helvetica", color = "black"),
+        legend.text = element_text(size = 6, family = "Helvetica", color = "black"),
+        legend.title = element_text(size = 6, family = "Helvetica", color = "black"),
+        strip.text = element_text(size = 6, family = "Helvetica", color = "black"),
+        legend.key.size = unit(0.05, "inch"),
+        panel.spacing.x = unit(0, "lines"),
+        panel.grid.minor = element_blank(),
+        plot.margin = margin(0, 1.8, 0, 1.8, "cm"),
+        strip.background = element_rect(fill=NA, size=0.5),
+        panel.border = element_rect(size = 0.25),
+        aspect.ratio = 0.5,
+        legend.margin = margin(0, 0, 0,0 , "cm"),
+        legend.box.margin = margin(0, 0, 0,0 , "cm"),
+    ) +
     facet_grid(LR ~ cohort, scale = "free_x")
 }
 
@@ -74,5 +91,5 @@ g <- marrangeGrob(df_plot$g, nrow = 7, ncol = 1)
 ################################################################################
 
 ggsave("results/Fig1/kaplan_meier/unfavorable.pdf", g,
-  dpi = 350, width = 10, height = 15, limitsize = FALSE
+  dpi = 350, width = 210, height = 297, limitsize = FALSE, units="mm"
 )
