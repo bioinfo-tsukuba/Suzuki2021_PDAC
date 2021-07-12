@@ -32,8 +32,8 @@ dfmeta <- read_csv(path_metadata) %>%
 #
 df2 %>%
   separate(cell_type_pair, sep = "->", into = c("From", "To"), remove = FALSE) %>%
-  left_join(df1, by = c("From" = "Cell_type", "Patient")) %>%
-  left_join(df1, by = c("To" = "Cell_type", "Patient")) -> df3
+  left_join(df1, by = c("From" = "Cell_type", "Patient" = "Patient_ID")) %>%
+  left_join(df1, by = c("To" = "Cell_type", "Patient" = "Patient_ID")) -> df3
 df3 %>%
   rename(N_cell_sending = N_cell.x, N_cell_receiving = N_cell.y) -> df3
 
@@ -45,42 +45,82 @@ df3 %>%
 # df3
 df3 %>%
   ggplot(aes(log10(N_cell_sending * N_cell_receiving), NATMI_LR_ALL, col = Patient)) +
-  geom_point() +
-  theme(text = element_text(size = 16)) +
+  geom_point(size = 0.5) +
   theme_bw() +
+  theme(
+        axis.ticks = element_blank(),
+        axis.title = element_text(size = 8, family = "Helvetica", color = "black"),
+        axis.text = element_text(size = 6, family = "Helvetica", color = "black"),
+        legend.text = element_text(size = 6, family = "Helvetica", color = "black"),
+        legend.title = element_text(size = 6, family = "Helvetica", color = "black"),
+        strip.text = element_text(size = 6, family = "Helvetica", color = "black"),
+        legend.key.size = unit(0.05, "inch"),
+        panel.spacing.x = unit(0, "lines"),
+        panel.grid.minor = element_blank(),
+        aspect.ratio = 0.7
+  ) +
   labs(
     x = "log10(N_sending * N_receiving)",
     y = "Number of LR pairs detected by NATMI",
-    title = "Detected LR pairs for each cell type pair and each patient"
+    caption = "Detected LR pairs for each cell type pair and each patient"
   ) -> g1
-ggsave(file.path(path_outdir, "scatter_NATMI_and_cell_type_number_ALL.pdf"), g1)
-ggsave(file.path(path_outdir, "scatter_NATMI_and_cell_type_number_ALL.svg"), g1)
+ggsave(file.path(path_outdir, "scatter_NATMI_and_cell_type_number_ALL.pdf"), g1, 
+    width = 4, height = 4)
+ggsave(file.path(path_outdir, "scatter_NATMI_and_cell_type_number_ALL.svg"), g1,
+    width = 4, height = 4)
 
 df3 %>%
   ggplot(aes(log10(N_cell_sending * N_cell_receiving), HRL, col = Patient)) +
-  geom_point() +
-  theme(text = element_text(size = 16)) +
+  geom_point(size = 0.5) +
   theme_bw() +
+  theme(
+        axis.ticks = element_blank(),
+        axis.title = element_text(size = 8, family = "Helvetica", color = "black"),
+        axis.text = element_text(size = 6, family = "Helvetica", color = "black"),
+        legend.text = element_text(size = 6, family = "Helvetica", color = "black"),
+        legend.title = element_text(size = 6, family = "Helvetica", color = "black"),
+        strip.text = element_text(size = 6, family = "Helvetica", color = "black"),
+        legend.key.size = unit(0.05, "inch"),
+        panel.spacing.x = unit(0, "lines"),
+        panel.grid.minor = element_blank(),
+        aspect.ratio = 0.7
+  ) +
   labs(
     x = "log10(N_sending * N_receiving)",
     y = "Number of LR pairs detected by NATMI",
-    title = "Detected LR pairs for each cell type pair and each patient"
+    caption = "Detected LR pairs for each cell type pair and each patient"
   ) -> g2
-ggsave(file.path(path_outdir, "scatter_NATMI_and_cell_type_number_HRL.pdf"), g2)
-ggsave(file.path(path_outdir, "scatter_NATMI_and_cell_type_number_HRL.svg"), g2)
+ggsave(file.path(path_outdir, "scatter_NATMI_and_cell_type_number_HRL.pdf"), g2,
+    width = 4, height = 4)
+ggsave(file.path(path_outdir, "scatter_NATMI_and_cell_type_number_HRL.svg"), g2,
+    width = 4, height = 4)
 
 df3 %>%
   ggplot(aes(log10(N_cell_sending * N_cell_receiving), HRH, col = Patient)) +
-  geom_point() +
-  theme(text = element_text(size = 16)) +
+  geom_point(size = 0.5) +
+  geom_point(size = 0.5) +
   theme_bw() +
+  theme(
+        axis.ticks = element_blank(),
+        axis.title = element_text(size = 8, family = "Helvetica", color = "black"),
+        axis.text = element_text(size = 6, family = "Helvetica", color = "black"),
+        legend.text = element_text(size = 6, family = "Helvetica", color = "black"),
+        legend.title = element_text(size = 6, family = "Helvetica", color = "black"),
+        strip.text = element_text(size = 6, family = "Helvetica", color = "black"),
+        legend.key.size = unit(0.05, "inch"),
+        panel.spacing.x = unit(0, "lines"),
+        panel.grid.minor = element_blank(),
+        aspect.ratio = 0.7
+  ) +
   labs(
     x = "log10(N_sending * N_receiving)",
     y = "Number of LR pairs detected by NATMI",
-    title = "Detected LR pairs for each cell type pair and each patient"
+    caption = "Detected LR pairs for each cell type pair and each patient"
   ) -> g3
-ggsave(file.path(path_outdir, "scatter_NATMI_and_cell_type_number_HRH.pdf"), g3)
-ggsave(file.path(path_outdir, "scatter_NATMI_and_cell_type_number_HRH.svg"), g3)
+ggsave(file.path(path_outdir, "scatter_NATMI_and_cell_type_number_HRH.pdf"), g3,
+    width = 4, height = 4)
+ggsave(file.path(path_outdir, "scatter_NATMI_and_cell_type_number_HRH.svg"), g3,
+    width = 4, height = 4)
 
 ######################################
 # Count the number of LR pairs
