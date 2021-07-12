@@ -38,6 +38,4 @@ p <- ggplot(df_plot, aes(x = mean_HR, y = mlogPval, color = label)) +
   theme(text = element_text(size = 16, family = "Arial")) +
   theme_bw()
 
-ggsave("tmp.png", p, width = 5, height = 3)
-
 ggsave("results/Fig1/dotplot.svg", p, width = 5, height = 3)

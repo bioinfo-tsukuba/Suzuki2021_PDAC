@@ -79,10 +79,10 @@ df1 %>%
   mutate(thickness = adjusted_mean_NormHRL - adjusted_mean_NormHRH) %>%
   select(from, to, thickness) -> Edges_diff
 
-df1 %>% 
-    separate(cell_type_pair, sep="->", into=c("from", "to")) %>%
-    mutate(thickness = log2(adjusted_mean_NormHRL+1e-5) - log2(adjusted_mean_NormHRH+1e-5)) %>%
-    select(from, to, thickness) -> Edges_fc
+df1 %>%
+  separate(cell_type_pair, sep = "->", into = c("from", "to")) %>%
+  mutate(thickness = log2(adjusted_mean_NormHRL + 1e-5) - log2(adjusted_mean_NormHRH + 1e-5)) %>%
+  select(from, to, thickness) -> Edges_fc
 
 # network_cell_type_HRL
 pdfname <- file.path(path_outdir, "network_cell_type_HRL.pdf")
@@ -117,9 +117,11 @@ dev.off()
 # network_cell_type_HRL
 pdfname <- file.path(path_outdir, "network_cell_type_fc.pdf")
 pdf(pdfname)
-qgraph(Edges_fc, esize=5, 
-    theme = 'gray', layout="circle",
-    title = "log2 fold change of HR<1 from HR>1")
+qgraph(Edges_fc,
+  esize = 5,
+  theme = "gray", layout = "circle",
+  title = "log2 fold change of HR<1 from HR>1"
+)
 dev.off()
 
 # sessionInfo()

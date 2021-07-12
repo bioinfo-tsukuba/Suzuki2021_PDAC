@@ -2,7 +2,7 @@
 # Initialization
 ################################################################################
 options(warn = -1)
-options(repos="http://cran.us.r-project.org")
+options(repos = "http://cran.us.r-project.org")
 
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(survival, broom, tidyverse, gridExtra)

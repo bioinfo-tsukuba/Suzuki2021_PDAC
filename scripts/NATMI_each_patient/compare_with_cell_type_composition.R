@@ -26,9 +26,9 @@ df2 <- read_csv(path_data2)
 
 # Read metadata
 dfmeta <- read_csv(path_metadata) %>%
-    filter(Primary_or_Metasitasis=="Primary")
+  filter(Primary_or_Metasitasis == "Primary")
 
-# 
+#
 #
 df2 %>%
   separate(cell_type_pair, sep = "->", into = c("From", "To"), remove = FALSE) %>%
@@ -86,141 +86,145 @@ ggsave(file.path(path_outdir, "scatter_NATMI_and_cell_type_number_HRH.svg"), g3)
 # Count the number of LR pairs
 dflr <- read_csv(path_LR)
 dflr %>%
-    filter(meanHR<1) %>%
-    nrow -> n_HRL
-dflr %>% 
-    filter(meanHR>1) %>%
-    nrow -> n_HRH
+  filter(meanHR < 1) %>%
+  nrow() -> n_HRL
+dflr %>%
+  filter(meanHR > 1) %>%
+  nrow() -> n_HRH
 
 # Count the number of all LR pairs
 dflrall <- read_csv(path_LR_all)
-dflrall %>% 
-    nrow -> n_LR_all
+dflrall %>%
+  nrow() -> n_LR_all
 
 #
 df3 %>%
-    group_by(cell_type_pair) %>%
-    summarise(
-        mean_NormHRL = mean(NormHRL), 
-        mean_NormHRH = mean(NormHRH),
-        adjusted_mean_NormHRL = mean(NormHRL)/n_HRL*n_LR_all, 
-        adjusted_mean_NormHRH = mean(NormHRH)/n_HRH*n_LR_all,
-        adjusted_mean_NormHRL2 = mean(NormHRL/log10((N_cell_sending+1) * (N_cell_receiving+1))*log10(2))/n_HRL*n_LR_all, 
-        adjusted_mean_NormHRH2 = mean(NormHRH/log10((N_cell_sending+1) * (N_cell_receiving+1))*log10(2))/n_HRH*n_LR_all,
-        adjusted_mean_NormHRL3 = mean(HRL/log10((N_cell_sending+1) * (N_cell_receiving+1))*log10(2))/n_HRL, 
-        adjusted_mean_NormHRH3 = mean(HRH/log10((N_cell_sending+1) * (N_cell_receiving+1))*log10(2))/n_HRH,
-        cell_number_product_log10 = mean(log10((N_cell_sending+1) * (N_cell_receiving+1)))
-    ) -> df4
+  group_by(cell_type_pair) %>%
+  summarise(
+    mean_NormHRL = mean(NormHRL),
+    mean_NormHRH = mean(NormHRH),
+    adjusted_mean_NormHRL = mean(NormHRL) / n_HRL * n_LR_all,
+    adjusted_mean_NormHRH = mean(NormHRH) / n_HRH * n_LR_all,
+    adjusted_mean_NormHRL2 = mean(NormHRL / log10((N_cell_sending + 1) * (N_cell_receiving + 1)) * log10(2)) / n_HRL * n_LR_all,
+    adjusted_mean_NormHRH2 = mean(NormHRH / log10((N_cell_sending + 1) * (N_cell_receiving + 1)) * log10(2)) / n_HRH * n_LR_all,
+    adjusted_mean_NormHRL3 = mean(HRL / log10((N_cell_sending + 1) * (N_cell_receiving + 1)) * log10(2)) / n_HRL,
+    adjusted_mean_NormHRH3 = mean(HRH / log10((N_cell_sending + 1) * (N_cell_receiving + 1)) * log10(2)) / n_HRH,
+    cell_number_product_log10 = mean(log10((N_cell_sending + 1) * (N_cell_receiving + 1)))
+  ) -> df4
 
 
 
 df4 %>%
-    ggplot(aes(adjusted_mean_NormHRL, adjusted_mean_NormHRL2)) +
-    geom_point(alpha=0.3)
+  ggplot(aes(adjusted_mean_NormHRL, adjusted_mean_NormHRL2)) +
+  geom_point(alpha = 0.3)
 
 df4 %>%
-    ggplot(aes(adjusted_mean_NormHRH, adjusted_mean_NormHRH2)) +
-    geom_point(alpha=0.3)
+  ggplot(aes(adjusted_mean_NormHRH, adjusted_mean_NormHRH2)) +
+  geom_point(alpha = 0.3)
 
 df3 %>%
-    ggplot(aes(log10(N_cell_sending * N_cell_receiving), NormHRL/n_HRL*n_LR_all)) +
-    geom_point()
+  ggplot(aes(log10(N_cell_sending * N_cell_receiving), NormHRL / n_HRL * n_LR_all)) +
+  geom_point()
 df3 %>%
-    ggplot(aes(log10(N_cell_sending * N_cell_receiving), NormHRH/n_HRH*n_LR_all)) +
-    geom_point()
+  ggplot(aes(log10(N_cell_sending * N_cell_receiving), NormHRH / n_HRH * n_LR_all)) +
+  geom_point()
 
 ################
 # Scatter plot
-min_value <- min(c(df4$adjusted_mean_NormHRL2, df4$adjusted_mean_NormHRH2)) 
+min_value <- min(c(df4$adjusted_mean_NormHRL2, df4$adjusted_mean_NormHRH2))
 max_value <- max(c(df4$adjusted_mean_NormHRL2, df4$adjusted_mean_NormHRH2))
 df4 %>%
-    ggplot(aes(adjusted_mean_NormHRL2, adjusted_mean_NormHRH2, label=cell_type_pair)) +
-    geom_point(aes(color=adjusted_mean_NormHRL2/adjusted_mean_NormHRH2 > 2)) + 
-    geom_abline(intercept=0, slope=1) +
-    geom_abline(intercept=0, slope=2, linetype = "dashed") +
-    geom_abline(intercept=0, slope=1/2, linetype = "dashed") +
-    geom_text_repel(
-        data=df4 %>% filter(adjusted_mean_NormHRH2/adjusted_mean_NormHRL2 > 2 | adjusted_mean_NormHRL2/adjusted_mean_NormHRH2 > 2)
-    ) +
-    theme(legend.position="bottom") + 
-    lims(x=c(min_value, max_value), y=c(min_value, max_value)) +
-    labs(title="Adjusted mean enrichment of LR pairs", 
-    x="LR pairs with HR<1", y="LR pairs with HR>1") -> g1
+  ggplot(aes(adjusted_mean_NormHRL2, adjusted_mean_NormHRH2, label = cell_type_pair)) +
+  geom_point(aes(color = adjusted_mean_NormHRL2 / adjusted_mean_NormHRH2 > 2)) +
+  geom_abline(intercept = 0, slope = 1) +
+  geom_abline(intercept = 0, slope = 2, linetype = "dashed") +
+  geom_abline(intercept = 0, slope = 1 / 2, linetype = "dashed") +
+  geom_text_repel(
+    data = df4 %>% filter(adjusted_mean_NormHRH2 / adjusted_mean_NormHRL2 > 2 | adjusted_mean_NormHRL2 / adjusted_mean_NormHRH2 > 2)
+  ) +
+  theme(legend.position = "bottom") +
+  lims(x = c(min_value, max_value), y = c(min_value, max_value)) +
+  labs(
+    title = "Adjusted mean enrichment of LR pairs",
+    x = "LR pairs with HR<1", y = "LR pairs with HR>1"
+  ) -> g1
 g1
 
 ################
 # Scatter plot
-min_value <- min(c(df4$adjusted_mean_NormHRL3, df4$adjusted_mean_NormHRH3)) 
+min_value <- min(c(df4$adjusted_mean_NormHRL3, df4$adjusted_mean_NormHRH3))
 max_value <- max(c(df4$adjusted_mean_NormHRL3, df4$adjusted_mean_NormHRH3))
 df4 %>%
-    ggplot(aes(adjusted_mean_NormHRL3, adjusted_mean_NormHRH3, label=cell_type_pair)) +
-    geom_point(aes(color=adjusted_mean_NormHRL2/adjusted_mean_NormHRH2 > 2)) + 
-    geom_abline(intercept=0, slope=1) +
-    geom_abline(intercept=0, slope=2, linetype = "dashed") +
-    geom_abline(intercept=0, slope=1/2, linetype = "dashed") +
-    geom_text_repel(
-        data=df4 %>% filter(adjusted_mean_NormHRH3/adjusted_mean_NormHRL3 > 2 | adjusted_mean_NormHRL3/adjusted_mean_NormHRH3 > 2)
-    ) +
-    theme(legend.position="bottom") + 
-    lims(x=c(min_value, max_value), y=c(min_value, max_value)) +
-    labs(title="Adjusted mean enrichment of LR pairs", 
-    x="LR pairs with HR<1", y="LR pairs with HR>1") -> g1
+  ggplot(aes(adjusted_mean_NormHRL3, adjusted_mean_NormHRH3, label = cell_type_pair)) +
+  geom_point(aes(color = adjusted_mean_NormHRL2 / adjusted_mean_NormHRH2 > 2)) +
+  geom_abline(intercept = 0, slope = 1) +
+  geom_abline(intercept = 0, slope = 2, linetype = "dashed") +
+  geom_abline(intercept = 0, slope = 1 / 2, linetype = "dashed") +
+  geom_text_repel(
+    data = df4 %>% filter(adjusted_mean_NormHRH3 / adjusted_mean_NormHRL3 > 2 | adjusted_mean_NormHRL3 / adjusted_mean_NormHRH3 > 2)
+  ) +
+  theme(legend.position = "bottom") +
+  lims(x = c(min_value, max_value), y = c(min_value, max_value)) +
+  labs(
+    title = "Adjusted mean enrichment of LR pairs",
+    x = "LR pairs with HR<1", y = "LR pairs with HR>1"
+  ) -> g1
 g1
 
 
 ###################
 df4 %>%
-    ggplot(aes(reorder(cell_type_pair, adjusted_mean_NormHRL3), adjusted_mean_NormHRL3)) +
-    geom_bar(stat="identity") +
-    coord_flip() +
-    theme(text=element_text(size = 16)) +
-    theme_bw() +
-    labs(x="Cell type pair")
+  ggplot(aes(reorder(cell_type_pair, adjusted_mean_NormHRL3), adjusted_mean_NormHRL3)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  theme(text = element_text(size = 16)) +
+  theme_bw() +
+  labs(x = "Cell type pair")
 
 df4 %>%
-    ggplot(aes(reorder(cell_type_pair, adjusted_mean_NormHRL2), adjusted_mean_NormHRL2)) +
-    geom_bar(stat="identity") +
-    coord_flip() +
-    theme(text=element_text(size = 16)) +
-    theme_bw() +
-    labs(x="Cell type pair")
+  ggplot(aes(reorder(cell_type_pair, adjusted_mean_NormHRL2), adjusted_mean_NormHRL2)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  theme(text = element_text(size = 16)) +
+  theme_bw() +
+  labs(x = "Cell type pair")
 
 df4 %>%
-    ggplot(aes(reorder(cell_type_pair, adjusted_mean_NormHRL), adjusted_mean_NormHRL)) +
-    geom_bar(stat="identity") +
-    coord_flip() +
-    theme(text=element_text(size = 16)) +
-    theme_bw() +
-    labs(x="Cell type pair")
+  ggplot(aes(reorder(cell_type_pair, adjusted_mean_NormHRL), adjusted_mean_NormHRL)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  theme(text = element_text(size = 16)) +
+  theme_bw() +
+  labs(x = "Cell type pair")
 
 #########################
 df4 %>%
-    separate(cell_type_pair, sep="->", into=c("Sending", "Receiving"), remove=FALSE) %>%
-    ggplot(aes(Sending, Receiving, fill=adjusted_mean_NormHRL)) +
-    geom_tile() +
-    theme_bw() +
-    scale_fill_gradient(low="white", high="blue")
+  separate(cell_type_pair, sep = "->", into = c("Sending", "Receiving"), remove = FALSE) %>%
+  ggplot(aes(Sending, Receiving, fill = adjusted_mean_NormHRL)) +
+  geom_tile() +
+  theme_bw() +
+  scale_fill_gradient(low = "white", high = "blue")
 
 df4 %>%
-    separate(cell_type_pair, sep="->", into=c("Sending", "Receiving"), remove=FALSE) %>%
-    ggplot(aes(Sending, Receiving, fill=adjusted_mean_NormHRL2)) +
-    geom_tile() +
-    theme_bw() +
-    scale_fill_gradient(low="white", high="blue")
+  separate(cell_type_pair, sep = "->", into = c("Sending", "Receiving"), remove = FALSE) %>%
+  ggplot(aes(Sending, Receiving, fill = adjusted_mean_NormHRL2)) +
+  geom_tile() +
+  theme_bw() +
+  scale_fill_gradient(low = "white", high = "blue")
 
 df4 %>%
-    separate(cell_type_pair, sep="->", into=c("Sending", "Receiving"), remove=FALSE) %>%
-    ggplot(aes(Sending, Receiving, fill=adjusted_mean_NormHRL3)) +
-    geom_tile() +
-    theme_bw() +
-    scale_fill_gradient(low="white", high="blue")
+  separate(cell_type_pair, sep = "->", into = c("Sending", "Receiving"), remove = FALSE) %>%
+  ggplot(aes(Sending, Receiving, fill = adjusted_mean_NormHRL3)) +
+  geom_tile() +
+  theme_bw() +
+  scale_fill_gradient(low = "white", high = "blue")
 
 df4 %>%
-    separate(cell_type_pair, sep="->", into=c("Sending", "Receiving"), remove=FALSE) %>%
-    ggplot(aes(Sending, Receiving, fill=cell_number_product_log10)) +
-    geom_tile() +
-    theme_bw() +
-    scale_fill_gradient(low="white", high="blue")
+  separate(cell_type_pair, sep = "->", into = c("Sending", "Receiving"), remove = FALSE) %>%
+  ggplot(aes(Sending, Receiving, fill = cell_number_product_log10)) +
+  geom_tile() +
+  theme_bw() +
+  scale_fill_gradient(low = "white", high = "blue")
 
 #############################################################################################
 #############################################################################################
@@ -228,53 +232,53 @@ df4 %>%
 
 #
 df3 %>%
-    left_join(dfmeta, by=c("Patient"="Patient_ID")) %>%
-    group_by(cell_type_pair, Grade) %>%
-    summarise(
-        mean_NormHRL = mean(NormHRL), 
-        mean_NormHRH = mean(NormHRH),
-        adjusted_mean_NormHRL = mean(NormHRL)/n_HRL*n_LR_all, 
-        adjusted_mean_NormHRH = mean(NormHRH)/n_HRH*n_LR_all,
-        adjusted_mean_NormHRL2 = mean(NormHRL/log10((N_cell_sending+1) * (N_cell_receiving+1))*log10(2))/n_HRL*n_LR_all, 
-        adjusted_mean_NormHRH2 = mean(NormHRH/log10((N_cell_sending+1) * (N_cell_receiving+1))*log10(2))/n_HRH*n_LR_all,
-        adjusted_mean_NormHRL3 = mean(HRL/log10((N_cell_sending+1) * (N_cell_receiving+1))*log10(2))/n_HRL, 
-        adjusted_mean_NormHRH3 = mean(HRH/log10((N_cell_sending+1) * (N_cell_receiving+1))*log10(2))/n_HRH,
-        cell_number_product_log10 = mean(log10((N_cell_sending+1) * (N_cell_receiving+1)))
-    ) -> df5
+  left_join(dfmeta, by = c("Patient" = "Patient_ID")) %>%
+  group_by(cell_type_pair, Grade) %>%
+  summarise(
+    mean_NormHRL = mean(NormHRL),
+    mean_NormHRH = mean(NormHRH),
+    adjusted_mean_NormHRL = mean(NormHRL) / n_HRL * n_LR_all,
+    adjusted_mean_NormHRH = mean(NormHRH) / n_HRH * n_LR_all,
+    adjusted_mean_NormHRL2 = mean(NormHRL / log10((N_cell_sending + 1) * (N_cell_receiving + 1)) * log10(2)) / n_HRL * n_LR_all,
+    adjusted_mean_NormHRH2 = mean(NormHRH / log10((N_cell_sending + 1) * (N_cell_receiving + 1)) * log10(2)) / n_HRH * n_LR_all,
+    adjusted_mean_NormHRL3 = mean(HRL / log10((N_cell_sending + 1) * (N_cell_receiving + 1)) * log10(2)) / n_HRL,
+    adjusted_mean_NormHRH3 = mean(HRH / log10((N_cell_sending + 1) * (N_cell_receiving + 1)) * log10(2)) / n_HRH,
+    cell_number_product_log10 = mean(log10((N_cell_sending + 1) * (N_cell_receiving + 1)))
+  ) -> df5
 
 df5 %>%
-    separate(cell_type_pair, sep="->", into=c("Sending", "Receiving"), remove=FALSE) %>%
-    ggplot(aes(Sending, Receiving, fill=cell_number_product_log10)) +
-    geom_tile() +
-    facet_wrap(~Grade) +
-    theme_bw() +
-    scale_fill_gradient(low="white", high="blue")
+  separate(cell_type_pair, sep = "->", into = c("Sending", "Receiving"), remove = FALSE) %>%
+  ggplot(aes(Sending, Receiving, fill = cell_number_product_log10)) +
+  geom_tile() +
+  facet_wrap(~Grade) +
+  theme_bw() +
+  scale_fill_gradient(low = "white", high = "blue")
 df5 %>%
-    separate(cell_type_pair, sep="->", into=c("Sending", "Receiving"), remove=FALSE) %>%
-    ggplot(aes(Sending, Receiving, fill=adjusted_mean_NormHRL)) +
-    geom_tile() +
-    facet_wrap(~Grade) +
-    theme_bw() +
-    scale_fill_gradient(low="white", high="blue")
+  separate(cell_type_pair, sep = "->", into = c("Sending", "Receiving"), remove = FALSE) %>%
+  ggplot(aes(Sending, Receiving, fill = adjusted_mean_NormHRL)) +
+  geom_tile() +
+  facet_wrap(~Grade) +
+  theme_bw() +
+  scale_fill_gradient(low = "white", high = "blue")
 df5 %>%
-    separate(cell_type_pair, sep="->", into=c("Sending", "Receiving"), remove=FALSE) %>%
-    ggplot(aes(Sending, Receiving, fill=adjusted_mean_NormHRL2)) +
-    geom_tile() +
-    facet_wrap(~Grade) +
-    theme_bw() +
-    scale_fill_gradient(low="white", high="blue")
+  separate(cell_type_pair, sep = "->", into = c("Sending", "Receiving"), remove = FALSE) %>%
+  ggplot(aes(Sending, Receiving, fill = adjusted_mean_NormHRL2)) +
+  geom_tile() +
+  facet_wrap(~Grade) +
+  theme_bw() +
+  scale_fill_gradient(low = "white", high = "blue")
 df5 %>%
-    separate(cell_type_pair, sep="->", into=c("Sending", "Receiving"), remove=FALSE) %>%
-    ggplot(aes(Sending, Receiving, fill=adjusted_mean_NormHRL3)) +
-    geom_tile() +
-    facet_wrap(~Grade) +
-    theme_bw() +
-    scale_fill_gradient(low="white", high="blue")
+  separate(cell_type_pair, sep = "->", into = c("Sending", "Receiving"), remove = FALSE) %>%
+  ggplot(aes(Sending, Receiving, fill = adjusted_mean_NormHRL3)) +
+  geom_tile() +
+  facet_wrap(~Grade) +
+  theme_bw() +
+  scale_fill_gradient(low = "white", high = "blue")
 
 df5 %>%
-    separate(cell_type_pair, sep="->", into=c("Sending", "Receiving"), remove=FALSE) %>%
-    ggplot(aes(Sending, Receiving, fill=adjusted_mean_NormHRL/cell_number_product_log10)) +
-    geom_tile() +
-    facet_wrap(~Grade) +
-    theme_bw() +
-    scale_fill_gradient(low="white", high="blue")
+  separate(cell_type_pair, sep = "->", into = c("Sending", "Receiving"), remove = FALSE) %>%
+  ggplot(aes(Sending, Receiving, fill = adjusted_mean_NormHRL / cell_number_product_log10)) +
+  geom_tile() +
+  facet_wrap(~Grade) +
+  theme_bw() +
+  scale_fill_gradient(low = "white", high = "blue")
