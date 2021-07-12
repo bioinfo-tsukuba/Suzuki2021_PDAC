@@ -12,7 +12,7 @@ system("mkdir -p results/Fig3/")
 ################################################################################
 # Import and format data
 ################################################################################
-df <- read_csv("results/NATMI_each_patient/summary_number_of_patient.csv")
+df <- read_csv("results/Fig3/summary_number_of_patient.csv")
 
 # Convert tidy data into matrix
 mat1 <- df %>%
