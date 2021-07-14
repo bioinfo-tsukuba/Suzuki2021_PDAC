@@ -6,6 +6,7 @@ options(repos = "http://cran.us.r-project.org")
 
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(survival, broom, tidyverse, gridExtra)
+system("mkdir -p results/FigS2")
 
 ################################################################################
 # Input and format
@@ -73,6 +74,6 @@ g <- marrangeGrob(df_plot$g, nrow = 7, ncol = 1)
 # Output
 ################################################################################
 
-ggsave("results/Fig1/kaplan_meier/favorable.pdf", g,
+ggsave("results/FigS2/kaplan_meier_favorable.pdf", g,
   dpi = 350, width = 10, height = 15, limitsize = FALSE
 )
