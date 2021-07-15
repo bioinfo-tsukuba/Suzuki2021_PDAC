@@ -65,6 +65,6 @@ g_grade4 <-
   mutate(g = map2(data, CCI, plot_tile)) %>%
   pull(g)
 
-g <- marrangeGrob(g_grade4, nrow = 4, ncol = 2)
+g <- marrangeGrob(g_grade4, nrow = 1, ncol = 3)
 
-ggsave("results/Fig4/heatmap_q3_grade4.pdf", g, width = 174, height = 256, units = "mm")
+ggsave("results/Fig4/heatmap_q3_grade4.pdf", g, width = 174, height = 50, units = "mm")
