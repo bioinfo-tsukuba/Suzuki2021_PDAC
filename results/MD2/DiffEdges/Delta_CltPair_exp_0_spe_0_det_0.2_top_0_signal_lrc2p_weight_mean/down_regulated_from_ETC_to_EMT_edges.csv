@@ -1,3 +1,0 @@
-Sending cluster,Ligand symbol,Receptor symbol,Target cluster,Delta ligand detection rate,Delta ligand average expression value,Delta ligand derived specificity of average expression value,Delta receptor detection rate,Delta receptor average expression value,Delta receptor derived specificity of average expression value,Edge delta average expression weight,Edge delta average expression derived specificity
-ETC,APP,CAV1,EMT,0.18830888515757938,0.22775070629359395,0.06495620465283561,0.18218623481781382,1.1693254110619271,0.2211523492771013,1.7024892402883025,0.06848443594570439
-ETC,GNAI2,CAV1,EMT,0.17794352205101172,0.26022355788396506,0.01972590894233188,0.18218623481781382,1.1693254110619271,0.2211523492771013,1.0998731399614805,0.022885502338014736

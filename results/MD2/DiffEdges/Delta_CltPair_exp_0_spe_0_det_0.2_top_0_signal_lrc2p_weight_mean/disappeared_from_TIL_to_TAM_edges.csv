@@ -1,2 +1,0 @@
-Sending cluster,Ligand symbol,Receptor symbol,Target cluster,Delta ligand detection rate,Delta ligand average expression value,Delta ligand derived specificity of average expression value,Delta receptor detection rate,Delta receptor average expression value,Delta receptor derived specificity of average expression value,Edge delta average expression weight,Edge delta average expression derived specificity
-TIL,TGFB1,SDC2,TAM,0.3043478260869565,0.7228449703404638,0.2023669573527519,0.3850467289719626,0.7330941063280553,0.3056722257917922,0.5299133875454719,0.06185795828072835
