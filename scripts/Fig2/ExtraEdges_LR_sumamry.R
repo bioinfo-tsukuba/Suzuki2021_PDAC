@@ -1,7 +1,7 @@
 library(tidyverse)
 
 # P01
-P01 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P01/Edges_lrc2p.csv") %>%
+P01 <- read_csv("results/NATMI_each_patient/ExtractEdges/P01/Edges_lrc2p.csv") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
@@ -10,7 +10,7 @@ P01 %>%
   summarise(P01_amount = n_distinct(LR)) -> P01_summary
 
 # P02
-P02 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P02/Edges_lrc2p.csv") %>%
+P02 <- read_csv("results/NATMI_each_patient/ExtractEdges/P02/Edges_lrc2p.csv") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
@@ -19,7 +19,7 @@ P02 %>%
   summarise(P02_amount = n_distinct(LR)) -> P02_summary
 
 # P03
-P03 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P03/Edges_lrc2p.csv") %>%
+P03 <- read_csv("results/NATMI_each_patient/ExtractEdges/P03/Edges_lrc2p.csv") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
@@ -28,7 +28,7 @@ P03 %>%
   summarise(P03_amount = n_distinct(LR)) -> P03_summary
 
 # P04
-P04 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P04/Edges_lrc2p.csv") %>%
+P04 <- read_csv("results/NATMI_each_patient/ExtractEdges/P04/Edges_lrc2p.csv") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
@@ -37,7 +37,7 @@ P04 %>%
   summarise(P04_amount = n_distinct(LR)) -> P04_summary
 
 # P05
-P05 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P05/Edges_lrc2p.csv") %>%
+P05 <- read_csv("results/NATMI_each_patient/ExtractEdges/P05/Edges_lrc2p.csv") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
@@ -46,7 +46,7 @@ P05 %>%
   summarise(P05_amount = n_distinct(LR)) -> P05_summary
 
 # P06
-P06 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P06/Edges_lrc2p.csv") %>%
+P06 <- read_csv("results/NATMI_each_patient/ExtractEdges/P06/Edges_lrc2p.csv") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
@@ -55,7 +55,7 @@ P06 %>%
   summarise(P06_amount = n_distinct(LR)) -> P06_summary
 
 # P07
-P07 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P07/Edges_lrc2p.csv") %>%
+P07 <- read_csv("results/NATMI_each_patient/ExtractEdges/P07/Edges_lrc2p.csv") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
@@ -64,7 +64,7 @@ P07 %>%
   summarise(P07_amount = n_distinct(LR)) -> P07_summary
 
 # P08
-P08 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P08/Edges_lrc2p.csv") %>%
+P08 <- read_csv("results/NATMI_each_patient/ExtractEdges/P08/Edges_lrc2p.csv") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
@@ -73,7 +73,7 @@ P08 %>%
   summarise(P08_amount = n_distinct(LR)) -> P08_summary
 
 # P09
-P09 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P09/Edges_lrc2p.csv") %>%
+P09 <- read_csv("results/NATMI_each_patient/ExtractEdges/P09/Edges_lrc2p.csv") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
@@ -82,7 +82,7 @@ P09 %>%
   summarise(P09_amount = n_distinct(LR)) -> P09_summary
 
 # P10
-P10 <- read_csv("/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/ExtractEdges/P10/Edges_lrc2p.csv") %>%
+P10 <- read_csv("results/NATMI_each_patient/ExtractEdges/P10/Edges_lrc2p.csv") %>%
   unite("LR", c("Ligand symbol", "Receptor symbol"), sep = "->") %>%
   unite("cell_type_pair", c("Sending cluster", "Target cluster"), sep = "->")
 
@@ -101,4 +101,4 @@ cell_type_summary <- full_join(P01_summary, P02_summary, by = "cell_type_pair") 
   full_join(P09_summary, by = "cell_type_pair") %>%
   full_join(P10_summary, by = "cell_type_pair")
 
-write.csv(cell_type_summary, "/Users/sayakasuzuki/Desktop/SSD/results/NATMI_each_patient/cell_type_sumamry.csv")
+write.csv(cell_type_summary, "results/Fig2/cell_type_sumamry.csv")

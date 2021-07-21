@@ -1,7 +1,7 @@
 
 # Define path
-in_file <- "results/NATMI_each_patient/cell_type_sumamry.csv"
-path_outdir <- "results/NATMI_each_patient/plot_NATMI_result_summary"
+in_file <- "results/Fig2/cell_type_sumamry.csv"
+path_outdir <- "results/Fig2"
 
 # Load libraries
 library(tidyverse)
