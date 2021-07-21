@@ -1,5 +1,5 @@
 path_data <- "data/WeiLin_pdac10/PDAC10_meta.csv"
-path_outdir <- "results/stats_scRNAseq/calc_cell_type_composition"
+path_outdir <- "results/FigS3"
 path_metadata <- "data/WeiLin_pdac10/Patient_data.csv"
 
 # Make output directory
