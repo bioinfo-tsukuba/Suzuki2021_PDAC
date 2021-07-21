@@ -1,11 +1,11 @@
 #
-path_data1 <- "results/stats_scRNAseq/calc_cell_type_composition/cell_type_composition.csv"
+path_data1 <- "results/cell_type_composition.csv"
 path_data2 <- "results/NATMI_each_patient/Dataframe_AtoE/Dataframe_D.csv"
 #
 path_LR <- "results/Fig1/LR_adjPval_meanHR_screened.csv"
 path_LR_all <- "results/Fig1/LR_HR_adjPval.csv"
 #
-path_outdir <- "results/NATMI_each_patient/compare_with_cell_type_composition"
+path_outdir <- "results/FigS4"
 #
 path_metadata <- "data/WeiLin_pdac10/Patient_data.csv"
 
